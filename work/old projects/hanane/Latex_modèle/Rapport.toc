@@ -1,0 +1,196 @@
+\selectlanguage *{french}
+\selectlanguage *{french}
+\contentsline {chapter}{Introduction Générale}{6}{figure.caption.1}%
+\contentsline {chapter}{Résumé}{10}{table.0.1}%
+\contentsline {chapter}{Introduction}{11}{table.0.1}%
+\contentsline {chapter}{\numberline {1}Généralités sur la structure nucléaire}{12}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Le noyau atomique}{12}{section.1.1}%
+\contentsline {section}{\numberline {1.2}}{13}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Les modèles nucléaires}{14}{section.1.3}%
+\contentsline {section}{\numberline {1.4}1Modèle de la goutte liquide }{14}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1} Modèle en couches}{16}{subsection.1.4.1}%
+\contentsline {chapter}{\numberline {2}La théorie Hartree-Fock-Bogoliubov}{20}{chapter.2}%
+\contentsline {section}{\numberline {2.1}La théorie Hartree-fock}{20}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Les corrélations d'appariement}{21}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Approximation BCS}{23}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Concept de quasi-particules}{23}{section.2.4}%
+\contentsline {section}{\numberline {2.5}La méthode Hartree fock-bogoliubov}{24}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Les interactions Effectives phénoménologiques}{26}{section.2.6}%
+\contentsline {chapter}{\numberline {3}Propriétés de l’état fondamental des isotopes pairs et impairs de Fl, Lv et Og}{29}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Résumé}{29}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Code HFBTHO v 3.00}{29}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Détails des calculs}{29}{section.3.3}%
+\bgroup 
+\selectlanguage *{english}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{english}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{english}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\contentsline {section}{\numberline {3.4} Énergie de liaison}{30}{section.3.4}%
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\contentsline {section}{\numberline {3.5}Énergie de séparation de neutrons}{31}{section.3.5}%
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\contentsline {section}{\numberline {3.6}Rayons de neutron, de proton et de charge \ \ }{32}{section.3.6}%
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\contentsline {section}{\numberline {3.7}Le gap d’appariement}{32}{section.3.7}%
+\bgroup 
+\selectlanguage *{french}
+\egroup 
+\selectlanguage *{french}
+\contentsline {section}{\numberline {3.8}L’énergie d’appariement}{33}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Conclusion}{33}{section.3.9}%
+\contentsline {section}{\numberline {3.10}}{33}{section.3.10}%
+\contentsline {section}{\numberline {3.11}}{33}{section.3.11}%
+\contentsline {section}{\numberline {3.12}}{33}{section.3.12}%
+\contentsline {section}{\numberline {3.13}}{33}{section.3.13}%
+\contentsline {section}{\numberline {3.14}}{33}{section.3.14}%
+\contentsline {section}{\numberline {3.15}Bibliography}{33}{section.3.15}%
+\contentsline {chapter}{Conclusion Générale}{35}{section.3.15}%
+\contentsline {chapter}{Annexe}{36}{section.3.15}%

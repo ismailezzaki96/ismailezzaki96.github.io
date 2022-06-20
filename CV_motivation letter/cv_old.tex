@@ -1,0 +1,52 @@
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt, a4paper]{awesome-cv}
+
+% Configure page margins with geometry
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+% Specify the location of the included fonts
+\input{header.tex}
+
+\usepackage{parallel}
+\usepackage[super]{nth}
+
+
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+% Print the header with above personal informations
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader[C]
+
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+
+
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%	Each section is imported separately, open each file in turn to modify content
+%-------------------------------------------------------------------------------
+ 
+\input{cv/education.tex}
+ \input{cv/hep.tex}
+  \input{cv/skills.tex}
+\input{cv/Certifications.tex} 
+\input{cv/experience.tex} 
+\input{cv/extracurricular.tex} 
+\input{cv/extraInterests.tex} 
+\input{cv/Referances.tex}
+
+
+
+%-------------------------------------------------------------------------------
+\end{document}

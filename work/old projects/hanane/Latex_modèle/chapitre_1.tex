@@ -1,0 +1,155 @@
+
+
+\chapter{  La théorie de HARTREE-FOCK-BOGOLIUBOV}
+
+La théorie Hartree-Fock-Bogoliubov (HFB) est à la fois une extension de la théorie de Hartree-Fock (HF) et de la théorie de Bardeen-Cooper-Schrieffer (BCS). Afin d’avoir une bonne compréhension de cette approche, il est utile de passer en revue un bref résumé de la théorie la plus générale de Hartree-Fock et de la théorie de (BCS) de l''''''''''''''''''''''''''rrappariement.
+
+\section{La théorie de Hartree-fock}
+
+La méthode de \textbf{Hartree-Fock (HF)}  est basée sur l’hypothèse que les nucléons composant le noyau peuvent être considérés comme indépendants dans un champ moyen construit de manière auto-cohérente. Ceci s’explique par la nature quantique des nucléons, le principe de Pauli et la partie fortement répulsive à courte portée de l’interaction nucléon-nucléon. Ainsi, on peut considérer les nucléons comme des particules indépendantes se déplaçant dans un potentiel moyen qu’ils créent eux-mêmes. L’ingrédient de base de ces théories est l’hamiltonien microscopique qui régit la dynamique des nucléons individuels plongés dans un potentiel moyen qu’ils créent collectivement. Cet hamiltonien peut s’écrire sous la forme : 
+
+\begin{equation}H=\sum _{\mathit{ij}} T_{\mathit{ij}} a_i^{+} a_j +\frac {1}{
+4} \sum
+_{\mathit{ijkl}}V_{\mathit{ijkl}}a_i^{+} a_j^{+}a_k a_l \end{equation}
+
+
+où le premier terme correspond à l’énergie cinétique et $V_{\mathit{ijkl}}$  l’élément de matrice a deux corps de l’interaction effective. Les opérateurs $a_i^{+?}$ \textit{\ }et  $a_i$  représentent respectivement les opérateurs de création et d’annihilation de fermions dans l’état à un corps $|i\rangle$.
+
+Dans la méthode de \textbf{Hartree-Fock (HF)}  La fonction de l’état fondamental du noyau est recherchée sous la forme d’un déterminant de Slater construit à partir des fonctions d'onde individuelles des nucléons : 
+\begin{equation}|\left.\Psi _{\mathit{HF}}\right\rangle
+=\mathit{det}\left[\Phi _{\mathit{\alpha 1}}\left(x_1\right).\Phi _{\mathit{\alpha 2}}\left(x_2\right){\dots}\Phi
+_{\mathit{\alpha A}}\left(x_A\right)\right]\end{equation}
+
+
+avec $|\left.\Psi _{\mathit{HF}}\right\rangle $  la fonction d’onde du noyau. Les équations de Hartree-Fock s’obtiennent en minimisant l’énergie totale du noyau :
+
+\begin{equation}E_{\mathit{HF}}=\frac{\left\langle \Psi _{\mathit{HF}}\left|H\left|\Psi _{\mathit{HF}}\right.\right.\right\rangle
+}{\left\langle \Psi _{\mathit{HF}}\left|\Psi _{\mathit{HF}}\right.\right\rangle
+}\end{equation}
+
+Ce principe variationnel conduit aux équations de \textbf{Hartree-Fock (HF)}  :
+
+\begin{equation}h\Phi _{\beta _i}=\left\{\frac{-\hbar
+}{2m}{\nabla}^2+U_{\mathit{HF}}\left[\Phi _{\alpha }\right]\right\}\Phi _{\beta _i}=\varepsilon _{\beta
+_i}\quad i=1,{\dots},A\end{equation}
+
+
+où le champ Hartree-Fock $U_{\mathit{HF}}\left[\Phi _{\alpha }\right]$ dépend lui-même des fonctions d’onde individuelles $\Phi _{\alpha }$  générant ainsi un système auto-cohérent de A équations non-linéaires.
+
+Pour résoudre ce système d’équations, il faudrait déjà connaître la solution ! On procède donc de manière itérative en postulant une solution (fonction test) et en l’injectant dans le système, ce qui permet de construire le premier hamiltonien HF que l’on diagonalise. Les états propres et fonctions propres obtenus sont ensuite utilisés pour reconstruire un nouvel hamiltonien, et ainsi de suite, jusqu’à ce que la variation du jeu de fonctions d’onde entre deux itérations successives soit inférieure à une valeur fixée.
+
+L’approximation de Hartree-Fock est bien adaptée à la description des noyaux pour lesquels il existe, dans le spectre de particules individuelles un écart en énergie ("gap") important entre le dernier niveau occupé et le premier état vide. Ce ”gap” garantit la stabilité du noyau générant un nombre magique pour le nombre de neutrons ou de protons correspondant. C’est le cas des noyaux pairs-pairs à couches fermées. L‘approximation HF est par contre insuffisante dès que l’on veut décrire les états fondamentaux des noyaux situés en milieu de couches pour lesquels l’état fondamental sera quasiment dégénéré avec une multitude d’autres états obtenus à partir de configurations de type particule-trou construites sur ce dernier. L’introduction des corrélations d’appariement permet de restaurer un "gap" en énergie entre états de "quasi-particules", et ainsi de redonner une bonne solution pour l’état fondamental du noyau.
+
+\section{Approximation BCS}
+
+Expérimentalement, tous les noyaux pairs-pairs possèdent un état fondamental de spin nul, ce qui indique que les nucléons ont tendance à se coupler deux à deux dans des états de spin opposé. Une description réaliste des noyaux doit prendre en compte ces corrélations. Ce qui n’est pas le cas dans l’approximation de Hartree-Fock où l’interaction résiduelle de l’appariement est négligée. C’est pourquoi la méthode de Hartree-Fock est généralement utilisée avec l’approximation BCS, proposée par J. Bardeen, L.N. Cooper et J.R. Schrieffer en 1957, qui permet de décrire des corrélations similaires dans la matière condensée supraconductrice. Le concept d’appariement a été introduit en physique de la matière condensée, où, sous l’action d’une interaction attractive (efficace), les électrons peuvent se coupler pour former les paires de Cooper, responsables à basse température du phénomène de supraconductivité. 
+
+Dans la théorie BCS, la fonction d’onde de l’état fondamental d’un système pair-pair est approximée par l’expression suivante :   
+
+\begin{equation}|\left.BCS\right\rangle
+=\prod _{k>0}\left(u_k+v_k a_k^{+} a_{\overline k}^{+}\right) | \left.0\right\rangle
+\end{equation}
+
+
+où $k$ et $\overline k$ représentent des états appariés à une seule particule et sont reliés par l’opérateur de renversement du sens de temps, de telle sorte que l’espace des états à un corps est partitionné en des états $k > 0$ et des états  $k< 0.u_k$ et $v_k$ sont les amplitudes d’occupation ($|v^2_k|$ est la probabilité que la paire ($k , \overline k$) soit occupée et$\left|\left.u_k^2\right|+\left|v_k^2\right.\right|=1$ .Le système est donc décrit en terme de paires indépendantes, et non en terme de particules indépendantes. 
+L’approximation BCS permet donc un traitement approché des effets d’appariement. Cependant, elle brise une symétrie (celle de la conservation du nombre de particules) qui s’ajoute aux symétries déjà brisées dans l’approximation d’HF, ce qui est un point de défaut. Cette approche présente l’inconvénient de ne pas être adaptée pour le cas des noyaux impairs. Il est nécessaire de la généraliser selon la méthode de Hartree Fock Bogoliubov(HFB).
+
+\section{La transformation de Bogoliubov}
+
+Pour tenir compte des effets d’appariement dans le noyau, on introduit le concept de quasi-particules de  Bogoliubov dans la méthode hartree-fock. On transforme ainsi l’état HF de particules indépendantes  $\left\{a,a^{+}\right\}$  en un état Hartree-Fock-Bogoliubov (HFB) de quasi-particules indépendantes $\left\{\beta,\beta^{+}\right\}$  en utilisant la transformation suivante :
+
+\begin{equation}\beta _{\alpha }=\sum_{i} U_{\mathit{i\alpha }}^{\ast }a_i+V_{\mathit{i\alpha }}^{\ast
+}a_i^{+}\end{equation}
+
+
+\begin{equation}\beta _{\alpha }^{+} =\sum
+_iU_{\mathit{i\alpha }}a_i^{+} + V_{\mathit{i\alpha
+}}a_i\end{equation}
+
+
+
+ou sous la forme matricielle 
+
+\begin{equation}\left(\begin{matrix}\beta
+\\\beta
+^{+}\end{matrix}\right)=\left(\begin{matrix}U^{+}&V^{+}\\V^T&U^T\end{matrix}\right)\left(\begin{matrix}a\\a^{+}\end{matrix}\right)=w^{+}\left(\begin{matrix}a\\a^{+}\end{matrix}\right)\end{equation}
+
+
+Les éléments de matrice \textit{U} et \textit{V}  satisfont aux relations : 
+
+\begin{equation}U^{+} U+V^{+} V=1 \quad UU^{+}+V^{\ast }V^T=1\\ U^TV+V^TU=0 \quad UV^{\ast }+V^{\ast }U^T=0\end{equation}
+    
+  
+
+\section{ La méthode Hartree fock-bogoliubov}
+Dans l’approximation HFB, l’hamiltonien est essentiellement réduit à deux potentiels : le potentiel moyen auto-cohérent $\Lambda $  de la théorie de Hartree-Fock, et un champ d’appariement supplémentaire $\Delta $, connu de la théorie BCS.
+
+L’état HFB, noté $|\Phi\rangle$, est défini comme le vide associé aux opérateurs d’annihilation de quasi-particules $\beta_i$. Il vérifie donc, pour tout $i$ :$\beta _i |\left.\Phi \right\rangle =0$
+
+On impose de plus à cet état d’être normé :       
+\begin{equation}\left\langle \Phi \left|\Phi \right.\right\rangle
+=0\end{equation}
+           
+L’hamiltonien à deux corps peut s'écrive comme une somme de deux termes : l'énergie cinétique $t_{ij}$ et les éléments de matrice d'interaction antisymétrique à deux corps $V_{ijkl}$. Ainsi, en deuxième quantification, cet hamiltonien prend la forme :
+\begin{equation}H=\sum
+_{\mathit{ij}}T_{\mathit{ij}}a_i^{+}a_j+\frac 1 4\sum
+_{\mathit{ijkl}}V_{\mathit{ijkl}} a_i^{+}a_j^{+}a_k a_l\end{equation}
+
+
+avec $v_{ijk}$, les éléments de matrice de l’interaction NN antisymétrique :
+
+\begin{equation}v_{\mathit{ijkl}}=\left\langle \mathit{ij}\left|v\left|\mathit{kl}\right.\right.\right\rangle -\left\langle
+\mathit{ij}\left|v\left|\mathit{lk}\right.\right.\right\rangle\end{equation}
+
+
+Pour un état HFB  $| \Phi \rangle $ donné, l’énergie moyenne E\textsubscript{HFB} de cette configuration sera donnée par :
+
+\begin{equation}E_{\mathit{HF}B}=\left\langle \Phi \left|H\left|\Phi \right.\right.\right\rangle =\sum
+_{\mathit{ij}}t_{\mathit{ij}}\rho _{\mathit{ij}}+\frac 1 2\sum _{\mathit{ijkl}}v_{\mathit{ijkl}}\left[\rho
+_{\mathit{ki}}\rho _{\mathit{lj}}+\frac 1 2k_{\mathit{ij}}^{\ast }k_{\mathit{kl}}\right]\end{equation}
+
+
+où $\rho $ est la matrice densité du système, définie par :
+\begin{equation}\rho =\left\langle \Phi
+\left|a_j^{+}a_i\left|\Phi \right.\right.\right\rangle =\sum _mV_i^{m\ast
+}V_j^m\end{equation}
+
+
+Le terme $K$ est le tenseur d’appariement (ou densité anormale) définie par :
+
+\begin{equation}K_{\mathit{ij}}=\left\langle \Phi
+\left|a_j^{+}a_i\left|\Phi \right.\right.\right\rangle =\sum _mV_i^{m\ast
+}U_j^m\end{equation}
+
+
+Le terme en $K*K$, dans l’équation de l’énergie $E_{HFB}$, représente la contribution des corrélations d’appariement à l’énergie. Dans la limite où l’appariement est nul, on retrouve l’énergie moyenne de la théorie HF.
+Il est également utile de définir la matrice densité généralisée, notée R, qui permet de regrouper la matrice densité a un corps $\rho$, et le tenseur d’appariement $k$, en une seule matrice. Elle est définie comme :
+\begin{equation}R=\left(\begin{matrix}\rho
+&k\\-k^{\ast }&1-\rho ^{\ast
+}\end{matrix}\right)\end{equation}
+
+
+On minimise l’énergie $E_{HFB}$ de la même manière que pour HF, en utilisant un principe variationnel. On obtient alors les équations HFB qui s’écrivent sous forme matricielle :
+\begin{equation}H_{\mathit{HFB}}=\left(\genfrac{}{}{0pt}{0}{u_i}{v_i}\right)=\left(\begin{matrix}h&{\Delta}\\-{\Delta}^{\ast
+}&-h^{\ast
+}\end{matrix}\right)\left(\genfrac{}{}{0pt}{0}{u_i}{v_i}\right)=E_i\left(\genfrac{}{}{0pt}{0}{u_i}{v_i}\right)\end{equation}
+
+
+\begin{equation}H_{\mathit{HFB}}=\left(\genfrac{}{}{0pt}{0}{u_i^{\ast }}{v_i^{\ast
+}}\right)=\left(\begin{matrix}h&{\Delta}\\-{\Delta}^{\ast }&-h^{\ast
+}\end{matrix}\right)\left(\genfrac{}{}{0pt}{0}{u_i^{\ast }}{v_i^{\ast }}\right)=E_i\left(\genfrac{}{}{0pt}{0}{u_i^{\ast
+}}{v_i^{\ast }}\right)\end{equation}
+
+
+où h est le champ particule-trou (champ Hartree-Fock) :
+\begin{equation}h_{\mathit{ik}}=t_{\mathit{ik}}+\sum _{\mathit{jl}}v_{\mathit{ijkl}}\rho
+_{\mathit{lj}}\end{equation}
+
+
+Et représente le potentiel d'appariement :
+\begin{equation}{\Delta}_{\mathit{ik}}=\frac 1 2\sum
+_{\mathit{kl}}v_{\mathit{ijkl}}K_{\mathit{kl}}\end{equation}
+
+
+Pour conclure, la théorie HFB permet, grâce à la prise en compte des corrélations d’appariement, d’améliorer la fonction d’onde approchant l’état fondamental dans les noyaux non magiques, et ceci en régénérant un gap au-dessus du niveau de Fermi similaire à celui observé dans les noyaux magiques à l’approximation HF à travers une transformation de Bogoliubov.
+

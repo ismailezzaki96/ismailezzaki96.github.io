@@ -1,0 +1,97 @@
+\documentclass[localFont,11pt,compact]{yaac-another-awesome-cv}
+\name{Ismail}{EZZAKI}
+\tagline{Cover Letter}
+\photo{2.5cm}{../profile}
+\socialinfo{
+	\website{https://ismailezzaki.me/}{https://ismailezzaki.me/}
+	\linkedin{ismail-ezzaki}
+	\github{ismailezzaki96}\\
+	\smartphone{+212 708070221}
+	\email{ismail.ezzaki@edu.uca.ma}\\
+	\address{Rabat Maroc}\\
+	\infos{Né le 23 decembre 1996 (25 ans) à Ouarzazate}
+}
+
+
+
+% Uncomment the following line and use a value from 1.5cm to 2.5cm
+%\setleftcolumnlength{2.5cm}
+
+\usepackage[super]{nth}
+\usepackage{ifthen}
+
+
+\definecolor{awesome}{HTML}{0395DE}
+\newcommand{\cpshalf}{{\color{awesome} \hspace{0.2em}\textbf{\textbar}\hspace{0.2em}}}
+\newboolean{is_french}   
+\setboolean{is_french}{True}
+
+
+\begin{document}
+
+
+	\makecvheader
+
+	\makecvfooter
+		{\textsc{\today}} % \selectlanguage{english}\today
+		{\textsc{Ismail Ezzaki - Cover Letter}}
+		{\thepage}
+Dear Prof. Marcus Brüggen and Prof. Gregor Kasieczka  
+
+  
+
+I am writing this letter to express my strong interest in the Ph.D. for the Project “PUNCH4NFDI” Machine Learning in Particle and Astrophysics. 
+
+  
+
+I graduated last year with a Master’s degree in “high energy physics, astrophysics and computational physics” from Cadi Ayyad University in Morocco. 
+
+  
+
+I feel comfortable processing several challenging things at once. This ability helped me to be successful in my studies (  \nth{2}  in my master's class) and acquire extra‐curricular knowledge in the computer science field (about 5 years of experience with programming), 
+
+  
+
+Since my childhood, I have always been interested in discovering how things work. So I chose to study physics, like many children. I always dreamed of winning a Nobel Prize in Physics, but as I grew up, I switched to a more realistic dream: to become a university researcher. 
+
+  
+
+%* my research experience 
+
+My interest in programming started about five years ago when I had my first contact with computer coding in school by creating a small website. From there, I gained extracurricular programming skills in C++ and Python, and I also gained skills in data analysis, machine learning, and lately in deep learning areas. 
+
+
+I worked on many research projects related to this thesis like Training a GAN neural network to produce events in conditions that replicate the proton-proton collisions at the Large Hadron Collider and the ATLAS detector. In this project, I consider a hypothetical analysis that uses $O(20)$ features of the final state of Drell-Yan events $Z \to \mu \mu$ , e.g., lepton momentum vectors, isolation, and jet transverse moments. These events were generated using the PYTHIA8 event generator, then I used the GANs to learn the multidimensional distribution of these events and generate new events following the same distribution. 
+
+After the training, the module was successfully capable of generating events in less time than the normal MC generator. Generating the target dataset with PYTHIA and Delphes was $\sim$ 3600 times slower, and the Gan model is stored in a file of less than 10 MB, whereas the PYTHIA generated events occupy 2 GB, a reduction in the size of two orders of magnitude. 
+
+Unfortunately, I was not able to continue the project due to the lack of resources and support. 
+
+I was also involved in other projects related to particle physics and also astrophysics. Please find them on my attached CV 
+
+  
+
+%* why this thesis 
+
+This thesis is an exact match to my research interests and the requirements for this Ph.D. thesis closely match my background and skills: machine/deep learning, data analysis, and particle physics.  
+Also, I read some information and facts about the "PUNCH4NFDI" project and I discover that this is the place were I want to do my Ph.D. since the project targets a problem that I faced many times since the hep data is not optimal for modern deep learning tools like TensorFlow Keras and this project is the perfect solution and be part of a project like that is great motivation for me. 
+
+In addition, Hamburg University provides an ideal climate for me to develop my cross-disciplinary interests, particular in computer science and fundamental physics. 
+
+After completing my Ph.D., I plan to pursue a postdoc in the same field. My long-term goal is to be a tenured professor of machine learning in particle physics. With the help of my Ph.D., I am confident I will be prepared to become a leader in the field. 
+
+
+%* closing statement  
+
+Thank you for considering my application. I look forward to hearing back from you. 
+
+  
+
+Sincerely, 
+
+ 
+
+ 
+
+
+\end{document}

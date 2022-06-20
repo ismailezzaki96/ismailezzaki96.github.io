@@ -1,0 +1,329 @@
+\section{Les trous noirs dans la théorie}
+
+\subsection{Quelques mots sur la relativité générale}
+%\begin{frame}{\underline{\secname} : {\small \subsecname}}
+%
+%
+%\note{{\Huge cccccccccc}}
+%\begin{block}{la relativité restrinte}
+%	
+%$$
+%d s^{2}=-d t^{2}+d x^{2}+d y^{2}+d z^{2}
+%$$	
+%\end{block}
+%  
+%
+%
+%\begin{block}{le principe d’équivalence}
+%\textit{"En tout point de l'espace-temps $\xi_{\mu}$, il est possible de choisir un système de coordonnées local $\xi_{\alpha}$ dans lequel les lois de la physique sont les mêmes que dans la relativité restreinte."}	
+%	
+%\end{block}
+%
+%
+%\begin{block}{la relativité générale }
+%la relativité générale = relativité restrinte +  le principe d’équivalence 
+%$$
+%d s^{2}=g_{\mu \nu} d x^{\mu} d x^{\nu}
+%$$	
+%	
+%	\end{block}
+%
+%
+%\end{frame}
+\begin{frame}{\underline{\secname} : {\small \subsecname}}
+\begin{block}{\Rightarrow Les équations d’Einstein}
+\begin{itemize}
+  \setlength\itemsep{0.5em}
+\item Des équations dynamiques qui décrit comment la matière et l’énergie modifient la géométrie de l’espace-temps.
+\item  L’équation la plus simple possible satisfaisant au principe d’équivalence.
+\item Elle redonne l’équation de Newton dans une limite appropriée (la limite non relativiste).
+\end{itemize}
+
+\begin{columns}
+	\begin{column}{0.5\linewidth}
+
+\begin{eqnarray*}\label{einstien}
+R_{\mu\nu}-\dfrac{1}{2}Rg_{\mu\nu}+g_{\mu\nu}\Lambda&=&8\pi GT_{\mu\nu} \\
+\text{Courbure} &=&  \text{Matière énergie}
+\end{eqnarray*}
+
+
+
+\end{column}
+\begin{column}{0.5\linewidth}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\linewidth,height=0.45\linewidth]{figures/space}
+\end{figure}
+
+\end{column}
+\end{columns}
+
+\end{block}
+
+
+\end{frame}
+\begin{frame}{\underline{\secname} : {\small \subsecname}}
+
+Il est possible d'obtenir l'équation d'Einstein à partir du principe de moindre action: 
+\begin{equation*}	
+{\displaystyle S=\int \left[{\frac {1}{2\kappa }}(R-2\Lambda )+{\mathcal {L}}_{\mathrm {M} }\right]{\sqrt {-g}}\,\mathrm {d} ^{4}x}
+\end{equation*}
+\vspace{20pt}
+
+\pause
+\textbf{3 Solutions explicites avec degré maximal de symétrie des équations d'Einstein :}
+\begin{itemize}
+	  \setlength\itemsep{0.5em}
+	\item Si $\Lambda = 0$ \Rightarrow la métrique de Minkowski $g=-dt^2+dx^2+dy^2+dz^2$.
+	\item Si $\Lambda  > 0$ \Rightarrow la métrique de l'espace de-Sitter
+	\item Si $\Lambda < 0$ \Rightarrow la métrique de l'espace anti-de-Sitter.
+\end{itemize}
+
+
+\end{frame}
+
+\subsection{Les trous noirs dans la  relativité générale }
+
+\begin{frame}{\underline{\secname} : {\small \subsecname}}
+\begin{block}{Trou noir de Schwarzschild}
+	
+	
+	\begin{itemize}
+		\item Solution de l'équation d'Einstein dans le
+		cas d'un champ gravitationnel statique à symétrie sphérique.
+		\item La métrique est donnée par :
+\begin{equation*}\label{schwarzchild}
+d s^{2}=-\left(1-\frac{r_{S}}{r}\right) d t^{2}+\left(1-\frac{r_{S}}{r}\right)^{-1} d r^{2}+r^{2} d \Omega^{2}
+\end{equation*}
+
+\begin{equation*}r_{\mathrm{S}}=2 G M
+\end{equation*}
+
+			\item La métrique de Schwarzschild est singulière en  $ r = 2GM$ et $ r=0$
+			
+
+	\end{itemize}
+	
+\end{block}
+\end{frame}
+
+
+
+\begin{frame}{\underline{\secname} : {\small \subsecname}}
+\begin{block}{Trou noir de Schwarzschild}
+La courbure scalaire donne l’expression suivante :
+$$R^{\mu\nu\alpha\beta}R_{\mu\nu\alpha\beta}=\dfrac{12r_{S}^{2}}{r^{6}}$$
+\begin{itemize}
+		  \setlength\itemsep{0.5em}
+	\item $r = 0$ est une vraie singularité
+\item $r=2GM$ est une singularité de coordonnées.(Horizon des évènements) \pause $\rightarrow$  \textbf{peut être effacée par un changement de coordonnées}
+\end{itemize}
+
+\vspace{20pt}
+
+\begin{block}{	La métrique de Schwarzschild dans les coordonnées de Kruskal-Szekeres}
+\begin{equation*}
+ds^{2}=\dfrac{4r_{s}^{3}}{r}e^{-\frac{r}{r_{s}}}(du^{2}-dv^{2})+r^{2}(d\theta^{2}+sin^{2}\theta d\phi^{2})
+\end{equation*}
+\end{block}
+
+
+
+\end{block}
+\end{frame}
+
+%
+%\begin{frame}{\underline{\secname} : {\small \subsecname}}
+%\begin{center}
+%	\textbf{Les diagrammes conformes:}
+%\end{center}
+%	
+%	  \begin{columns}
+%\begin{column}{0.5\linewidth}
+%
+%Les diagrammes conformes constituent un bon moyen de faire correspondre des espace-temps complexes à un diagramme relativement simple. \\
+%
+%\vspace{20pt}
+%\begin{center}\textbf{
+%	l'infini $\infty$ $\rightarrow$ fini}
+%\end{center}
+%	
+%\end{column}
+%\begin{column}{0.5\linewidth}
+%      \begin{figure}
+%	\centering
+%	\includegraphics[width=\linewidth]{figures/penrose_schw}
+%	\caption{Diagramme de Penrose d'un trou noir de Schwarzschild}
+%\end{figure}
+%
+%
+%
+%\end{column}
+%\end{columns}
+%\end{frame}
+
+
+\begin{frame}{\underline{\secname} : {\small \subsecname}}
+
+\begin{block}{Trou noir de Reissner Nordström}
+	
+	
+	\begin{itemize}
+		\item Solution de l'équation d'Einstein en présence de charge $Q$.
+		$$R_{\mu\nu}-\dfrac{1}{2}g_{\mu\nu}R+g_{\mu\nu}\Lambda=8G\pi T_{\mu\nu}$$
+		avec:
+		$$T_{\mu\nu}=\dfrac{1}{4\pi}F_{\mu}^{\delta}F_{\nu\delta}-\dfrac{1}{4}g_{\mu\nu}F_{\alpha\beta}F^{\alpha\beta}$$
+		\item La métrique est donnée par :
+		$$ds^{2}=-(1-\dfrac{2M}{r}+\dfrac{Q^{2}}{r^{2}})dt^{2}+(1-\dfrac{2M}{r}+\dfrac{Q^{2}}{r^{2}})^{-1}dr^{2}-r^{2}d\theta^{2}-r^{2}sin^{2}(\theta)d\phi^{2}$$ 
+	\end{itemize}
+	
+\end{block}
+\end{frame}
+
+
+\begin{frame}{\underline{\secname} : {\small \subsecname}}
+\begin{block}{Trou noir de Reissner Nordström}
+
+  \begin{columns}
+	\begin{column}{0.5\linewidth}
+
+\begin{itemize}
+	\item 
+	Si $G M^{2}<Q^{2}$ : Pas d'horizon des événements, 
+	\item 
+	Si $G M^{2}>Q^{2}$ : C'est une situation qui peut physiquement résulter d'un effondrement gravitationnel.\\
+	Deux horizons $r_{+}$ et $r_{-}$
+	\begin{equation*}
+	r_{\pm}=G M \pm \sqrt{G^{2} M^{2}-G Q^{2} }
+	\end{equation*}
+	Et une singularité à $r = 0$
+	\item 
+	Si $G M^{2}=Q^{2}$ : Trou noir extrémal
+\end{itemize}
+
+
+\end{column}
+\begin{column}{0.5\linewidth}
+	
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=\textwidth]{figures/plot.png}
+	\end{center}
+	\caption{La fonction $ f(r)=1-{2 G M}/{r}+{G Q^{2} }/{r^{2}}$ }
+	\label{r-n}
+\end{figure}
+	
+\end{column}
+\end{columns}
+
+
+\end{block}
+\end{frame}
+
+
+
+\begin{frame}{\underline{\secname} : {\small \subsecname}}
+\begin{block}{Trou noir de Kerr}
+	
+	
+	\begin{itemize}
+		\item Solution exacte des équations d'Einstein permettant de décrire le comportement de l'espace-temps
+		autour d'un trou noir en rotation $J\neq 0$ .
+		
+		\item La métrique est donnée par (avec les coordonnées de Boyer-Lindquist) :
+		$$ds^{2}=-(1-\dfrac{2Mr}{\Sigma})dt^{2}+\dfrac{\Sigma}{\Delta}dr^{2}+\Sigma d\theta^{2}+\dfrac{Asin^{2}\theta}{\Sigma} d\phi^{2}-\dfrac{4Marsin^{2}\theta }{\Sigma} dt d\phi$$
+		$$A=(r^{2}+a^{2})^{2}-\Delta a^{2}sin^{2}\theta ,\quad
+		\Sigma =r^{2}+a^{2}cos^{2}\theta ,\quad
+	     \Delta=r^{2}-2Mr+a^{2}  ,\quad
+	     a=J / M
+	     $$
+		\item Si $M > a$  la métrique est singulière en:
+		$$r_{\pm} = M \pm\sqrt{M^{2}-a^{2}}$$
+		
+	\end{itemize}
+	
+\end{block}
+\end{frame}
+
+
+%\begin{frame}{\underline{\secname} : {\small \subsecname}}
+%\begin{block}{Trou noir de Kerr}
+%	
+%	\begin{columns}
+%		\begin{column}{0.5\linewidth}
+%\textbf{Ergosphère}:
+%\vspace{20pt}
+%
+%C'est une région délimitée par la limite statique à l'extérieur, et par l'horizon externe à l'intérieur, dans laquelle rien ne peut rester immobile.\\
+%\vspace{30pt}
+%{\Rightarrow Il est possible d’extraire de l’énergie de rotation d’un trou noir de Kerr : \textbf{ Processus d’extraction d’énergie de Penrose }}
+%		
+%	\end{column}
+%	\begin{column}{0.5\linewidth}
+%
+%
+%\begin{figure}[H]
+%	\begin{center}
+%		\includegraphics[width=\textwidth]{figures/ergosphere.png}
+%	\end{center}
+%	\caption{Une vue de côté d'un trou noir de Kerr}
+%	\label{kerr}
+%\end{figure}
+%
+%\end{column}
+%\end{columns}
+%\end{block}
+%\end{frame}
+
+\begin{frame}{\underline{\secname} : {\small \subsecname}}
+
+\begin{block}{Trou noir Kerr-Newman}
+	
+	
+	\begin{itemize}
+		\item  une solution de l'équation d'Einstein dans le cas d'un trou noir chargé et en rotation .
+		
+		\item Sa métrique est donnée par :
+		$$ds^{2}=-\dfrac{\Delta}{\rho^{2}}(dt-asin^{2}\theta d\phi)^{2}+\dfrac{sin^{2}}{\rho^{2}}[(r^{2}+a^{2})d\phi-adt]^{2}+\dfrac{\rho^{2}}{\Delta}dr^{2}+\rho^{2}d\theta^{2}$$
+		$$\Delta=r^{2}-2Mr+a^{2}+Q^{2} ,\quad	\rho^{2}=r^{2}+a^{2}cos^{2}\theta ,\quad a={J}/{M}$$
+		
+		
+	\end{itemize}
+\pause
+\begin{itemize}
+			  \setlength\itemsep{0em}
+	\item  $Q=a=0$ \Rightarrow métrique de Schwarzschild
+\item $a=0$ \Rightarrow métrique de Reissner Nordstrom
+\item $ Q=0$ \Rightarrow métrique de Kerr
+\item $M=Q=a=0$ \Rightarrow métrique d’un espace de Minkowski vide
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}{\underline{\secname} : {\small \subsecname}}
+\begin{block}{The no-hair theorem}
+	Les trous noirs sont totalement définis par un maximum de 3 paramètres. La masse, la charge et le moment angulaire.	$$M\,, Q\,, J $$
+\end{block}
+
+\begin{block}{L'insignifiance de la charge}
+\begin{itemize}
+				  \setlength\itemsep{0em}
+	\item les forces électromagnétiques sont bien plus importantes que les forces gravitationnelles
+\item le trou noir chargé va capturer toutes les particules de charge contraire disponibles et se neutraliser presque entièrement
+\item la charge électrique des trous noirs peut être ignorée
+\end{itemize}
+	\end{block}
+
+
+
+\vspace{10pt}
+\pause
+\begin{center}
+	{\Large Les Trous Noirs Astrophysiques Sont Des Trous Noirs De Kerr}
+\end{center}
+
+\end{frame}

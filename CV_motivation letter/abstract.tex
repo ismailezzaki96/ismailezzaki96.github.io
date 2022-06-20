@@ -1,0 +1,158 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for Cover Letter
+%
+% This template has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Authors:
+% Claud D. Park <posquit0.bj@gmail.com>
+% Lars Richter <mail@ayeks.de>
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+
+
+
+%-------------------------------------------------------------------------------
+
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt, a4paper]{awesome-cv}
+
+% Configure page margins with geometry
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+% Specify the location of the included fonts
+\fontdir[fonts]
+
+% \definecolor{lighttext}{HTML}{CA63A8}
+
+% Set false if you don't want to highlight section with awesome color
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+
+\colorlet{awesome}{awesome-red}
+
+% Uncomment if you would like to specify your own color
+% \definecolor{awesome}{HTML}{CA63A8}
+
+% Colors for text
+% Uncomment if you would like to specify your own color
+% \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+% \definecolor{graytext}{HTML}{5D5D5D}
+% \definecolor{lighttext}{HTML}{999999}
+
+% Set false if you don't want to highlight section with awesome color
+% Colors for text
+% Uncomment if you would like to specify your own color
+\definecolor{darktext}{HTML}{000000}
+\definecolor{text}{HTML}{000000}
+\definecolor{graytext}{HTML}{000000}
+\definecolor{lighttext}{HTML}{000000}
+
+
+\setbool{acvSectionColorHighlight}{true}
+
+
+
+
+
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+%\photo{2020-01-18.jpg}
+\name{Ismail}{EZZAKI}
+\position{Master Student{\enskip\cdotp\enskip}Freelancer Programmer}
+\address{812 Ait kdif Ouarzazate Morocco}
+
+\mobile{(+212) 708070221}
+\email{ismail.ezzaki@edu.uca.ma}
+\homepage{ismailezzaki.me}
+\github{ismailezzaki96}
+% \gitlab{gitlab-id}
+% \stackoverflow{SO-id}{SO-name}
+% \twitter{@twit}
+% \skype{skype-id}
+% \reddit{reddit-id}
+% \medium{madium-id}
+% \googlescholar{googlescholar-id}{name-to-display}
+%% \firstname and \lastname will be used
+% \googlescholar{googlescholar-id}{}
+% \extrainfo{extra informations}
+
+\quote{``be the change you want to see in the world"}
+
+%-------------------------------------------------------------------------------
+%	LETTER INFORMATION
+%	All of the below lines must be filled out
+%-------------------------------------------------------------------------------
+% The company being applied to
+\recipient
+{Company Recruitment Team}
+{Google Inc.\\1600 Amphitheatre Parkway\\Mountain View, CA 94043}
+% The date on the letter, default is the date of compilation
+\letterdate{\today}
+% The title of the letter
+\lettertitle{ summary of the Master's thesis : black hole thermodynamics and phase transition\\
+}
+% How the letter is closed
+
+% Any enclosures with the letter
+\letterenclosure[Attached]{Curriculum Vitae}
+
+\letteropening{}
+
+
+\input{info.tex} 
+
+
+
+%-------------------------------------------------------------------------------
+\begin{document}
+	
+	% Print the header with above personal informations
+	% Give optional argument to change alignment(C: center, L: left, R: right)
+	%\makecvheader[C]
+	
+	% Print the footer with 3 arguments(<left>, <center>, <right>)
+	% Leave any of these blank if they are not needed
+	
+	% Print the title with above letter informations
+	\makelettertitle
+	
+	
+	
+	
+	%-------------------------------------------------------------------------------
+	%	LETTER CONTENT
+	%-------------------------------------------------------------------------------
+	\begin{cvletter}
+\vspace{2ex}
+Dans mon mémoire, j'ai essayé d'approcher de la notion du trou noir. j'ai donné une description des trous noirs en astrophysique comme des objets massifs dont le champ gravitationnel est si intense qu'il empêche toute forme de matière ou de rayonnement de s'en échapper, ce sont des objets célestes mystérieux, invisibles qui ne peuvent pas être observés directement. Ainsi, j'ai traité les trous noirs dans la théorie la plus compatible à décrire ce genre d'objets, c'est la relativité générale, en se basant sur la notion de l'espace-temps. \\
+Les trous noirs peuvent être complètement décrits à l'aide de seulement trois paramètres : la masse, la charge électrique et le moment angulaire. On a choisi seulement ces trois paramètres pour la raison suivante : lorsque l'étoile massive s'écroule sur elle-même, toute l'information est donc perdue pour le monde extérieur et le trou noir apparaît alors comme une simple déformation de l'espace-temps. Ainsi il serait intéressant de s'interroger sur la forme de la matière à l'intérieur d'un trou noir et de trouver une explication physique de la singularité où la courbure est infinie. \\
+Par la suite et à cause d'une analogie profonde entre certaines propriétés des trous noirs et les lois de la thermodynamique, on a traité les trous noirs dans sa branche d'étude thermodynamique des trous noirs ̋. On a ainsi vu que l'affirmation "\textit{rien ne peut sortir d'un trou noir}" est en fait n'est pas juste, car Hawking a mis en évidence la présence d'un rayonnement de particules qui ressemble à celui d'un rayonnement thermique.  \\
+Finalement on a étudié la thermodynamique des trous noir dans un espace a asymptotiquement plat et des trous noir AdS  dans un espace de phase étendu, en traitant la constante cosmologique et sa quantité conjuguée, comme des variables thermodynamiques associées à la pression et au volume, respectivement. Pour un trou noir avec $Q$ fixe ou $J$ fixe, cette identification me permis d'écrire l'équation d'état comme suit $P = P (V, T)$ et d'étudier son comportement en utilisant les techniques thermodynamiques standard. La stabilité thermodynamique a été bien étudié en utilisant la capacité thermique et l'énergie libre de Gibbs $G(T)$
+	
+	\end{cvletter}
+	
+	
+	%-------------------------------------------------------------------------------
+	% Print the signature and enclosures with above letter informations
+	
+	
+\end{document}

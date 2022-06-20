@@ -1,0 +1,23 @@
+!**********************************************
+!      code install for HFBTHO v3.00          *
+!**********************************************
+
+
+sudo apt-get install libblas-dev liblapack-dev
+
+
+sudo apt-get install doxygen
+
+
+sudo apt-get install graphviz
+
+
+sudo apt-get install -y texlive-bibtex-extra
+
+
+!*****************************
+pour verifier que il y a pas des errors 
+
+make > log.txt 2>&1
+grep -i "error" log.txt
+!*****************************sudo apt-get istall -y texlive-bibtex-extra

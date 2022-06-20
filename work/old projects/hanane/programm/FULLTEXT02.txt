@@ -1,0 +1,3035 @@
+Nuclear density functional theory calculations for the
+r-process nucleosynthesis
+Daniel Karlsson
+carlzone@kth.se
+
+SH204X Degree Project in Physics, Second Cycle
+Master’s programme in Engineering Physics
+Subatomic and Astrophysics track
+Supervisor: Chong Qi
+Department of Physics
+School of Engineering Sciences
+The Royal Institute of Technology (KTH)
+Stockholm, Sweden
+May 5, 2019
+
+Abstract
+Reliable nuclear mass calculations are pivotal not only for understanding the nuclear
+structure but also for performing accurate large scale network calculations such as the
+astrophysical rapid neutron capture process (r-process). In this work the nuclear binding energies and the odd and even neutron drip lines were calculated with the code
+HFB+THO using the blocking scheme for even-odd nuclei through a python code as a
+framework to find and implement the blocking for a large range of nuclei. It was found
+that while it is very costly in computational time to perform the calculations for the
+blocking, over 48% of odd neutron nuclei had a lower ground energy state than which
+could be found without using this method. We also studied the binding energies by using the liquid drop model (LDM), the DZ10, DZ19, and DZ33 shell model formulae. A
+massive random sampling scheme was implemented to analyze the uncertainties of these
+models, their parameters, and their convergence with limited sets of fitting data. It was
+found that to construct a minimal model that predicts the known binding energies one
+only need a small portion of the available experimental data, less than 1% of the data
+for the LDM and DZ10 models, but slightly more for the DZ19, and DZ33 models.
+The neutron drip lines found for the HFB+THO calculations were then used to investigate the variations between the DZ models for very neutron rich Sn and Ca isotopes.
+It is found that the DZ33 model exhibits greater uncertainties in its predictions than the
+reduced DZ10 and DZ19 models with fewer parameters.
+
+Sammanfattning
+Tillförlitliga massberäkningar för atomkärnor är centrala för att inte bara förstå atomkärnestrukturer utan också för att utföra storskaliga nätverksberäkningar för den astrofysikaliska snabba neutronabsorptionsprocessen (r-process). I detta arbete beräknades
+de kärnfysiska bindningsenergierna och de udda och jämna neutrondropplinjerna med
+koden HFB+THO. Blockningsschemat för jämn-udda kärnor och en pythonkod som
+ett ramverk användes för att hitta och implementera blockningen för en stor mängd
+atomkärnor. Det konstaterades att emedan det är mycket kostsamt i beräkningstid att
+genomföra beräkningarna för blockning så hade över 48% av kärnor med udda antal neutroner ett grundtillstånd med lägre energi än vad som kunde hittas utan att använda
+denna metoden. Vi studerade också bindningsenergierna genom att använda vätskedroppmodellen (LDM), samt skalmodellsformlerna DZ10, DZ19, och DZ33. En storskalig
+slumpmässig sampling implementerades för att analysera osäkerheterna hos dessa modeller, dess parametrar, och deras konvergens med begränsade set av anpassningsdata.
+Det konstaterades att för att konstruera en minimal modell som förutsäger de kända
+bindningsenergierna så krävs bara en liten del av den tillgängliga experimentella datan.
+Mindre än 1% av datan för LDM- och DZ10-modellerna behövdes, och en något större
+del för DZ19- och DZ3-modellerna.
+Neutrondropplinjerna som hittades genom HFB+THO beräkningarna användes sedan
+för att undersöka variationerna mellan DZ modellerna för mycket neutronrika Sn och
+Ca isotoper. Det konstaterades att DZ33 modellen uppvisar större osäkerheter i dess
+förutsägelser än de reducerade modellerna DZ10 och DZ19 som har färre parametrar.
+
+Contents
+1 Introduction
+1.1 Background . . . . . . . . . . . . . . .
+1.2 Mass models . . . . . . . . . . . . . . .
+1.2.1 The liquid drop model . . . . .
+1.2.2 The Duflo-Zuker mass formulae
+1.2.3 Hartree theory . . . . . . . . .
+1.2.4 Hartree Fock theory . . . . . .
+1.2.5 Hartree Fock Bogolyubov . . .
+1.2.6 Skyrme interactions . . . . . . .
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+2
+2
+3
+3
+4
+7
+7
+8
+10
+
+2 HFB calculations with the HFBTHO code
+
+12
+
+3 Mass formulae calculations with DZ 10,19,33 and the LDM.
+
+23
+
+4 Summary and Discussions
+
+45
+
+5 Appendix
+
+47
+
+References
+
+56
+
+1
+
+Chapter 1
+Introduction
+1.1
+
+Background
+
+The r-process is believed to describe how about 50 % of the heavy elements in the
+universe were created. It is a great challenge to simulate this process. It is likely that the
+r-process mainly occurs in neutron star mergers and that they happen often enough to
+explain the abundances in the universe. Recent observations of the GW170817 neutron
+star merger [1][2][3] largely agree with simulations but the uncertainties are large both
+in the astrophysical initial conditions and in the nuclear properties of the heavier and
+more unstable elements. In astrophysics, the same tables of masses are often used and
+little time is spent on improving them. Furthermore an interpolation method is often
+used instead of calculating the odd neutron energies directly which should introduce large
+uncertainties. Recently it has been shown that the propagation of nuclear uncertainties
+to the r-process calculations has a large effect on the final results [4] and other research
+has been made to measure the impact of each nuclei on the relevant r-process rates [5][6].
+This should call for an effort to improve these mass tables to reduce the uncertainty in
+the final simulations.
+The best fit of nuclear binding energies to experimental data is currently from models
+such as the Duflo-Zuker mass formulae. They are however not truly microscopic models
+and may become unreliable when approaching more unstable nuclei [7][8] where pairing
+and continuum effects become increasingly important. The predictions of different models can differ greatly [9], sometimes by as much as several MeV for very neutron rich
+nuclei. Therefore the r-process simulations rely upon mass tables generated by a mixture
+of empirical results from experiments, and Hartree-Fock-Bogolyubov calculations. The
+Hartree-Fock-Bogolyubov on the other hand, the one microscopic model that is possible
+to use to calculate the whole nuclear chart within a reasonable time frame, does not
+produce as accurate results compared to known experimental data and the calculations
+are still computationally heavy. Since these calculations take a long time to run (CPU
+time on the order of 10 years for the full nuclear chart of even-even and even-odd nuclei),
+they are mainly performed on super computers that are not accessible for small projects
+or students.
+This work has two main parts, the first is the writing of a code and development of a
+method to permit more flexibility to the use of the HFB+THO code, as well as gather
+and analyze the results of those calculations on a normal laptop. The second is to analyze
+the uncertainties and extrapolation power of the liquid drop model and three different
+2
+
+Duflo-Zuker mass formulae by using a fractional sampling method. During this thesis
+work, we have also done extensive r-process simulations with the codes r-Java and nucnet. Those will be reported in another publication.
+
+1.2
+
+Mass models
+
+Although the different mass models analyzed in this work have relatively unknown areas
+of uncertainties. The simplest model, the six term liquid drop model (LDM), is a good
+starting point due to its accuracy, its well defined physics, and well understood deficiencies
+with regard to pairing and shell effects. The calculations will also be compared with
+three versions of the more accurate Duflo-Zuker model (DZ), and with Hartree-FockBogolyubov (HFB) calculations.
+
+1.2.1
+
+The liquid drop model
+
+The basic assumption of the LDM is that a nucleus can be described up to a high level
+of accuracy by treating it as a high density, incompressible fluid. The model does a good
+job of describing the total nuclear binding energy of a nucleus but does not account for
+shell effects or deformation corrections without further additions. The analogy with a
+liquid drop motivates five right hand side terms to describe the total binding energy, or
+mass, of a system of nucleons.
+The first term is the so called volume energy term and represents the strong nuclear
+force which is proportional to the number of nucleons in the system, which in turn in
+proportional to the volume of the nucleus.
+1
+4πR3
+= 4π(r03 A 3 )3 = 4πr0 A
+3
+E v = C1 A
+
+V =
+
+(1.1)
+
+The second term is the surface energy term, or surface tension. This term is motivated
+by the fact that nucleons on the surface are not surrounded by nucleons like the bulk
+nucleons, and thus they are more loosely bound. The loss of binding energy at the surface
+can be described by the surface tension σv and the area of the surface as:
+2
+
+2
+
+Es = −σv · Area = −σ4πR2 = −σ4πro2 A 3 = −C2 A 3
+
+(1.2)
+
+The third term comes from the repulsive force of the charged nucleons, the protons,
+and is aptly named the coulomb energy term Ec . It is negative as its effect is lowering
+the total binding energy. By Coulomb’s law for a charged sphere the electrostatic energy
+is therefore:
+3
+
+Z 2 e2
+Z2
+(1.3)
+= −C3 1
+R
+A3
+The fourth term is inspired by Raoult’s law in two component liquids and states that
+the minimum energy of the system between two non polar attractive components occurs
+Ec = − 5
+
+3
+
+when there is an equal concentration of the two. In a nucleus this equates to a negative
+symmetry term whenever there is an asymmetry in the number of neutrons and protons.
+(N − Z)2
+(1.4)
+A2
+The fifth and last term making up the binding energy in this model is the pairing
+energy Ep which accounts for the pairing of nuclei. This will either increase or decrease
+the binding energy for even-even and odd-odd nuclei respectively. For odd-even or evenodd nuclei the effect is zero.
+Esym = −C4
+
+Ep = C5
+
+δ
+1
+
+A2
+Where δ = +1, 0, −1 for even-even, odd A, and odd-odd, respectively.
+Together these terms form the equation for the Liquid Drop Model:
+2
+
+Z2
+
+(1.5)
+
+(N − Z)2
+δ
++
+C
+5
+1
+A2
+A2
+
+(1.6)
+1
+A3
+In this work a modified version of the LDM is used [10]. In this modified version a
+sixth term representing a correction to the Coulomb energy and the binding energy is
+added. One gets:
+BELDM = C1 A − C2 A 3 − C3
+
+?
+
+BELDM = av 1 +
+
+− C4
+
+2
+3Z 2 e2
+4kv
+4ks
+C4 Z 2
+3 +
+T
+(T
++
+1)
+A
++
+a
+1
++
+T
+(T
++
+1)
+A
++
+z
+z
+s
+z
+z
+1
+A2
+A2
+A
+5r0 A 3
+
+?
+
+?
+
+?
+
+(1.7)
+The terms here represent the volume energy, the surface energy, the Coulomb energy,
+and the correction to the Coulomb energy where Tz is the third component of isospin,
+e is the electronic charge, and av , kv , az , ks , r0 , and C4 are free parameters that will be
+fitted to experimental data.
+
+1.2.2
+
+The Duflo-Zuker mass formulae
+
+The Duflo-Zuker mass formulae are constructed from the assumption that a smooth
+enough effective pseudo potential exists, so that it’s possible to perform Hartree-Fock
+calculations where the corresponding Hamiltonian can be broken up into a monopole
+and a multipole part.
+H = Hm + HM
+The monopole Hamiltonian is responsible for saturation and single particle properties
+and functions as a platform for Hartree-Fock calculations that is extracted from the interacting shell model as a mean field. All residual interactions such as pairing interactions,
+quadruple, and Wigner correlations are a part of the multipole Hamiltonian.The binding
+energy of the system can thus be written as:
+BE = hHi − EC − Esym − EP
+
+(1.8)
+
+Where BE is the binding energy and P, C, and sym, stands for for the pairing,
+Coulomb, and symmetry energies.
+4
+
+The monopole Hamiltonian is defined as a sum of its microscopic and macroscopic
+parts.
+Hm = HM + Hs + Hd
+
+(1.9)
+
+Where M is the macroscopic term that considers all nucleons, s stands for microscopical spherical effects, and d stands for microscopic deformed effects. Here three DZ
+models will be used [11] where the DZ-19 [12] model is a simplified version of the DZ-33
+model [13], meaning certain terms have been neglected and those have been kept who
+are deemed to represent clear physics. The full DZ model has 33 terms and contains 28
+monopole terms, the Coulomb energy, symmetry energy, surface symmetry energy, and
+two pairing terms. While the simplest DZ model has only 10 terms, of which six are
+monopole terms, and the other four are Coulomb energy, symmetry and surface symmetry energies, and the pairing energy. The DZ-10 model is, in contrast to DZ-19, not a
+simplified DZ-33 model, as the monopole terms in the DZ-10 model are defined differently
+than the corresponding terms in the full model, while the shell structure is assumed to
+be the same in all DZ models. The models are constructed by a filling of the shells in
+sequence, and deformation states are defined as the promotion of four neutrons and four
+protons to the next major shell.
+The symmetry energy terms are defined differently in the DZ models than in the
+LDM and takes the following forms for the symmetry energy and the surface symmetry
+energy respectively.
+Esym = asym
+
+T (T + 1)
+Aρ
+T (T + 1)
+
+Essym = −assym
+
+(1.10)
+
+4
+
+A 3 ρ2
+
+In addition there are also contributions to the symmetry energy from the other
+monopole terms which can be seen in the dependence on the neutron and proton numbers
+squared in the two master terms.
+
+F M+ =
+
+1
+2
+
+?? X
+p=0
+
+?2
+
+mp
+q
+
++
+
+tp
+
+?X
+
+Dp
+
+q
+p=0
+
+?2 ?
+
+=
+
+Dp
+
+?? X
+
+np
+q
+
+p=0
+
+?2
+
++
+
+Dp
+
+?X
+
+zp
+q
+
+p=0
+
+Dp
+
+?2 ?
+
+(1.11)
+
+Again without the scaling factor.
+The Coulomb energy in the DZ model is given by the expression:
+2
+
+E C = ac
+
+−Z(Z − 1) + 0.76[Z(Z − 1) 3
+1
+
+T 2
+A 3 [1 − ( A
+)]
+
+(1.12)
+
+Which is also distinctly different than the corresponding LDM Coulomb energy.
+The terms in the full model be summarized in short here. The 28 monopole terms
+are a mix of volume terms, surface terms, the Coulomb energy, symmetry energy, surface
+symmetry energy, and two paring terms. The volume terms are named FM+, FS+, FS-,
+5
+
+FC+, PM+, PS+, PS-, S3, SQ-, D3, QQ+, D0, QQ-, and SS. The surface terms are
+named the same except with small letters and defined as:
+f s+ =
+
+F S+
+ρ
+
+(1.13)
+
+The volume terms are given (without scaling factors) as:
+1
+F M+ =
+2
+
+mp
+
+?? X
+
+?2
+
+tp
+
+?X
+
+?2 ?
+
+q
++
+Dp
+Dp
+p=0
+?? X
+?
+? X s + s ?2 ? X s − s ?2
+sπ ?2 ? X sν ?2
+π
+ν
+π
+ν
+F S+ =
++
+=2
++
+p+1
+p+1
+p
+p
+p p+1
+p p+1
+? X s + s ?2
+? X s − s ?2
+? X s ?2 ? X s ?2
+π
+ν
+π
+ν
+π
+ν
+F S− =
+−
+=4
+p+1
+p+1
+p
+p
+p p+1
+p p+1
+
+F C+ =
+
+q
+
+p=0
+
+?X
+p
+
+P M+ =
+
+mp
+Dp
+
+?X
+
+?2 ? X
+
+nπp
+
+?2
+
++
+
+1
+
+P S+ = 2
+
+p
+
+?X
+
+(p + 1)Dp2
+?X
+?
+nνp 2
+
+p
+
+?2 ? X
+
+1
+
+p
+
+(p + 1)Dp2
+
+1
+
+?
+
+1
+
+sπ Dp4 2 X sν Dp4 2
+P S− = 4
+p p+1
+p p+1
+njp p
+where: s =
+− nrp
+2
+nν n̄ν (nν − n̄ν ) nπ n̄π (nπ − n̄π )
++
+, (The same as in DZ-10)
+S3 =
+Nν
+Nπ
+2nν n̄ν 2nπ n̄π
+SQ− =
+Nν
+Nπ
+n0ν n̄0ν (n0ν − n̄0ν ) n0π n̄0π (n0π − n̄0π )
+D3 =
++
+Nν2
+Nπ2
+2(n0ν n̄0ν )2 2(n0π n̄0π )2
+QQ+ =
++
+Nν3
+Nπ3
+0 0
+0 0
+2n n̄ 2n n̄
+D0 = 16 − ν 3 ν π 3 π = 16 − QQ−
+Nν2 Nπ2
+0 0
+2n n̄ 2n0 n̄0
+QQ− = ν 3 ν π 3 π
+Nν2 ? Nπ2
+? X
+?
+?
+X
+nπp
+sπ
+nνp
+sν
+SS =
+ssπ,p
++
++
+ss
++
+ν,p
+1
+1
+p+1
+p+1
+p>2
+p>2
+Dp2
+Dp2
+?X
+
+?2
+
+sπ − sν
+
+Dp4
+
+sπ Dp4 ?2 ? X sν Dp4 ?2
++
+p+1
+p p+1
+1
+
+tp
+Dp
+
+1
+
+p
+1
+
+?? X
+
++
+
+1
+
+p
+
+Dp4
+
+p
+
+?2
+
+sπ + sν
+
+? ?
+
+?
+
+where:
+
+ nj (p−1)
+
+if nj ≤ p(p − 1)
+2p
+ssp =  (p−1)
+2
+− (nj −p(p−1))
+if nj > p(p − 1)
+2
+p
+6
+
+(1.14)
+
+Where the subscript p denotes the principal quantum number of the proton or neutron
+Harmonic Oscillator major shell, and np denotes the number of neutrons in that shell.
+The total number of nucleons is given as mp = np +zp , and tp = |np −zp |. The degeneracy
+of the p shell is Dp = (p + 1)(p + 2).
+
+1.2.3
+
+Hartree theory
+
+Hartree theory treats particles which interact with a central mean field and with each
+other but neglects antisymmetric particle exchange and pairing correlations It can be
+described by the Hamiltonian
+H=
+
+A
+X
+
+{Ti + u0 (ri )} +
+
+i
+
+Z
+1X
+v(ri , rj )
+2 ij
+
+(1.15)
+
+where Ti is the kinetic energy of the particle, u0 is the central field potential and v(ri , rj )
+is the interaction potential. The average electrostatic interaction felt by one charged
+particle from all the other charged particles is
+u1 (ri ) =
+
+Z Z
+X
+
+|ψj (rj )|2 v(ri , rj )drj
+
+(1.16)
+
+j6=i
+
+This leads to the wave equation
+n
+
+1.2.4
+
+o
+~2 2
+∇ + u0 (r) + u1 (r) ψi (r) = ?i ψi (r)
+−
+2M
+
+(1.17)
+
+Hartree Fock theory
+
+In an extension to this, the Hartree - Fock theory it is assumed that the wave function of
+the nucleus is the antisymmetric product of independent particle wave functions which
+can be represented by the slater determinant.
+
+
+1
+A!1/2
+
+φ(1, 2...N ) = Âψ1 (1)ψ2 (2).....ψN (N ) =
+
+ψ1 (1)
+
+ ψ1 (2)
+=
+ ..
+ .
+
+ψ2 (1)
+ψ2 (2)
+
+...
+...
+
+
+
+ψN (1)
+ψN (2) 
+
+
+
+
+
+ψ1 (N ) ψ2 (N ) . . . ψN (N )
+Where Â is an antisymmetric operator. The variational principle states that for small
+perturbations that preserve the normalization of the single particle wave functions of an
+eigenstate the energy expectation value is stationary and thus
+δ hφ|H|φi = hδφ|H|φi = 0
+For the Hamiltonian
+H=
+
+A
+X
+i
+
+Ti +
+
+A
+1X
+v(ri , rj )
+2 ij
+
+7
+
+(1.18)
+
+(1.19)
+
+with the energy expectation value
+A Z
+A ZZ
+1X
+~2 X
+2
+∗
+ψi (r)∇ ψi (r)dr +
+ψi∗ (r)ψj∗ (r0 )v(r, r0 )ψi (r)ψi (r0 )
+hφ|H|φi = −
+2M i
+2 ij
+A ZZ
+1X
+−
+ψi∗ (r)ψj∗ (r0 )v(r, r0 )ψi (r0 )ψi (r)
+2 ij
+
+(1.20)
+
+and when we apply the variation hδφ|H|φi = 0 we get the single-particle wave equation
+A Z
+X
+~2 2
+−
+∇ ψi (r) +
+dr0 ψj∗ (r0 )v(r, r0 )ψj (r0 )ψi (r)
+2M
+j
+
+−
+
+A Z
+X
+
+0
+
+dr
+
+ψj∗ (r0 )v(r, r0 )ψj (r)ψi (r0 )
+
+(1.21)
+
+= ?i ψi (r)
+
+j
+
+where ?i is the single particle energy.
+Equation (1.21) can be written in the form
+Z
+~2 2
+−
+∇ ψi (r) + dru(r, r0 )ψi (r0 ) = ?i ψi (r)
+2M
+
+(1.22)
+
+where
+0
+
+0
+
+0
+
+u(r, r ) = δ(r − r )
+
+A Z
+X
+
+dr00 v(r, r00 )ψj (r00 )ψj∗ (r00 ) −
+
+A
+X
+
+j
+
+v(r, r0 )ψj (r)ψj∗ (r0 )
+
+(1.23)
+
+j
+
+where the first term can be identified as the Hartree field from equation (1.25) and the
+second term is the non-local exchange contribution.
+
+1.2.5
+
+Hartree Fock Bogolyubov
+
+To include pairing correlations HFB theory look for wave functions of independently
+moving quasi particles that are determined by a variational principle. The Hamiltonian
+then reduces to
+H = HHF + H∆
+(1.24)
+where ∆ is the pairing field. The quasi particle operators are linked to the single particle
+operators by the Bogolyubov transformation
+βn+ =
+
+(Uin a+
+i + Vin ai )
+
+X
+
+(1.25)
+
+i
+
+which can be written in a short hand notation as
+!
+
+U V∗
+β
+=
+β+
+V U∗
+
+!
+
+a
+a+
+
+!
+
+(1.26)
+
+Where a and a+ are bare particle operators that creates or destroys a particle state, for
+example a plane wave or a harmonic oscillator state. The new quasi particle operators
+8
+
+β and β + must obey the same fermionic commutation relations as the particle state
+operators so that the matrix
+!
+U V∗
+W =
+(1.27)
+V U∗
+must be unitary. From this follows the relations of the coefficients of the transformation
+matrix
+U +U + V +V = 1 U U + + V ∗V T = 1
+(1.28)
+U T V + V T U = 0 U V + + V ∗U T = 0
+Using these conditions, (1.25) can be inverted to give
+a+
+n =
+
+X
+
+∗
+Unk
+βk+ + Vnk βk
+
+(1.29)
+
+k
+
+The new quasi particle vacuum can then be constructed as
+|Φi =
+
+Y
+
+βn |−i
+
+(1.30)
+
+n
+
+Where |−i is the bare particle vacuum. The HFB wave functions are then the wave
+functions which obey these conditions for the set of quasi particle operators given in
+(1.25).
+The coefficients Unk and Vnk are not uniquely defined by the HFB wave function, to
+accomplish this two new quantities, the density matrix and the pairing tensor are defined
+as
+ρnn0 = hΦ|a+
+n0 an |Φi
+knn0 = hΦ|an0 an |Φi
+
+(1.31)
+
+which in matrix notation can be written as
+ρ = V ∗ V T , κ = V ∗ U T = −U V +
+
+(1.32)
+
+where ρ is hermitian and κ is skew symmetric, that is
+ρ = ρ+ , κT = −κ
+
+(1.33)
+
+These quantities may be written as part of a of a general quasi-particle density
+ρ
+κ
+R=
+∗
+−κ 1 − ρ∗
+
+9
+
+!
+
+(1.34)
+
+It is important to note that the HFB model, like the BCS model where the handling
+of the quasi particles was developed, does not conserve the number of particles. Instead
+the conserved quantity is the expectation value
+hΨ|N̂ |Ψi = N
+
+(1.35)
+
+In the HFBTHO code the particle number error can be corrected for by following
+the Lipkin - Nogami prescription [14] for an approximate particle number projection,
+followed by an exact particle number projection.
+The ground state is obtained by minimizing the total energy
+E = hΨ|H|Ψi = E[ρ, κ, κ∗ ]
+
+(1.36)
+
+where E[ρ, κ, κ∗ ] is the energy functional.
+The Hamiltonian is assumed to be
+H=
+
+X
+
+= Tνν 0 a+
+ν aν 0 +
+
+νν 0
+
+1 X + +
+a a aµ0 aν 0
+4 µνµ0 ν 0 µ ν
+
+(1.37)
+
+The HFB wave equations can be derived by the variational principle or by the use of
+the wick’s theorem method and give the result
+h
+∆
+−∆∗ −h∗
+
+!
+
+!
+
+Uk
+Uk
+= Ek
+Vk
+Vk
+
+!
+
+(1.38)
+
+which is a diagonalization problem where
+hij =
+
+1.2.6
+
+δE
+δρji
+
+= h∗ji , ∆ij =
+
+δE
+δκ∗ij
+
+= −∆ji
+
+(1.39)
+
+Skyrme interactions
+
+The energy density functional used in the HFBTHO code for the Skyrme force [15] has
+the form
+Z
+Z
+3
+E[ρ, ρ̂] = d rH(r) = d3 r(H(r) + H 0 (r))
+(1.40)
+Where H(r) is the mean-field energy density and H 0 (r) is the pairing energy density.
+Specifically the mean-field has the form
+?1
+?X i
+1 h?
+1 ?
+~2
+τ + t 0 1 + x0 ρ 2 −
++ x0
+ρ2q
+2m
+2
+2
+2
+q
+h?
+?
+?
+?
+?
+?
+?
+?i
+X
+1
+1
+3
+1
+3
++ t1 1 + x1 ρ τ − ∆ρ −
++ x1
+ρq τq − ∆ρq
+2
+2
+4
+2
+4
+q
+h?
+?
+?
+?
+?
+?
+?
+?i
+X
+1
+1
+1
+1
+1
++ t2 1 + x2 ρ τ − ∆ρ −
++ x2
+ρq τq + ∆ρq
+2
+2
+4
+2
+4
+q
+h?
+?
+?
+?
+1
+1
+1 X 2i
++ t3 ρα 1 + x3 ρ2 − x3 +
+ρ
+12
+2
+2 q q
+h
+i
+X 2
+X 2
+X
+X
+1
+1
+1
+− (t1 x1 + t2 x2 )
+Jij + (t1 − t2 )
+Jq,ij − W0
+?ijk ρ∇k Jij +
+ρq ∇k Jq,ij
+8
+8
+2
+q
+12
+q,ij
+ijk
+(1.41)
+
+H(r) =
+
+10
+
+and the pairing energy is
+? ρ ?γ i X
+1 h
+H 0 (r) = V0 1 − V1
+ρ̃2q
+2
+ρ0
+q
+
+(1.42)
+
+Where the sums goes over q = n, and q = p for neutron and proton densities. All
+densities without indices are the sums of proton and neutron contributions (the isoscalar
+density). The kinetic energy density is given by τ , and ρ̃ is the local pairing density.
+For the complete picture one also has to add the Coulomb interaction for the proton states
+which depends on the charge density ρch , in this method that density is approximated
+by a point proton density. The Coulomb interaction has two parts, a direct interaction
+term, and a non-local exchange term which is treated with the Slater approximation.
+dir
+Hcoul
+
+Z
+0
+e2 ZZ 3 3 ρch (r)ρch (r’)
+2
+3 0 ρp (r )
+d rd r’
+≈
+e
+d
+r
+=
+2
+|r - r0 |
+|r − r0 |
+
+(1.43)
+
+? 3 ?1 1
+3 ? 3 ? 13 Z 3 34
+3 3
+ex
+= − e2
+d rρp (r) ≈ −e2
+ρp (r)
+Hcoul
+(1.44)
+4
+π
+π
+The free parameters of the model, t0 , t1 , t2 , t3 , x0 , x1 , x2 , x3 , W0 , and α are fitted to
+experimental data, as well as the pairing strength V0 . In this work the pairing strength
+found in [16][17][18] is used.
+
+11
+
+Chapter 2
+HFB calculations with the
+HFBTHO code
+The calculations were made with the code HFBTHOv2.00 [19] and were run repeatedly
+with a python script to alter the input and to record and analyze the output data.
+The HFB code has very little flexibility, which may be less important when using
+a super computer and all calculations are done in bulk, but when you need to be very
+selective about which calculations to perform it’s important to be able to do as few as
+possible and still get an accurate result. In this work python code has been written
+which allows one to specify a range of nuclei to be calculated, to specify a range of
+initial deformations, and to specify how many shells above the fermi level that should be
+calculated.
+The first thing to note is the fact that you cannot predict what the final deformation
+will be, and the calculations can get stuck in a local energy minimum as shown in 2.1. To
+find the correct deformation of the nuclei and thereby the correct ground state energy,
+several initial deformations ranging from -0.3 to 0.3 have been used. The sign indicates
+the shape of the nucleus, β > 0 for a prolate and β < 0 for an oblate deformation.
+
+12
+
+Figure 2.1: Binding energy minima illustration.
+To find the minimum ground state energy for the odd neutron nuclei (and odd proton
+nuclei which are not considered in this work), the code uses time reversal symmetry and
+the equal filling approximation (EFA) one has to account for the unpaired particles as
+well as the quasi particles. This means in practice that the unpaired particle is assumed
+to occupy a single state (also its time-reversed partner) which is specified by it’s Nilsson
+numbers and thus that level can not be occupied by a quasi particle or participate in
+pairing effects. This is called the blocking scheme. The blocking induces a splitting of
+any j shell by a breaking of the spherical symmetry. The level that should be blocked is
+the level that gives the lowest energy state, and while that is the most often the state
+with the maximum angular momentum projection Ω = +j, that is not always the case
+and cannot be known beforehand. This means that for every initial deformation state,
+one also has to try blocking as many states with different values of |Ω| as possible to
+be sure to get the lowest ground state. There is a possible error introduced with this
+in that a configuration with the angular momentum projection |Ω| < j may not belong
+to the j shell being calculated [20]. In this work this problem is ignored and as many
+configurations as was feasible was calculated and the blocked state configurations’ Nilsson
+numbers were saved.
+One can assume it becomes increasingly unlikely that the lowest state will be found
+the further out you go from the fermi level but it is unknown exactly where it is reasonable
+to stop. The HFB+THO code permits the option to calculate a two MeV range of shells
+above the fermi level, typically 20 shells, or to perform one calculation at a time and
+specify the Nilsson configuration of the specific shell to be blocked. Since the calculations
+are very time consuming one wants to avoid unnecessary calculations without losing
+accuracy. It was found here that over 48 % of the odd neutron ground states for nuclei
+up until the odd neutron drip line was not the first blocking candidate (the one with
+the highest |Ω| projection). In fact for some nuclei the lowest energy was found blocking
+as high as the 10th candidate and the energy difference between the blocked state and
+the first candidate can be up to several MeV. Table 2.1 lists the number of times the
+13
+
+different blocking candidates for odd nuclei were used to find the lowest ground state and
+the mean energy difference between that level and the energy of state calculated using
+the first blocking candidate.
+Table 2.1: Blocked levels
+Block Candidate 1
+Counts
+439
+E diff [MeV]
+0
+
+2
+3
+281
+103
+-0.432 -1.036
+
+4
+5
+-0.57
+
+5
+4
+-1.45
+
+6
+10
+-4.1
+
+7
+2
+-0.038
+
+8
+2
+-2.309
+
+9
+10
+0
+2
+- -0.689
+
+No lowest states were found by blocking higher states than the 10th candidate. However more levels than that were only blocked for a few nuclei so those extra calculations
+could very well be necessary.
+
+14
+
+A crude analysis was made to see if it’s possible save time by aborting calculations
+at an early iteration. If this procedure is invalid then the energy obtained will be larger
+than the ones already found for the same nuclei. This is shown in figure 2.2. A good way
+to implement this would be to run all calculations in parallel and compare the energy at
+each iteration.
+
+Figure 2.2: Error % of calculations when interrupted at early iterations when the energy
+difference from the already found minimum is greater than the set limit.
+From this one can conclude that to have an acceptable level of error one should wait
+until the 15th iteration to interrupt the calculations and set an appropriate cutoff limit. A
+typical calculation first performs around 40 iterations for a preliminary HFB calculation
+with a woods saxon shape potential, and then another 40 iterations for the HFB+THO.
+Of course we will not have the lowest state to compare with so it is advisable to start
+with the deformations that are most likely to yield the lowest state first. The number
+of initial deformations of a certain type and magnitude that was used to find the lowest
+state are shown in table 2.2.
+It appears it would be a good strategy to start with the deformation 0.2 and then work
+your way down the list. Considering that most the configurations that need to be blocked
+are among the first candidates, and that most deformations will be found using the first
+few deformations, a conservative estimate would be that time saved could be more than
+50 %. The results of the HFB+THO calculations are summarized in the following list
+for all even-even and even-odd nuclei between Z = 6, N = 8 up to Z = 84, N = 189.
+15
+
+Table 2.2: Initial deformations
+Initial deformation
+Counts
+
+-0.3
+0
+
+-0.2
+69
+
+-0.1
+314
+
+0.0
+263
+
+0.1
+372
+
+0.2
+523
+
+0.3
+155
+
+Particularly the most calculations have been performed on neutron rich nuclei to get he
+most accurate result possible for the neutron drip lines
+The results include:
+• Binding Energies
+• Deformations
+• Single particle energies
+• Pairing energies
+From these data, the following properties have been calculated or extracted.
+• The neutron- and two neutron separation energies.
+• The neutron drip lines
+• The binding energy difference between the found lowest ground state and the first
+blocking candidate.
+The results are comparable to earlier calculations made in [21] but as can be seen in
+figure 2.3 the results are slightly different. This is partly because of the different pairing
+forces used, but also due to that the 2003 calculations used the Lipkin-Nogami prescription in the seniority pairing approximation. It is also possible that the HFB+THO code
+has undergone changes since then.
+
+16
+
+Figure 2.3: Binding energies of this work (blue) and the data of M. V. Stoitsov, J.
+Dobaczewski, W. Nazarewicz, S. Pittel, and D. J. Dean (red) compared to the AME2016
+nuclear binding energy data.
+
+17
+
+The deformations and pairing energies found are shown in the following figures:
+
+Figure 2.4: Calculated quadrupole deformations with HFB+THO.
+
+18
+
+Figure 2.5: Calculated pairing energies with HFB+THO.
+The odd and even neutron drip lines are defined as the place where the neutron
+separation energies become negative for single neutrons and a pair of neutrons. The
+separations energies are defined as:
+Sn(Z, N ) = BE(Z, N − 1) − BE(Z, N )
+S2n(Z, N ) = BE(Z, N − 2) − BE(Z, N )
+
+(2.1)
+
+This means that it is no longer energetically favorable to absorb more neutrons and
+19
+
+thus more neutron rich isotopes will not exist. In figure 2.6 the neutron separation
+energies for tin isotopes is shown. The drip line is highlighted at the point where the
+neutron separation energy becomes negative which is at N = 105 for odd neutrons and
+N = 126 for even neutrons.
+
+Figure 2.6: One and two neutron separation energies for tin calculated with HFB+THO.
+
+20
+
+The difference between the odd and even neutron drip line is unusually large for tin
+as is illustrated in figure 2.7 where the difference between the two neutron separation
+energies and the single neutron separation energies has been plotted for HFB+THO with
+all three DZ models, Z = 50 for tin isotopes has been marked with a dashed line.
+
+(a) HFB+THO
+
+(b) DZ10
+
+(c) DZ19
+
+(d) DZ33
+
+Figure 2.7: The minimal and maximal values of the RMS deviation compared to the
+training sample (blue), and to all data (red) as a function of the sample size (fraction).
+In figure 2.8 is shown the drip lines found for each model.
+
+21
+
+Figure 2.8: One and two neutron drip lines for three different DZ models and HFB+THO.
+Since the r-process path operates at or near the neutron drip lines, the small differences between the models can be of great importance. It appears that the drip lines
+found for HFB are generally further out and more neutron heavy than for the DZ models,
+which means that there are more nuclei that can participate and could potentially play
+an important role.
+
+22
+
+Chapter 3
+Mass formulae calculations with DZ
+10,19,33 and the LDM.
+For these models, the approach as been to try to find the relationship between the
+amount of fitting data, and the type of fitting data, to the accuracy and uncertainty of
+the results. It is important that the terms used in a model to predict unknown mass
+regions are well anchored in physics. Adding more terms with no clear physical meaning
+may increase the accuracy to predict already known data, but it can also introduce added
+uncertainty when extrapolating to unknown regions. To examine this, a massive random
+sampling approach has been used, where each model is fitted to a different sample size
+with random nuclei from the total pool of ntot = 2305 good experimental binding energies
+in the AME2016 database. This section has been submitted for review to the journal
+Physical Review C.
+The conditions for good nuclear data are defined here as:
+Z≥6
+A ≥ 12
+uncertainty · A < 100keV /A
+Experimental Data
+
+(3.1)
+
+The sample size is defined in this work as a fraction of the total number of good
+experimental binding energies.
+n
+(3.2)
+ntot
+Where the fractions considered are f = 0.005 to 0.6 for LDM and dz10, f = 0.015
+to 0.6 for dz19, and dz33, and f = 1 for all models. The parameters of the model are
+fitted using the random sample, and the RMS deviations of the binding energies from the
+training sample (σs ) and from all data (σa ), along with binding energies and parameters
+values are collected for each calculation. For each fraction over 10,000 calculations were
+performed with random training data.
+The binding energies of each DZ model with f = 1, compared to HFB+THO, are
+displayed in figure 3.1 as a function of the neutron number N.
+f=
+
+23
+
+(a) HFB+THO and LDM
+
+(b) HFB+THO and DZ10
+
+(c) HFB+THO and DZ19
+
+(d) HFB+THO and DZ33
+
+Figure 3.1: Energy residuals of HFB+THO together with all three DZ models compared
+to experimental data.
+It can be seen clearly that DZ33 predicts the experimental binding energies better
+than the other models. The question is how well it does when extrapolating to unknown
+regions. This is explored by using smaller fractions of fitting data, and then comparing
+the results to all known experimental data.
+
+24
+
+Figure 3.2 illustrates how the RMS deviation of the fit to the sample and to all data
+changes with fraction size.
+
+(a) LDM
+
+(b) DZ10
+
+(c) DZ19
+
+(d) DZ33
+
+Figure 3.2: The minimal and maximal values of the RMS deviation compared to the
+training sample (blue), and to all data (red) as a function of the sample size (fraction).
+It is interesting to note how this figure shows that it’s possible to construct a minimal
+model with good accuracy comparable to that of the fully fitted model with a fraction
+as small as f = 0.1 of the known data for the models with 6, 10, and 19 parameters.
+However for the DZ33 model a fraction of around 0.4 is necessary to reach the same
+level of convergence. Though to construct this minimal model in practice, one would
+need to know ahead of time which sample will yield the best fit, and that composition of
+nuclei is unknown before the massive sampling is completed. In this case around 10000
+calculations were performed for each fraction.
+As a test of our method figure 3.3 shows the convergence of the results when fewer
+calculations are used for the DZ-10 model.
+
+25
+
+Figure 3.3: The RMS deviation from all experimental data for different fractions and a
+varying number of calculations for DZ-10
+As can be seen the minimal RMS error converges with larger fraction sizes and with
+a higher number of calculations performed, as expected. This is a sign that the massive
+random sampling approach is valid, it also shows that more calculations than 10,000
+would be preferable if smaller fractions are used. The uncertainty of the models are
+further illustrated in figure 3.4.
+
+26
+
+(a) LDM
+
+(b) DZ10
+
+(c) DZ19
+
+(d) DZ33
+
+Figure 3.4: The distributions of RMS deviations from the sample (blue) and all data
+(yellow) for a small fraction comparable to roughly three times the number of parameters
+in the model.
+It is noticeable that the DZ33 model has a significantly wider distribution of deviations
+than the other DZ models. This can be assumed to be because the model has a greater
+number of parameters, some of which are not clearly based on physics. On the other
+hand, the reduced DZ19 model shows a narrow distribution on par with or even better
+than the DZ10 model. This suggests that while the model with more parameters perform
+the best to predict the binding energies of the known experimental data used in the fit,
+we should use a more minimized model for extrapolating to unknown regions. This is
+also increasingly important as we get closer to the neutron drip lines where pairing forces
+become increasingly important and the r-process is active.
+
+27
+
+To see how the uncertainties shape the results of the calculations, a comparison
+of binding energy predictions for different fractions are shown in figure 3.5 for the recently measured 55−57 Ca isotopes [22], and for the experimentally unreachable 154−156 Sn
+and 175−177 Sn isotopes at and around the one and two neutron drip lines found by the
+HFB+THO calculations in this work. In the DZ models the results shown are the results
+given by the best fit for the given fraction, that is the fit with the minimal RMS deviation
+σa .
+
+(a)
+
+55−57 Ca
+
+28
+
+(b)
+
+154−156 Sn
+
+(c)
+
+175−177 Sn
+
+Figure 3.5: a) The binding energy residuals (a) and binding energy predictions (b, c) for
+four fits with different fractions for selected Ca and Sn isotopes.
+
+29
+
+Figure 3.5 shows that DZ33 indeed has a greater uncertainty in the results than the
+other models, and especially striking is the large differences between the binding energies
+of the different fractions as we venture further out from stability to the even neutron
+drip line. It is also noteworthy that the spread of the results from DZ10 and DZ19 stay
+almost constant.
+One can wonder what the optimal composition of the sample is to capture the essential
+physics and to get the best and (or worst) fits out of each model. Presumably a mix of
+light and heavy nuclei is needed from all over the nuclear chart. But perhaps there could
+be patterns of stable or unstable nuclei that could influence the fit more than others.
+Here two approaches to this has been taken, the first is to track all the nuclei used in
+the random sampling and identify the 100 samples which gives the best and worst result
+when predicting all data. This is illustrated in figure 3.6 to figure 3.9.
+
+30
+
+(a) f = 0.39, minimal σa
+
+(b) f = 0.39, maximal σa
+
+(c) f = 0.15, minimal σa
+
+(d) f = 0,15, maximal σa
+
+(e) f = 0.085, minimal σa
+
+(f) f = 0.085, maximal σa
+
+Figure 3.6: The nuclei used for the 100 best and worst fits for the LDM model and
+fraction f = 0.85, f = 0,15, and f = 0.39. For the Zoomed figures, the counts in one
+interesting area is given.
+31
+
+For every massive sampling with different fractions, the same pattern appears. It
+seems that the accuracy of the LDM model is dependent on fitting, or in this case not
+over fitting to certain portions of the nuclear chart. In particular the models seems to
+perform the worst when over fitting to areas around the doubly magic numbers Z = 50,
+N = 82, and Z = 82, 126. One wonders then if the DZ models have similar correlations
+between accuracy and certain regions.
+For DZ10 and DZ19 a similar pattern appears, but for different regions than the
+LDM. One of these regions is emphasized in figure 3.7 and is located around the magic
+numbers Z = 28, N = 50. It is interesting to note that the DZ10, and DZ19, seen in
+figure 3.8 have the same correlations for several of the areas of interest, which is natural
+since the models are not that different, but for the DZ33 model seen in figure 3.9 there
+are two striking differences.
+The first is that the model is no longer dependent on that area around N = 30, and
+N = 50, and the second is that another other interesting area shown in DZ10, and DZ19
+around Z = 20, N = 30, where that area if under fitted leads to maximal errors, now has
+the opposite correlation in DZ33. Where now an over fit of that area leads to maximal
+errors, and an under fit leads to a better result.
+
+32
+
+(a) f = 0.23, minimal σa
+
+(b) f = 0.23, maximal σa
+
+(c) f = 0.085, minimal σa
+
+(d) f = 0,085, maximal σa
+
+(e) f = 0.15, minimal σa
+
+(f) f = 0.15, maximal σa
+
+Figure 3.7: The nuclei used for the 100 best and worst fits for the DZ10 model and
+fraction f = 0.085, f = 0.15, and f = 0.23. For the Zoomed figures, the counts in one
+interesting area is given.
+33
+
+(a) f = 0.23, minimal σa
+
+(b) f = 0.23, maximal σa
+
+(c) f = 0.085, minimal σa
+
+(d) f = 0,085, maximal σa
+
+(e) f = 0.15, minimal σa
+
+(f) f = 0.15, maximal σa
+
+Figure 3.8: The nuclei used for the 100 best and worst fits for the DZ19 model and
+fraction f = 0.085, f = 0.15, and f = 0.23. For the Zoomed figures, the counts in one
+interesting area is given.
+34
+
+(a) f = 0.23, minimal σa
+
+(b) f = 0.23, maximal σa
+
+(c) f = 0.085, minimal σa
+
+(d) f = 0,085, maximal σa
+
+(e) f = 0.15, minimal σa
+
+(f) f = 0.15, maximal σa
+
+Figure 3.9: The nuclei used for the 100 best and worst 100 fits for the DZ33 model and
+fraction f = 0.085, f = 0.15, and f = 0.23. For the Zoomed figures, the counts in one
+interesting area is given.
+35
+
+These results may be explained by the added terms in the model, it seems that the new
+terms are addressing some problems with the reduced models, and thereby decreasing the
+dependency of those models to certain parts of the nuclear chart. On the other hand they
+may be overcompensating in another area which instead of fixing the problem, reverses
+it. This method may be possible to use to investigate the impact of the parameters on
+the nuclear chart and used as a part of improving the models for the future, it is also
+possible that these relations are artifacts of the method used. In the future it is planned
+to investigate this further by using a more sophisticated machine learning algorithm, but
+it is outside the scope of this work.
+A second approach to figuring out the correlations between the accuracy of the model
+and to the nuclei used for the fit was to randomize the samples based on their instability
+(measured by their half-life), and to track the RMS deviation as a function of the fraction
+and half-life. Figure 3.10 shows as expected that a mix of short lived and long lived nuclei
+are needed.
+
+36
+
+(a) σmax (Sample)
+
+(b) σmin (Sample)
+
+(c) σmax (All Data)
+
+(d) σmin (All Data)
+
+Figure 3.10: DZ10 RMS deviations of fits for the fraction f = 0.2 for different half-life
+limits.
+In the figure different weights have been put on nuclei with shorter and longer half
+lives, where 0% means that 0 nuclei used in the fit have a half life longer than the specified
+limit on the x axis. The last point on the x axis plot is means and means that a random
+sample from all nuclei has been used for that fit. It can be deduced from figure 3.10
+that for deviations from the training sample the best fits are found when only long lived
+nuclei are used and that the fits get progressively worse as more unstable isotopes are
+introduces into the mix. This is expected since it is easier to nail down the physics of
+only stable and less deformed elements. Sub figures c) and d) show the minimal and
+maximal RMS deviations of the DZ10 model when fitted to all data, in effect measuring
+the extrapolation power of the model. As can be seen the best performance is given when
+there is a mix of stable and unstable elements, and if too much weight is put on either end
+of the spectrum, the predictive capability quickly deteriorates. The same relationship is
+found for smaller fractions.
+37
+
+It is also interesting to see whether there is a correlation between the power of a model
+to accurately predict the training sample binding energies and to accurately predict all
+data. The correlations between the RMS deviations of the sample and all data are given
+in figure 3.11.
+
+Figure 3.11: Correlations of σa and σs for a few fractions for all four models.
+In this figure, it is shown to be no correlation at all. However when viewed in the light
+of figure 3.10 one may expect a negative correlation, since according to figure 3.10b the
+model that is best at predicting it’s own training data is also one with mostly stable nuclei
+in the sample. In contrast figure 3.10b clearly shows that a model loses its predictive
+power as it is fitted to only nuclei with progressively longer half lives. If a correlation
+exists, then the signal is much too weak to be visible here. Since a massive random
+sampling of all nuclei is used, that is not surprising because even the best samples will
+include a mix of long lived and short lived nuclei. This means that to look for this
+correlation a more skewed set of data is required. The result of this analysis can be seen
+in figure 3.12.
+
+38
+
+(a)
+
+(b)
+
+Figure 3.12: Fits for f = 0.2 and random samples limited to half lives shorter than the
+limits (a), and longer than the limits (b).
+In this figure it is clear that when the training samples are restricted by stability of
+the nuclei, the expected indirect correlation emerges. In figure 3.12a it is noticeable that
+as the training samples change from only very short lived, to a mix of all half lives, both
+σs and σa decreases. In figure 3.12b the training samples changes from a mix of short
+and long half lives to strictly long half lives, which makes it easier to describe the physics
+of the sample but reduces the models ability to predict the whole body of data.
+
+39
+
+The massive sampling method also enables the possibility to examine the uncertainties of the parameters of each model. For this purpose every calculated value for each
+parameter and fraction has been recorded and the mean value and deviation derived by
+observing that the calculated values are normally distributed. The parameter values are
+plotted in figure 3.13 to 3.16 for the LDM, DZ10, DZ19, and DZ33 respectively.
+
+Figure 3.13: The parameter value distributions of the LDM fitted to a Gaussian for each
+fraction (left), and the mean value and deviations (±σN , ±2σN , right)
+As shown here the mean values of the parameters remain fairly constant except at
+very small fractions, and the parameters have a constant sign except for the surface
+symmetry, and surface Coulomb terms which have a small probability of a sign change.
+All six terms show a large and similar uncertainty at low fractions.
+
+40
+
+Figure 3.14: Same as figure 3.13 but for DZ10
+The first five parameters of the DZ10 model are similar to the macroscopic terms of
+the LDM, but the last five are added for microscopic shell correction, and the last term
+which is the pairing energy correction. The mean values are again fairly constant but it is
+noticeable that the variance of around 50% of the value of the added shell correction and
+pairing terms are much larger than the variance of the first five terms. For this model
+there is a small probability of a sign change for the Hd term, but the other terms have a
+constant sign.
+
+41
+
+42
+Figure 3.15: Same as figure 3.13 but for DZ19
+
+The parameters of the DZ19 mostly show a small variance, however the d0 , and D0
+parameters are very ill defined at low fractions and show a huge variance. The signs of
+these two parameters as well as for sq− but to a lesser extent, are all not well defined.
+
+43
+
+Figure 3.16: Same as figure 3.13 but for DZ33
+In the DZ33 model, another 13 shell correction terms and a surface pairing term
+are introduced. Many of these terms show a large variance and at small fractions these
+parameters can hardly be pinned down at all. This shows us that although the overall bias
+of the model decreases and the accuracy increases as the model becomes more complex,
+the variance can increase substantially. The signs of the newly introduced parameters are
+ill defined and the large variance of up to 4 magnitudes can explain the models inability
+to make reliable predictions as discussed earlier.
+
+44
+
+Chapter 4
+Summary and Discussions
+The difficulty of making accurate predictions of nuclear properties in regions outside of
+experimental reach is well known. In this work tools have been developed to facilitate
+easier use of the HFB+THO code for calculations and data extraction. The blocking
+scheme has been implemented for a large range of nuclei to get accurate drip lines and
+values of binding energy of neutron heavy nuclei, for the purpose of future r-process
+network calculations. In relation to this the extrapolations of the HFB+THO model
+were compared to the not fully microscopic LDM, DZ-10, DZ-19, and DZ-33 models. A
+method was proposed to optimize these models by fitting to a large number of random
+samplings and evaluating the results statistically. It was found that it is possible to
+construct a model that describes all experimental data with a minimal amount of fitting
+data, the experimentally known binding energies are around 30% of the estimated amount
+of possible nuclei. It is shown here that all models are highly sensitive to fitting data
+at and around the doubly magic numbers around 20, 28, 50, 82, and 126 for Z 6= N.
+This could mean that possible magic numbers higher than 126 that are inaccessible to
+our measurements could be very important for pinning down the physics of the entire
+theoretical nuclear chart. The uncertainties of the parameters are shown to be strongly
+linked to the complexity of the model. A greater number of parameters offers a better
+flexibility to known data, but causes an increase in the variance when limited data is
+available for the fit. This severely limits the predictive power of the more complex DZ-33
+model, instead a more minimal model should be used. The DZ-10 and DZ-19 models both
+show a smaller variance when extrapolating to unknown regions, as does the LDM but
+that model is limited in more fundamental ways. The signs of the parameters are mostly
+well defined, but the LDM the two surface correction terms and similar terms in the DZ10, and DZ-19 models exhibit large uncertainties and can change sign. The mean value
+of all models parameters and predictions stay fairly constant even at very low fractions.
+This should make it possible to use this random sampling method to improve accuracy
+of the models. The predictions of neutron rich Ca compared to new experimental data,
+and Sn isotopes close to the neutron drip lines were used to investigate the variance of
+the model predictions.
+It was a conscious choice to include the very different HFB model to the LDM, and
+DZ models in this work. Perhaps this random sampling method can be applied to the
+fitting of the Skyrme parameters, or perhaps the knowledge gained from investigating
+the importance of certain regions of the nuclear chart can guide the fitting even for
+that model. However to do this the calculations of the HFB+THO must be sped up
+
+45
+
+significantly. Some steps were taken to investigate how much time could be saved from
+stopping calculations prematurely, and it seems possible to discard many calculations
+even after only 5 iterations. A conservative estimate is that it should be able to cut
+the time in half with this method. However to be able to compute the entire nuclear
+chart at least another factor of 100 is preferable. To accomplish this, work has begun to
+implement GPU calculations with CUDA for the HFB+THO code.
+
+46
+
+Chapter 5
+Appendix
+Included here is a minimal version of the python codes used for the HFB+THO calculations. A full code with additional functionality and debugging will be posted online at
+http://www.nuclear.kth.se/cqi/mm/.
+
+To run HFB+THO:
+import s u b p r o c e s s
+import sys
+d e f get_list_from_row ( t e x t ) :
+while "
+" in text :
+text = text . replace ("
+" , " ")
+text = text . replace ("\n" , " " ) . s t r i p ( ) . s p l i t ("
+return text
+def
+
+")
+
+read_iso ( i s o l i s t ) :
+w i t h open ( i s o l i s t ) a s f i l e :
+nuclides = [ ]
+for l i n e in f i l e :
+n = get_list_from_row ( l i n e )
+n u c l i d e s . append ( [ n [ 0 ] , n [ 1 ] ] )
+return nuclides
+
+d e f set_params ( n , d , v ) :
+nuclide = n
+v _ p a i r=v
+textstr = ’ ’
+w i t h open ( ’ hfbtho_NAMELIST_original . dat ’ ) a s f i l e :
+for l i n e in f i l e :
+l l = get_list_from_row ( l i n e )
+i f " basis_deformation " in l i n e :
+ind = l i n e . index ( " basis_deformation = " )
+t e x t s t r += l i n e [ 0 : i n d + 2 0 ] + s t r ( d ) + " \ n "
+e l i f " proton_number " i n l i n e :
+i n d = l i n e . i n d e x ( " proton_number = " )
+i n d 2 = l i n e . i n d e x ( " neutron_number = " )
+ind3 = l i n e . index ( " , type_of " )
+t e x t s t r += l i n e [ 0 : i n d + 1 6 ] + s t r ( n u c l i d e [ 0 ] ) + l i n e [ i n d 2 − 2 : i n d 2 + 1 7 ] \
++ s t r ( n u c l i d e [ 1 ] ) + l i n e [ ind3 : len ( l i n e ) ]
+e l i f " vpair_ " i n l i n e :
+ind1 = l i n e . index ( " user_pairing = " )
+i n d = l i n e . i n d e x ( " vpair_n = " )
+i n d 2 = l i n e . i n d e x ( " vpair_p = " )
+t e x t s t r += l i n e [ 0 : i n d 1 + 1 5 ] + s t r ( v _ p a i r [ 2 ] ) + l i n e [ i n d 1 + 16 : i n d +10] + \
+s t r ( v _ p a i r [ 1 ] ) + l i n e [ i n d + 10 + l e n ( s t r ( v _ p a i r [ 0 ] ) ) : i n d 2 + 1 0 ] + \
+s t r ( v _ p a i r [ 0 ] ) + l i n e [ i n d 2 + 10 + l e n ( s t r ( v _ p a i r [ 0 ] ) ) : ]
+else :
+textstr = textstr + line
+t e x t _ f i l e = open ( ’ hfbtho_NAMELIST . dat ’ , "w " )
+text_file . write ( textstr )
+text_file . close ()
+def
+
+set_blocking (b ) :
+block_level = b
+textstr = ’ ’
+w i t h open ( ’ hfbtho_NAMELIST . dat ’ ) a s f i l e :
+for l i n e in f i l e :
+i f " neutron_blocking " in l i n e :
+p l = l i n e . s p l i t ( ’ n e u t r o n _ b l o c k i n g = ’)
+b l o c k _ l e v e l = ’ , ’ . j o i n ( b l o c k _ l e v e l ) + ’ /\n ’
+t e x t s t r += p l [ 0 ] + ’ n e u t r o n _ b l o c k i n g = ’ + b l o c k _ l e v e l
+else :
+t e x t s t r += l i n e
+
+47
+
+t e x t _ f i l e = open ( ’ hfbtho_NAMELIST . dat ’ ,
+text_file . write ( textstr )
+text_file . close ()
+def
+
+"w " )
+
+read_blockinfo ( ee ) :
+ee_dat = e e
+text =’’
+w i t h open ( ee_dat ) a s f i l e :
+text = f i l e . read ( )
+b l o c k i n g = t e x t . s p l i t ( " | HFB+THO> " ) [ 1 ] . s p l i t ( " p r o t o n
+eqpmin " ) [ 0 ] . s p l i t ( " B l o c k i n g
+[ 1 ] . s p l i t ( " num=")
+b l o c k i n g . pop ( 0 )
+blist = []
+f o r b in blocking : #[: −1]:
+b l = get_list_from_row ( b ) [ 1 2 : ]
+i f ’+ ’ i n b l [ 0 ] :
+w = bl [ 0 ] . s p l i t ( "+ ") [ 0]
+p a i r = ’+1 ’
+e l i f ’−’ in bl [ 0 ] :
+w = bl [ 0 ] . s p l i t (" −")[0]
+p a i r = ’ −1 ’
+bl = ’ ’ . join ( bl [ 1 : ] ) . replace ( ’ ] ’ , ’ ’ ) . s p l i t ( ’ , ’)
+block = [ ]
+b l o c k . append (w)
+b l o c k . append ( p a i r )
+for i in bl :
+b l o c k . append ( i )
+b l i s t . append ( b l o c k )
+return b l i s t
+
+d e f new_calc ( f ) :
+filename = f
+o = ’’
+print ( filename )
+output = s t r ( s u b p r o c e s s . check_output ( [ ’ l s ’ ,
+i f f i l e n a m e [ 8 : ] in output :
+return False
+else :
+r e t u r n True
+
+’./ results ’ ,
+
+candidates
+
+’ −1 ’]))
+
+d e f run_HFBTHO( n , v , deform , b l o c k _ l e v e l s ) :
+nuc = n
+v_pair = v
+i = deform
+blockprint = ’ ’
+filename = ’ ’
+set_params ( nuc , i , v _ p a i r )
+set_blocking ( [ " 0 , " , " 0 , " , " 0 , " , " 0 , " , " 0 " ] )
+f i l e n a m e = ’ r e s u l t s / ’ + s t r ( nuc [ 0 ] ) + ’_’ + s t r ( nuc [ 1 ] ) + ’ _def_ ’ + s t r ( i ) + ’ . dat ’
+i f new_calc ( f i l e n a m e ) i s True :
+s u b p r o c e s s . c a l l ( [ " . . / main " , " < " , " / dev / n u l l " , " >&" , " main . o u t " ] , s h e l l = F a l s e )
+s u b p r o c e s s . c a l l ( [ " cp " , " t h o o u t . d a t " , f i l e n a m e ] )
+b l o c k = r e a d _ b l o c k i n f o ( ’ t h o o u t . dat ’ )
+else :
+block = read_blockinfo ( filename )
+f o r b in range ( len ( block ) ) :
+i f b >= b l o c k _ l e v e l s :
+break
+set_blocking ( block [ b ] )
+blockprint = ’ , ’ . j o i n ( block [ b ] )
+f i l e n a m e = ’ r e s u l t s / ’ + s t r ( nuc [ 0 ] ) + ’_’ + s t r ( i n t ( nuc [ 1 ] ) + 1 ) + ’ _def_ ’ + \
+s t r ( i ) + ’ _l evel_ ’ + b l o c k p r i n t + ’ . dat ’
+i f new_calc ( f i l e n a m e ) i s True :
+s u b p r o c e s s . c a l l ( [ " . . / main " , " <" , " / dev / n u l l " , " >&" , " main . o u t " ] , s h e l l = F a l s e )
+s u b p r o c e s s . c a l l ( [ " cp " , " t h o o u t . d a t " , f i l e n a m e ] )
+def find_nth ( haystack , needle , n ) :
+s t a r t = haystack . f i n d ( needle )
+w h i l e s t a r t >= 0 and n > 1 :
+s t a r t = haystack . f i n d ( needle ,
+n −= 1
+return int ( start )
+
+start + len ( needle ))
+
+v _ p a i r = [ " − 2 8 7 . 8 5 " , " − 2 8 7 . 8 5 " , "T " ]
+deformation_states = [" −0.3" , " −0.2" , " −0.1" , " 0 . 0 " ,
+nuc = r e a d _ i s o ( ’ i s o _ e v e n . dat ’ )
+block_levels = 1
+f o r k i n nuc :
+for i in deformation_states :
+run_HFBTHO( k , v_pair , i , b l o c k _ l e v e l s )
+
+"0.1" ,
+
+"0.2" ,
+
+"0.3"]
+
+To analyze the results:
+import sys
+import s u b p r o c e s s
+i m p o r t random
+from t i m e i t i m p o r t d e f a u l t _ t i m e r
+
+as timer
+
+class nuclide :
+d e f __init__ ( s e l f , p r o t o n s , n e u t r o n s , d e f o r m a t i o n , b l o c k i n g , e n e r g y , \
+filename , b l o c k l i s t , convergence , e d i f f i t e r , i t e r a t i o n t i m e ,
+s e l f . z = protons
+s e l f . n = neutrons
+
+48
+
+totaltime ):
+
+are : " ) \
+
+s e l f . d = deformation
+s e l f . b = blocking
+s e l f . bl = b l o c k l i s t
+s e l f . bn = 0
+s e l f . e = energy
+s e l f . e d i f f = 0.0
+self . s = 0
+s e l f . f = filename
+s e l f . c = convergence
+self . eit = ediffiter
+s e l f . spn = [ ]
+s e l f . spp = [ ]
+s e l f . pe = [ ]
+s e l f . beta = [ ]
+s e l f .m = 0 . 0
+s e l f . dm = 0 . 0
+self . itt = iterationtime
+s e l f . t = totaltime
+d e f __repr__ ( s e l f ) :
+return str ( s e l f . z ) + " " + str ( s e l f . n) + " " + str ( s e l f . d) + " " + str ( s e l f . b) \
++ "
+" + s t r ( s e l f . bn ) + "
+" + str ( self . e) + "
+" + s t r ( s e l f . s ) +\
+"
+" + str ( self . ediff ) + "
+" + s t r ( s e l f . c ) + "\n "
+d e f get_Energy ( inp , r a t = ’ ’ ) :
+E = ’’
+text = ’ ’
+conv = ’ y e s ’
+contest = ’ ’
+t = 0
+tfirst = 0
+f o r l i n e in inp :
+i f "CPU t i m e =" i n l i n e :
+if
+t == 0 :
+t f i r s t = f l o a t ( get_list_from_row ( l i n e ) [ 3 ] )
+t += f l o a t ( g e t _ l i s t _ f r o m _ r o w ( l i n e ) [ 3 ] )
+t e x t += l i n e
+t e x t f i n d = "FORTRAN 95 CODE"
+i f f i n d _ n t h ( t e x t , t e x t f i n d , 2 ) < 0 and f i n d _ n t h ( t e x t , " t E n e r g y : e h f b " , 3 ) \
+< 0 and " | HFB+THO>" and " t E n e r g y : e h f b ( qp ) . . . " and " C a l c u l a t e d but " i n
+h f b t e x t = t e x t . s p l i t ( ’ | HFB+THO> ’ ) [ 0 ]
+t e x t = t e x t . s p l i t ( " | HFB+THO> " ) [ 1 ]
+i f " i t e r a t i o n s limit interrupt " in text :
+p r i n t ( ’HFB+THO non c o n v e r g e n c e ’ )
+conv = ’ no ’
+E_it , i t t = c h e c k _ i t e r a t i o n _ e n e r g y ( t e x t , r a t )
+t e x t = t e x t . s p l i t ( " t E n e r g y : e h f b ( qp ) . . . " ) [ 1 ]
+t e x t = t e x t . s p l i t ( " C a l c u l a t e d but " ) [ 0 ]
+f o r i in range (0 , len ( text ) ) :
+i f t e x t [ i ] != " " :
+E += t e x t [ i ]
+E = E[ : − 2 ]
+r e t u r n E , conv , E_it , i t t + t f i r s t ∗ 6 0 , t ∗60
+else :
+r e t u r n 0 , conv , 0 , 0 , 0
+def
+
+text :
+
+a n a l y z e _ c o r r u p t e d ( d i r e c t o r y ) : #Opens c o r r u p t e d f i l e s and s p l i t s \
+them i n t o c o r r e c t o u t p u t f i l e s i f t h e c a l c u l a t i o n s i n them a r e c o m p l e t e
+corruptnucs = create_nuclist ( directory )
+print ( corruptnucs )
+for i in corruptnucs :
+text = ’ ’
+count = 0
+w i t h open ( i . f ) a s f i l e :
+for l i n e in f i l e :
+i f "FORTRAN 95 CODE" i n l i n e :
+c o u n t += 1
+i f c o u n t == 2 :
+n e w f i l e = open ( s t r ( i . z ) + "_" + s t r ( i . n − 1 ) + " _def_ " + \
+s t r ( i . d ) + " . d a t " , "w " )
+newfile . write ( text )
+newfile . close ()
+text = ’ ’
+t e x t += l i n e
+n e w f i l e 2 = open ( i . f , "w " )
+newfile2 . write ( text )
+newfile2 . close ()
+s u b p r o c e s s . c a l l ( [ ’ mv ’ , i . f , ’ . ’ ] )
+
+d e f get_min ( i n p ) :
+out = [ ]
+i f len ( inp ) i s 1 :
+return inp
+f o r i in inp :
+i f i . c == ’ no ’ :
+continue
+emin = i
+f o r j in inp :
+i f i i s not j :
+i f i . z == j . z and i . n == j . n :
+i f f l o a t ( j . e ) < f l o a t ( emin . e ) :
+emin = j
+i f emin n o t i n o u t :
+o u t . append ( emin )
+f o r i i n out :
+i f i . bn > 1 :
+f o r j in inp :
+i f i . z == j . z and i . n == j . n − 1 and i . d == j . d :
+
+49
+
+b l o c k l i s t = j . bl
+break
+f o r b in range (0 , len ( b l o c k l i s t ) ) :
+txt = ’ ’
+f o r bt i n b l o c k l i s t [ b ] :
+t x t += b t
+b l o c k l i s t [ b ] = txt
+n = 0
+found_lowest = False
+while found_lowest i s False :
+f o r l in inp :
+i f l i s not i :
+i f l . z == i . z and l . n == i . n and l . d == i . d :
+i f l . b == b l o c k l i s t [ n ] :
+i . ediff = float ( i . e) − float ( l . e)
+f o u n d _ l o w e s t = True
+break
+n += 1
+i f n >= l e n ( b l o c k l i s t ) :
+break
+m a s s f i l e = open ( ’ m a s s e s . dat ’ , "w " )
+f o r i i n out :
+i .m = ( i . z ∗ (m_p + m_e) + i . n∗m_n + f l o a t ( i . e ) )
+i . dm = ( i .m − ( i . z + i . n ) ∗amu) ∗ 1 0 0 0
+m a s s p r i n t = [ i . z , i . n , i . m, i . dm ]
+m a s s f i l e . w r i t e ( " { : >5} { : >5} { : > 22} { : >22}". f o r m a t ( ∗ m a s s p r i n t ) + " \ n " )
+massfile . close ()
+r e t u r n s o r t _ r e s u l t s ( out )
+def
+
+def
+
+{:
+
+def
+
+def
+
+def
+
+s o r t _ r e s u l t s ( inp ) :
+i n p = s o r t e d ( inp , key = lambda n u c l i d e :
+return inp
+
+( nuclide . z ,
+
+nuclide .n ,
+
+nuclide . d))
+
+p r i n t _ r e s u l t s ( inpt , filename ) :
+t e x t _ f i l e = open ( f i l e n a m e , "w " )
+t e x t p r i n t = [ " Z " , "N" , " d " , " l e v e l " , " B l o c k #" , "E " , " Sn/ S2n " , "E_b − E_1 " , \
+" converge " ]
+t e x t _ f i l e . w r i t e ( " { : >5} { : >5} { : >5} { : >10} { : >8} { : >12} { : >22} { : >22}\
+>8}". f o r m a t ( ∗ t e x t p r i n t ) + " \ n " )
+d a t a f i l e = open ( ’ p a i r i n g b e t a . dat ’ , "w " )
+d a t a f i l e . w r i t e ( " Z " + " " + "N" + "
+" + " p a i r i n g e n e r g y " +\
+"
+" + " beta " + "\n " )
+for ip in inpt :
+t e x t p r i n t = [ s t r ( i p . z ) , s t r ( i p . n ) , s t r ( i p . d ) , s t r ( i p . b ) , s t r ( i p . bn ) , \
+str ( ip . e ) , str ( ip . s ) , str ( ip . e d i f f ) , ip . c ]
+t e x t _ f i l e . w r i t e ( " { : >5} { : >5} { : >5} { : >10} { : >8} { : >12} { : >22} { : >22} { : >8}"\
+. format (∗ t e x t p r i n t ) + "\n " )
+d a t a f i l e . write ( str ( ip . z ) + " " + str ( ip . n) + " ")
+f o r j i n r a n g e ( 0 , l e n ( i p . pe ) ) :
+d a t a f i l e . w r i t e ( s t r ( i p . pe [ j ] ) + " " )
+f o r k in range (0 , len ( ip . beta ) ) :
+d a t a f i l e . write ( s t r ( ip . beta [ k ] ) + " " )
+d a t a f i l e . write ("\n ")
+datafile . close ()
+text_file . close ()
+p r i n t _ s e p a r a t i o n _ e n e r g i e s ( i n p ) : #must be s o r t e d
+t e x t _ f i l e = open ( ’ s e p a r a t i o n _ e n e r g i e s . dat ’ , "w " )
+f o r i in range (0 , len ( inp ) ) :
+E = 0
+i f i n p [ i ] . n % 2 i s 0 and i > 1 :
+i f inp [ i ] . z i s inp [ i −2]. z :
+E = f l o a t ( inp [ i −2]. e ) − f l o a t ( inp [ i ] . e )
+t e x t _ f i l e . write ( s t r ( inp [ i ] . z ) + "
+" + s t r ( inp [ i ] . n) + "
+s t r (E) + " \ n " )
+inp [ i ] . s = E
+e l i f i n p [ i ] . n % 2 i s n o t 0 and i > 0 :
+i f inp [ i ] . z i s inp [ i −1]. z :
+E = f l o a t ( inp [ i −1]. e ) − f l o a t ( inp [ i ] . e )
+t e x t _ f i l e . write ( s t r ( inp [ i ] . z ) + "
+" + s t r ( inp [ i ] . n) + "
++ s t r (E) + " \ n " )
+inp [ i ] . s = E
+text_file . close ()
+print_neutron_driplines ( inp ) :
+o n e _ f i l e = open ( ’ o n e _ n e u t r o n _ d r i p l i n e s . dat ’ , "w " )
+t w o _ f i l e = open ( ’ t w o _ n e u t r o n _ d r i p l i n e s . dat ’ , " w " )
+f o r i in range (0 , len ( inp ) − 2 ) :
+i f i n p [ i ] . n %2 i s n o t 0 :
+i f i n p [ i ] . s > 0 and i n p [ i + 2 ] . s < 0 and i n p [
+o n e _ f i l e . write ( s t r ( inp [ i ] . z ) + "
+" + str
+e l i f i n p [ i ] . n %2 i s 0 :
+i f i n p [ i ] . s > 0 and i n p [ i + 2 ] . s < 0 and i n p [
+two_file . write ( s t r ( inp [ i ] . z ) + "
+" + str
+one_file . close ()
+two_file . close ()
+
+"\
+
+i ] . z i s inp [ i + 2 ] . z :
+( inp [ i ] . n ) + "\n " )
+i ] . z i s inp [ i + 2 ] . z :
+( inp [ i ] . n ) + "\n " )
+
+c h e c k _ o u t p u t f i l e s ( i n p ) : #c h e c k s f o r c o r r u p t e d and empty f i l e s
+create_start = timer ()
+f l i s t = c r e a t e _ n u c l i s t ( inp )
+create_stop = timer ()
+p r i n t ( " Create n u c l i s t time : " + s t r ( create_stop − c r e a t e _ s t a r t ) )
+corrupted = 0
+empty = 0
+checked_files
+= ’’
+filelist = []
+c h e c k d i r = s t r ( s u b p r o c e s s . check_output ( [ ’ l s ’ ] ) )
+
+50
+
+" +\
+
+if
+
+" c o r r u p t e d " not i n c h e c k d i r :
+s u b p r o c e s s . c a l l ( [ ’ mkdir ’ , ’ c o r r u p t e d ’ ] )
+i f " e m p t y _ f i l e s " not i n c h e c k d i r :
+s u b p r o c e s s . c a l l ( [ ’ mkdir ’ , ’ e m p t y _ f i l e s ’ ] )
+i = 0
+i f " c h e c k e d _ f i l e s . dat " i n c h e c k d i r :
+w i t h open ( ’ c h e c k e d _ f i l e s . dat ’ ) a s f i l e :
+c h e c k e d _ f i l e l i s t = f i l e . read ( )
+else :
+checked_filelist = ’ ’
+for i in f l i s t :
+text = ’ ’
+i f i . f in c h e c k e d _ f i l e l i s t :
+continue
+w i t h open ( i . f ) a s f i l e :
+text = f i l e . read ( )
+k = f i n d _ n t h ( t e x t , ’ | HFB+THO> ’ , 2 )
+i f " i s c o r r u p t e d ! " i n t e x t and i . n % 2 i s n o t 0 and \
+f i n d _ n t h ( t e x t , \ " t E n e r g y : e h f b " , 4 ) >= 0 :
+i f k >= 0 :
+corrupted = 1
+p r i n t ( " C o r r u p t e d f i l e moved t o c o r r u p t e d / f o r a n a l y s i s : " + i . f )
+s u b p r o c e s s . c a l l ( [ ’ mv ’ , i . f , ’ c o r r u p t e d ’ ] )
+continue
+e l i f " h e l i s m i s s i n g ! " i n t e x t and i . n % 2 i s n o t 0 and \
+f i n d _ n t h ( t e x t , " t E n e r g y : e h f b " , 4 ) >= 0 :
+i f k >= 0 :
+corrupted = 1
+p r i n t ( " C o r r u p t e d f i l e moved t o c o r r u p t e d / f o r a n a l y s i s : " + i . f )
+s u b p r o c e s s . c a l l ( [ ’ mv ’ , i . f , ’ c o r r u p t e d ’ ] )
+continue
+i f " t E n e r g y " n o t i n t e x t o r " | HFB+THO>" n o t i n t e x t :
+s u b p r o c e s s . c a l l ( [ ’ mv ’ , i . f , ’ e m p t y _ f i l e s ’ ] )
+p r i n t ( " No b l o c k i n g c a n d i d a t e found , empty f i l e : " + s t r ( i . f ) )
+empty = 1
+continue
+i f f i n d _ n t h ( t e x t , "FORTRAN 95 CODE" , 2 ) >= 0 \
+and f i n d _ n t h ( t e x t , " t E n e r g y : e h f b " , 4 ) < 0 :
+p r i n t ( " C o r r u p t e d f i l e o r f i l e w i t h . h e l m i s s i n g moved t o e m p t y _ f i l e s : " + i . f )
+empty = 1
+s u b p r o c e s s . c a l l ( [ ’ mv ’ , i . f , ’ e m p t y _ f i l e s ’ ] )
+continue
+f i l e l i s t . append ( i )
+c h e c k e d _ f i l e s += i . f
+t e x t _ f i l e = open ( ’ c h e c k e d _ f i l e s . dat ’ , "w " )
+text_file . write ( checked_files )
+text_file . close ()
+i f corrupted i s 1:
+p r i n t ( " C o r r u p t e d f i l e s have been moved t o c o r r u p t e d /\ n f i x i n g f i l e s . . . . . " )
+analyze_corrupted ( ’ corrupted ’ )
+i f empty i s 1 :
+p r i n t ( " Empty f i l e s have been moved t o e m p t y _ f i l e s / " )
+return f i l e l i s t
+def
+
+c r e a t e _ n u c l i s t ( inp , r a t = ’ ’ ) :
+a l l n u c l i s t = [ ] #l o a d n u c s ( i n p )
+oldfilelist = ’’
+findnum = 1
+findnum2 = 1
+f o r char in inp :
+i f c h a r i s "_ " :
+findnum += 1
+i f char i s " / " :
+findnum2 += 1
+f i l e l i s t = m a k e _ f i l e l i s t ( inp )
+for i in a l l n u c l i s t :
+o l d f i l e l i s t += i . f
+j = 0
+z = 0
+n = 0
+deformation = [ ]
+blocklevel = [ ]
+Energy = [ ]
+k = 0
+while k < len ( f i l e l i s t ) :
+i f f i l e l i s t [ k ] in o l d f i l e l i s t :
+del f i l e l i s t [ k ]
+k −= 1
+else :
+f i l e l i s t [ k ] = inp + "/" + f i l e l i s t [ k ]
+k += 1
+for i in f i l e l i s t :
+Energy = [ ]
+blocklist = []
+i f " _def_ " i n i :
+i f "/" in i :
+z = i n t ( i [ f i n d _ n t h ( i , " / " , findnum2 ) + 1 : f i n d _ n t h ( i , "_" , findnum ) ] )
+else :
+z = i n t ( i [ 0 : f i n d _ n t h ( i , "_" , 1 ) ] )
+n = i n t ( i [ f i n d _ n t h ( i , "_" , findnum ) + 1 : f i n d _ n t h ( i , "_" , findnum + 1 ) ] )
+nuc = s t r ( z ) + " " + s t r ( n )
+i f " l e v e l " in i :
+d e f o r m a t i o n = i [ f i n d _ n t h ( i , "_" , findnum + 2 ) + 1 : f i n d _ n t h ( i , "_" , findnum + 3 ) ]
+b l o c k l e v e l = i [ find_nth ( i , " l e v e l _ " , 1) + 6 : find_nth ( i , " . dat " , 1 ) ]
+else :
+d e f o r m a t i o n = i [ f i n d _ n t h ( i , "_" , findnum + 2 ) + 1 : f i n d _ n t h ( i , " . d a t " , 1 ) ]
+b l o c k l e v e l = "−−−−−−−−−−"
+
+51
+
+w i t h open ( i ) a s f i l e :
+( Energy , conv , E d i f f i t e r , i t t , t ) = get_Energy ( f i l e , r a t )
+i f n % 2 is 0:
+w i t h open ( i ) a s f i l e :
+txt = ’ ’
+for l i n e in f i l e :
+t x t += l i n e
+b l o c k l i s t = read_blockinfo ( txt )
+f o r b in range (0 , len ( b l o c k l i s t ) ) :
+blocktext = ’ ’
+f o r bt i n b l o c k l i s t [ b ] :
+b l o c k t e x t += b t
+b l oc k l i s t [ b ] = blocktext
+j += 1
+a l l n u c l i s t . append ( n u c l i d e ( z , n , d e f o r m a t i o n , b l o c k l e v e l , Energy , \
+i , b l o c k l i s t , conv , E d i f f i t e r , i t t , t ) )
+allnuclist = sort_results ( allnuclist )
+for i in a l l n u c l i s t :
+i f i . n % 2 is 0:
+for j in a l l n u c l i s t :
+i f j . n % 2 i s not 0 :
+i f j . z == i . z and j . n == i . n + 1 and j . d == i . d :
+f o r k in range (0 , len ( i . bl ) ) :
+i f j . b == i . b l [ k ] :
+i f j . bn == 0 :
+j . bn = k + 1
+t e x t _ f i l e = open ( i n p + ’ / n u c l i s t s a v e . dat ’ , "w " )
+for i in a l l n u c l i s t :
+t e x t _ f i l e . w r i t e ( s t r ( i . z ) + " " + s t r ( i . n ) + " " + s t r ( i . d ) + " "\
++ s t r ( i . b ) + " " + s t r ( i . bn ) + " " + s t r ( i . e ) + " " + \
+i . f [ f i n d _ n t h ( i . f , " / " , findnum2 ) + 1 : ] \ + " " + s t r ( i . c ) \
++ "
+" + s t r ( i . e i t ) + "\n " )
+f o r j in range (0 , len ( i . bl ) ) :
+t e x t _ f i l e . write ( i . bl [ j ] + " ")
+text_file . write ("\n ")
+text_file . close ()
+return
+allnuclist
+def
+
+def
+
+def
+
+m a k e _ f i l e l i s t ( inp ) :
+f i l e l i s t = s t r ( s u b p r o c e s s . check_output ( [ " l s " ,
+filelist = filelist [1:]
+f i l e l i s t = f i l e l i s t [: −1]
+f i l e l i s t = f i l e l i s t . s p l i t ("\\n ")
+filelist [0] = filelist [0][1:]
+d e l f i l e l i s t [ l e n ( f i l e l i s t ) −1]
+j = 0
+while j < len ( f i l e l i s t ) :
+i f " _def_ " n o t i n f i l e l i s t [ j ] :
+del f i l e l i s t [ j ]
+j −= 1
+j += 1
+return f i l e l i s t
+f i l e e x i s t s ( nuclist , filename ) :
+for i in n u c l i s t :
+findnum = 0
+f o r char in i . f :
+i f char i s " / " :
+findnum += 1
+i f i . f [ f i n d _ n t h ( i . f , " / " , findnum ) + 1 :
+r e t u r n True
+return False
+
+inp ] ) )
+
+] == f i l e n a m e :
+
+replace_empty_files ( ) :
+d i r e c t o r y = ’ empty_files ’
+nuclist = create_nuclist ( directory )
+allnuclist = create_nuclist ( ’. ’)
+calcall = 0
+answer = " s t a r t v a l u e "
+splitrun = 0
+for i in n u c l i s t :
+run = 0
+text = ’ ’
+f i l e n a m e = s t r ( i . z ) + "_" + s t r ( i n t ( i . n − 1 ) ) + " _def_ " + s t r ( i . d ) + " . d a t "
+i f f i l e e x i s t s ( a l l n u c l i s t , filename ) i s False :
+continue
+w i t h open ( f i l e n a m e ) a s f i l e :
+for l i n e in f i l e :
+t e x t += l i n e
+blocking = read_blockinfo ( text )
+f o r ab i n r a n g e ( 0 , l e n ( a l l n u c l i s t ) ) :
+i f a l l n u c l i s t [ ab ] . n % 2 i s n o t 0 :
+i f s p l i t r u n == 0 :
+a l l n u c l i s t [ ab ] . b = a l l n u c l i s t [ ab ] . b . s p l i t ( " , " )
+splitrun = 1
+i f i . z != a l l n u c l i s t [ ab ] . z o r i . n != a l l n u c l i s t [ ab ] . n o r i . d !=\
+a l l n u c l i s t [ ab ] . d :
+continue
+r = 0
+badblock = ’ ’
+f o r m in range (0 , len ( i . b ) ) :
+b a d b l o c k += i . b [m]
+while r < len ( blocking ) :
+block1 = ’ ’
+block2 = ’ ’
+f o r n in range (0 , len ( blocking [ r ] ) ) :
+b l o c k 1 += b l o c k i n g [ r ] [ n ]
+
+52
+
+if
+
+if
+
+if
+
+b l o c k 2 += a l l n u c l i s t [ ab ] . b [ n ]
+i f n < len ( blocking [ r ] ) − 1:
+b l o c k 2 += " , "
+i f b l o c k 1 == b l o c k 2 o r b l o c k 1 == b a d b l o c k :
+del blocking [ r ]
+r −= 1
+r += 1
+c a l c a l l i s n o t 1 and a n s w e r i s n o t " na " :
+p r i n t ( " C a l c u l a t i o n s c o u l d n o t be p e r f o r m e d , b l o c k i n g c a n d i d a t e c o u l d n o t be f o u n d " )
+a n s w e r = i n p u t ( " Run a new c a l c u l a t i o n f o r t h i s n u c l i d e w i t h t h e n e x t b l o c k i n g c a n d i d a t e ? ( y , ya , n , na ) :
+a n s w e r i s " y " o r a n s w e r i s " ya " :
+i f a n s w e r i s " ya " :
+calcall = 1
+i f i . n < 10:
+s n = ’ s00 ’ + s t r ( i . n − 1 )
+e l i f i . n < 100:
+s n = ’ s0 ’ + s t r ( i . n − 1 )
+else :
+sn = ’ s ’ + s t r ( i . n − 1)
+i f i . z < 10:
+s z = ’ _00 ’ + s t r ( i . z )
+e l i f i . z < 100:
+s z = ’ _0 ’ + s t r ( i . z )
+else :
+s z = ’_’ + s t r ( i . z )
+h e l f i l e = sn + s z + ’ . hel ’
+t e l f i l e = sn + s z + ’ . t e l ’ ,
+i f f i l e e x i s t s ( a l l n u c l i s t , h e l f i l e ) and f i l e e x i s t s ( a l l n u c l i s t , t e l f i l e ) :
+s u b p r o c e s s . c a l l ( [ ’ cp ’ , ’ . . / ’ + h e l f i l e , ’ . ’ ] )
+s u b p r o c e s s . c a l l ( [ ’ cp ’ , ’ . . / ’ + t e l f i l e , ’ . ’ ] )
+set_params ( [ i . z , i . n − 1 ] , i . d , [ ’ − 2 8 7 . 8 5 ’ , ’ − 2 8 7 . 8 5 ’ , "T " ] )
+w h i l e run >= 0 and run < l e n ( b l o c k i n g ) :
+s e t _ b l o c k i n g ( b l o c k i n g [ run ] )
+blocktext = ’ ’
+f o r p i n b l o c k i n g [ run ] :
+b l o c k t e x t += p
+f i l e n a m e 2 = s t r ( i . z ) + "_" + s t r ( i . n ) + " _def_ " + s t r ( i . d ) \
++ " _level_ " + b l o c k t e x t + " . dat "
+print ( filename2 )
+p r i n t ( b l o c k i n g [ run ] )
+run_HFBTHO( f i l e n a m e 2 )
+d i r e c t o r y l i s t = s t r ( s u b p r o c e s s . check_output ( [ ’ l s ’ ] ) )
+i f " thoout . dat " i n d i r e c t o r y l i s t :
+w i t h open ( ’ t h o o u t . dat ’ ) a s f i l e :
+text = ’ ’
+for l i n e in f i l e :
+t e x t += l i n e
+i f " | HFB+THO>" i n t e x t :
+run = − 10
+s u b p r o c e s s . c a l l ( [ ’ mv ’ , ’ t h o o u t . dat ’ , f i l e n a m e 2 ] )
+s u b p r o c e s s . c a l l ( [ ’ mv ’ , i . f , ’ e m p t y _ f i l e s / p r o c e s s e d _ e m p t y _ f i l e s ’ ] )
+run += 1
+s u b p r o c e s s . c a l l ( [ ’ rm ’ , s t r ( h e l f i l e ) ] )
+s u b p r o c e s s . c a l l ( [ ’ rm ’ , s t r ( t e l f i l e ) ] )
+a n s w e r i s " na " :
+calcall = 1
+
+def
+
+set_iterations ( it ):
+w i t h open ( ’ hfbtho_NAMELIST . dat ’ ) a s f i l e :
+textstr = ’ ’
+for l i n e in f i l e :
+i f " number_iterations " in l i n e :
+t e x t s t r+= l i n e [ : f i n d _ n t h ( l i n e , " = " , 1 ) + 2 ] + s t r ( i t ) \
++ l i n e [ find_nth ( l i n e , " , " , 1 ) : ]
+else :
+t e x t s t r += l i n e
+t e x t _ f i l e = open ( ’ hfbtho_NAMELIST . dat ’ , "w " )
+text_file . write ( textstr )
+text_file . close ()
+
+def
+
+loadnucs ( d i r e c t o r y ) :
+d i r t e x t = s t r ( s u b p r o c e s s . check_output ( [ ’ l s ’ , d i r e c t o r y ] ) )
+f i l e n a m e = " n u c l i s t s a v e . dat "
+i f filename in dirtext :
+nuclist = [ ]
+w i t h open ( d i r e c t o r y + " / " + f i l e n a m e ) a s f i l e :
+text = ’ ’
+k = 0
+l = 0
+for l i n e in f i l e :
+t e x t += l i n e
+k += 1
+i f k >= 2 :
+text = text . s p l i t ("\n ")
+d e l t e x t [ −1]
+text [ 0 ] = text [ 0 ] . s p l i t (" ")
+text [ 1 ] = text [ 1 ] . s p l i t (" ")
+del text [1][ −1]
+nuc = n u c l i d e ( i n t ( t e x t [ 0 ] [ 0 ] ) , i n t ( t e x t [ 0 ] [ 1 ] ) , t e x t [ 0 ] [ 2 ] , \
+text [ 0 ] [ 3 ] , f l o a t ( text [ 0 ] [ 5 ] ) , text [ 0 ] [ 6 ] , \
+text [ 1 ] , text [ 0 ] [ 7 ] , f l o a t ( text [ 0 ] [ 9 ] ) )
+nuc . bn = i n t ( t e x t [ 0 ] [ 4 ] )
+i f nuc . f i n d i r t e x t :
+n u c l i s t . append ( nuc )
+text = ’ ’
+k = 0
+l += 1
+
+53
+
+")
+
+return
+else :
+return
+
+nuclist
+[]
+
+d e f compare_with_exp ( ) :
+nuclist = create_nuclist ( ’. ’)
+n u c l i s t = get_min ( n u c l i s t )
+print_separation_energies ( nuclist )
+explist = []
+w i t h open ( ’ b i n d 2 0 1 6 . dat ’ ) a s f i l e :
+exp = f i l e . r e a d l i n e s ( )
+d e l ( exp [ 0 ] )
+f o r i i n exp :
+r o w l i s t = get_list_from_row ( i )
+i f "1000" in row list [ 5 ] :
+continue
+n = int ( rowlist [ 0 ] )
+z = int ( rowlist [ 1 ] )
+bea = f l o a t ( r o w l i s t [ 4 ] )
+a = int ( rowlist [ 2 ] )
+e x p l i s t . append ( n u c l i d e ( z , n , 0 , 0 , bea ∗ a / 1 0 0 0 , 0 , [ ] , " y e s " , 0 ) )
+explist = sort_results ( explist )
+c o m p a r e f i l e = open ( ’ expcompare . dat ’ , "w " )
+p r i n t l i s t = [ " Z " , "N" , " AME2016 " , "HFB+THO" , " D i f f e r e n c e " , \
+" E r r o r % from exp v a l u e " , " T o t a l b i n d i n g e n e r g y (MeV ) " ]
+c o m p a r e f i l e . w r i t e ( " { : >5} { : >5} { : >20} { : >10} { : >20} { : >24} { : >24}"\
+. format (∗ p r i n t l i s t )\
++ "\n " )
+for i in n u c l i s t :
+for j in e x p l i s t :
+i f i . z == j . z and i . n == j . n :
+d i f f = −j . e − f l o a t ( i . e )
+p r i n t l i s t = [ i . z , i . n , j . e , s t r (− f l o a t ( i . e ) ) , d i f f , d i f f / j . e ]
+c o m p a r e f i l e . w r i t e ( " { : >5} { : >5} { : >20} { : >10} { : >20} { : >24}"\
+. \ format (∗ p r i n t l i s t )\
++ "\n " )
+break
+comparefile . close ()
+d e f get_data ( n u c l i s t ) :
+spnum = 50
+s p f i l e s = s t r ( s u b p r o c e s s . check_output ( [ ’ l s ’ ] ) )
+f o r i in range (0 , len ( n u c l i s t ) ) :
+s p e f i l e = s t r ( n u c l i s t [ i ] . z ) + "_" + s t r ( n u c l i s t [ i ] . n ) + ’ _spe . dat ’
+f e r m i = i n t ( round ( n u c l i s t [ i ] . n / 2 − 0 . 5 ) )
+sp = [ ]
+spp = [ ]
+w i t h open ( n u c l i s t [ i ] . f ) a s f i l e :
+text = f i l e . read ( )
+t e x t 1 = t e x t . s p l i t ( " | HFB+THO> " ) [ 1 ] . s p l i t ( " d e l t a ( n , p ) " ) [ 1 ] . s p l i t ( " d i p o l e moment " ) \
+[ 0 ] . s p l i t ("\n ")
+for j in text1 :
+i f " p a i r i n g energy " in j :
+p a i r = get_list_from_row ( j )
+e l i f " deformation beta2 " in j :
+beta = get_list_from_row ( j )
+n u c l i s t [ i ] . pe = [ p a i r [ 3 ] , p a i r [ 4 ] , p a i r [ 5 ] ]
+n u c l i s t [ i ] . beta = [ beta [ 2 ] , beta [ 3 ] , beta [ 4 ] ]
+n e u t r o n s p = t e x t . s p l i t ( " | HFB+THO> " ) [ 1 ] . s p l i t ("# q u a s i p a r t i c l e e n e r g i e s n e u t r o n s " ) [ 1 ] \
+. s p l i t ( " l a b e l s " ) [ 1 ] . s p l i t ("# a l l " ) [ 0 ] . s p l i t ( " \ n " )
+p r o t o n s p = t e x t . s p l i t ( " | HFB+THO> " ) [ 1 ] . s p l i t ("# q u a s i p a r t i c l e e n e r g i e s p r o t o n s " ) [ 1 ] \
+. s p l i t ( " l a b e l s " ) [ 1 ] . s p l i t ("# a l l " ) [ 0 ] . s p l i t ( " \ n " )
+d e l neutronsp [ −1]
+del neutronsp [ 0 ]
+d e l protonsp [ −1]
+del protonsp [ 0 ]
+f o r j in neutronsp :
+add = g e t _ l i s t _ f r o m _ r o w ( j )
+s p . append ( add )
+f o r k in protonsp :
+addp = g e t _ l i s t _ f r o m _ r o w ( k )
+spp . append ( addp )
+f o r e i n range ( 0 , l e n ( sp ) ) :
+s p [ e ] = [ f l o a t ( s p [ e ] [ 3 ] ) , sp [ e ] [ 9 : ] ]
+f o r ep i n r a n g e ( 0 , l e n ( spp ) ) :
+spp [ ep ] = [ f l o a t ( spp [ ep ] [ 3 ] ) , spp [ ep ] [ 9 : ] ]
+sp = s o r t e d ( sp )
+spp = s o r t e d ( spp )
+newsp = [ ]
+t e x t _ f i l e = open ( s t r ( n u c l i s t [ i ] . z ) + "_" + s t r ( n u c l i s t [ i ] . n ) + ’ _nspe . dat ’ , "w " )
+f o r f i n range ( 0 , l e n ( sp ) ) :
+i f a b s ( f e r m i − f ) <= 5 0 :
+newsp . append ( s p [ f ] )
+t e x t _ f i l e . w r i t e ( s t r ( sp [ f ] [ 0 ] ) + " " + s t r ( sp [ f ] [ 1 ] ) + "\ n " )
+text_file . close ()
+newspp = [ ]
+t e x t _ f i l e = open ( s t r ( n u c l i s t [ i ] . z ) + "_" + s t r ( n u c l i s t [ i ] . n ) + " _pspe . d a t " , "w " )
+f o r f i n r a n g e ( 0 , l e n ( spp ) ) :
+i f a b s ( f e r m i − f ) <= 5 0 :
+newspp . append ( spp [ f ] )
+t e x t _ f i l e . w r i t e ( s t r ( spp [ f ] [ 0 ] ) + " " + s t r ( spp [ f ] [ 1 ] ) + " \ n " )
+text_file . close ()
+n u c l i s t [ i ] . spp = newspp
+n u c l i s t [ i ] . spn = newsp
+d e f count_def_block ( ) :
+allnuc = create_nuclist ( ’. ’)
+
+54
+
+nuc = 0
+c o u n t f i l e = open ( ’ count_d_b . dat ’ , "w " )
+c o u n t w r i t e = [ " Z " , "N" , "# d e f " , "# b l o c k [ − 0 . 1 , −0.2 , ( − 0 . 3 ) , 0 . 0 , 0 . 1 , 0 . 2 , 0 . 3 ] " , " T o t a l c a l c s " ]
+c o u n t f i l e . w r i t e ( " { : >5} { : >5} { : >8} { : >60} { : >15}". f o r m a t ( ∗ c o u n t w r i t e ) + " \ n " )
+cdef = 0
+cblock = 0
+w h i l e nuc < l e n ( a l l n u c ) :
+cblocktext = ’ ’
+totblock = 0
+i f nuc == 0 :
+c d e f += 1
+nuc += 1
+continue
+w h i l e nuc < l e n ( a l l n u c ) and a l l n u c [ nuc ] . n == a l l n u c [ nuc − 1 ] . n\
+and a l l n u c [ nuc ] . z == a l l n u c [ nuc − 1 ] . z :
+i f a l l n u c [ nuc ] . d != a l l n u c [ nuc − 1 ] . d :
+c b l o c k t e x t += "
+" + str ( cblock )
+c d e f += 1
+t o t b l o c k += c b l o c k
+cblock = 1
+else :
+c b l o c k += 1
+nuc += 1
+totcount = totblock ∗ cdef + cblock ∗ cdef
+i f a l l n u c [ nuc − 1 ] . n % 2 != 0 :
+c o u n t w r i t e = [ s t r ( a l l n u c [ nuc − 1 ] . z ) , s t r ( a l l n u c [ nuc − 1 ] . n ) , s t r ( c d e f ) , \
+str ( cblocktext ) + "
+" + s tr ( cblock ) , str ( totcount ) ]
+c o u n t f i l e . w r i t e ( " { : >5} { : >5} { : >8} { : >60} { : >15}". f o r m a t ( ∗ c o u n t w r i t e ) + " \ n " )
+else :
+c o u n t w r i t e = [ s t r ( a l l n u c [ nuc − 1 ] . z ) , s t r ( a l l n u c [ nuc − 1 ] . n ) , \
+str ( cdef ) , "" , str ( cdef ) ]
+c o u n t f i l e . w r i t e ( " { : >5} { : >5} { : >8} { : >60} { : >15}". f o r m a t ( ∗ c o u n t w r i t e ) + " \ n " )
+nuc += 1
+cdef = 1
+cblock = 1
+cblocktext = ’ ’
+countfile . close ()
+d e f print_exp_count ( ) :
+c o u n t p r i n t = open ( ’ c o u n t p r i n t . dat ’ , "w " )
+w i t h open ( ’ expcompare . dat ’ ) a s f i l e :
+exptext = f i l e . r e a d l i n e s ()
+del exptext [ 0 ]
+w i t h open ( ’ count_d_b . dat ’ ) a s f i l e :
+counttext = f i l e . readlines ()
+f o r e in range (0 , len ( exptext ) ) :
+for c in counttext :
+i f g e t _ l i s t _ f r o m _ r o w ( e x p t e x t [ e ] ) [ 0 ] == g e t _ l i s t _ f r o m _ r o w ( c ) [ 0 ] and \
+g e t _ l i s t _ f r o m _ r o w ( e x p t e x t [ e ] ) [ 1 ] == g e t _ l i s t _ f r o m _ r o w ( c ) [ 1 ] :
+i f f l o a t ( g e t _ l i s t _ f r o m _ r o w ( c ) [ 1 ] ) % 2 != 0 :
+c o u n t p r i n t . w r i t e ( get_list_from_row ( c )[ −1] + "\ n " )
+break
+countprint . close ()
+m_p
+m_e
+m_n
+amu
+
+=
+=
+=
+=
+
+938.271998
+0.5109989
+939.565330
+931.4940954
+
+o p t i o n = ’ none ’
+w h i l e o p t i o n i s not " q " :
+o p t i o n = i n p u t ( " ( 1 ) Check f i l e s \n ( 2 ) A n a l y z e C o r r u p t e d f i l e s \n ( 3 )
+i f option i s " 1 " :
+tot_start = timer ()
+allnucs = check_outputfiles ( ’. ’)
+tot_end = t i m e r ( )
+p r i n t ( " T o t a l c h e c k f i l e t i m e : " + s t r ( tot_end − t o t _ s t a r t ) )
+e l i f option i s " 2 " :
+analyze_corrupted ( ’ corrupted ’ )
+e l i f option i s " 3 " :
+allnucs = create_nuclist ( ’. ’)
+r e s u l t s = get_min ( a l l n u c s )
+print_separation_energies ( results )
+get_data ( r e s u l t s )
+p r i n t _ r e s u l t s ( r e s u l t s , ’ r e s u l t s . dat ’ )
+print_neutron_driplines ( r e s u l t s )
+#p r i n t _ e x p _ c o u n t ( )
+#c o u n t _ d e f _ b l o c k ( )
+#p r i n t _ r e s u l t s ( a l l n u c s , ’ a l l r e s u l t s . dat ’ )
+else :
+option = "q"
+
+55
+
+Print
+
+results :
+
+")
+
+References
+[1] B. P. Abbott et al. Phys. Rev. Lett., 119:161101, Oct 2017.
+[2] P. S. Cowperthwaite et al. The Astrophysical Journal Letters, 848(2):L17, 2017.
+[3] C. J. Horowitz, A. Arcones, B. Cote, I. Dillmann, W. Nazarewicz, I. U. Roederer,
+H. Schatz, A. Apra-hamian, D. Atanasov, A. Bauswein, J. Bliss, M. Brodeur, J. A.
+Clark, A. Frebel, F. Foucart, C. J. Hansen, O. Just, A. Kankainen, G. C. McLaughlin, J. M. Kelly, S. N. Lid-dick, D. M. Lee, J. Lippuner, D. Martin, J.MendozaTemis, B. D. Metzger, M. R. Mumpower, G. Perdikakis,J. Pereira, B. W. O’Shea,
+R. Reifarth, A. M. Rogers,D. M. Siegel, A. Spyrou, R. Surman, X. Tang, T. Uesaka, and M. Wang. arXiv:1805.04637 (2018).
+[4] T.M. Sprouse, R. Navarro Perez, R. Surman, M.R. Mumpower, G.C. McLaughlin,
+and N. Schunck. https://arxiv.org/abs/1901.10337
+[5] M.R. Mumpower, R. Surman, D.L. Fang, M. Beard, P.M oller, T. Kawano, and A.
+Aprahamian. https://arxiv.org/pdf/1505.07789.pdf
+[6] M.R. Mumpower, R. Surmana, G.C. McLaughlinb, A. Aprahamian
+http://www.sciencedirect.com/science/article/pii/S0146641015000897
+[7] Y. Gao, J. Dobaczewski, M. Kortelainen, J. Toivanen, and D. Tarpanov. Phys. Rev.
+C 87, 034324 (2013).
+[8] T. Haverinen and M. Kortelainen J. Phys. G 44, 044008 (2017).
+[9] Z.-Y. Wu, C. Qi, R. Wyss, and H.-L. Liu. Phys. Rev. C 92, 024306 (2015).
+[10] A. Bhagwat, X. Vi~nas, M. Centelles, P. Schuck, and R. Wyss PHYSICAL REVIEW C 81, 044321 (2010)
+[11] Chong Qi https://arxiv.org/abs/1407.8218, (2014).
+[12] C.
+Q
+J. Phys. G: Nucl.
+https://arxiv.org/abs/1407.8221
+
+Part.
+
+Phys.
+
+42,
+
+045104
+
+(2015),
+
+[13] J. Duflo and A.P. Zuker Physical Review C, Volume 52 (1995)
+[14] H.J. Lipkin Ann. of Phys. 9, 272 (1960).
+[15] M. Bender, P.-H. Heenen, and P.-G. Reinhard Rev. Mod. Phys. 75, 121 (2003).
+[16] S. Changizi, C. Qi, and R. Wyss Nucl. Phys. A 940 210 (2015).
+56
+
+[17] S. A. Changizi and C. Qi Phys. Rev. C 91, 024305 (2015).
+[18] S. Changizi and C. Qi Nucl. Phys. A 951, 97 (2016).
+[19] M.V. Stoitsov, N. Schunck, M. Kortelainen, N. Michel, H. Nam, E.Olsen, J. Sarich,
+S. Wild https://arxiv.org/abs/1210.1825
+[20] M. Kortelainen, J. McDonnell, W. Nazarewicz, P.-G.Reinhard, J. Sarich, N.
+Schunck, M. V. Stoitsov, and S. M. Wild Phys. Rev. C 85, 024304 (2012).
+[21] M. V. Stoitsov, J. Dobaczewski, W. Nazarewicz, S. Pittel, and D. J. Dean. Phys.
+Rev. C 68, 054312 (2003)
+[22] S. Michimasa, M. Kobayashi, Y. Kiyokawa, S. Ota, D. S. Ahn, H. Baba, G. P.
+A. Berg, M. Dozono, N. Fukuda, T. Furuno, E. Ideguchi, N. Inabe, T. Kawabata,
+S. Kawase, K. Kisamori, K. Kobayashi, T. Kubo, Y. Kubota, C. S. Lee, M. Matsushita, H. Miya, A. Mizukami, H. Nagakura, D. Nishimura, H. Oikawa, H. Sakai,
+Y. Shimizu, A. Stolz, H. Suzuki, M. Takaki, H. Takeda, S. Takeuchi, H. Tokieda,
+T. Uesaka, K. Yako, Y. Yamaguchi, Y. Yanagisawa, R. Yokoyama, K. Yoshida, and
+S. Shimoura1. Phys. Rev. Lett. 121, 022506 (2018)
+
+57
+
+

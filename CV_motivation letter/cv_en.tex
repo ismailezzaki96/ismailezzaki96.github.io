@@ -1,0 +1,73 @@
+\documentclass[localFont,10pt,compact]{yaac-another-awesome-cv}
+\name{$\mathcal{ISMAIL}$}{\quad $\mathcal{ EZZAKI}$
+}
+\tagline{Master Student | Freelance Developer}
+\photo{2.5cm}{../profile}
+\socialinfo{
+	\website{https://ismailezzaki.me/}{https://ismailezzaki.me/}
+	\linkedin{ismail-ezzaki}
+	\github{ismailezzaki96}\\
+	\smartphone{+212 708070221}
+	\email{ismail.ezzaki@edu.uca.ma}\\
+	\address{Rabat Morocco}
+	\infos{Born on December 23, 1996 (25 years) in Ouarzazate}
+}
+
+
+
+% Uncomment the following line and use a value from 1.5cm to 2.5cm
+%\setleftcolumnlength{2.5cm}
+
+\usepackage[super]{nth}
+\usepackage{ifthen}
+
+
+\definecolor{awesome}{HTML}{0395DE}
+\newcommand{\cpshalf}{{\color{awesome} \hspace{0.2em}\textbf{\textbar}\hspace{0.2em}}}
+\newboolean{is_french}   
+\setboolean{is_french}{False}
+
+\begin{document}
+
+	\makecvheader
+
+	\makecvfooter
+		{\textsc{\today}} % \selectlanguage{english}\today
+		{\textsc{Ismail Ezzaki - CV}}
+		{\thepage}
+
+
+	\ifthenelse{\boolean{is_french}}{
+		\input{cv_input/section_headline_archi}
+		\input{cv_input/section_competences}				% Section compétence
+		\input{cv_input/section_education}						% Section expérience
+		\input{cv_input/section_scolarite}				% Section scholarité
+		\input{cv_input/section_langues}					% Section langues
+		\vspace{3em}
+		\input{cv_input/section_experience_short_fr}		% Section expérience
+		\input{cv_input/section_volantaire}				% Section scholarité
+		\input{cv_input/section_projets}
+		\input{cv_input/section_references} 				% Section références
+
+		\input{cv_input/section_interets}				% Section intérêts
+	
+	}
+	{
+		\input{cv_input_en/section_headline_archi}
+		\input{cv_input_en/section_education}						% Section expérience
+
+		\input{cv_input_en/section_scolarite}				% Section scholarité
+	%	\vspace*{3em}
+		\input{cv_input_en/section_projets}
+		\input{cv_input_en/section_competences}				% Section compétence
+
+		\input{cv_input_en/section_volantaire}				% Section scholarité
+	%	\input{cv_input_en/section_experience_short}		% Section expérience
+		\input{cv_input_en/section_langues}					% Section langues
+		\input{cv_input_en/section_interets}				% Section intérêts
+		\input{cv_input_en/section_references} 				% Section références
+	
+	}
+
+
+\end{document}

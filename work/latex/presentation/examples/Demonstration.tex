@@ -1,0 +1,138 @@
+%\section{Columns}
+% --------------------------------------------------- Slide --
+%\subsection{Columns}
+\label{columns}
+\begin{frame}\frametitle{Demonstration of Clifford’s rule }
+
+\begin{itemize}
+	\item 
+Clifford apply a general definition of product given by Gressman : “\textbf{a product of two extensives quantities u and v is defined as extensive quantity or a scalar}.”
+
+
+	\item 
+
+Clifford consider a n-fundamental units $(e_1,e_2,...,e_n)$ \\
+
+\begin{center}
+	$(e_j)^2=+1$or $-1$  and $e_j.e_k=-e_k.e_j (j \neq k)$ 
+\end{center}
+	\item 
+%where e denotes the identity. \\
+All product of linear factors : \\odd order $(ej, e_j e_k e_l, ... $such that $j \neq k \neq l)$,
+\\or  even order $( 1, e_j e_k, ...$ such that $j \neq k)$. \\
+
+%There can be no such term of higher order than the n. 
+
+	\item 
+The total number of basic terms is $2^n$ units.
+
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}\frametitle{Demonstration of Clifford’s rule }
+
+The product of all $n-$units:\\
+\begin{center}
+	$w \equiv e_1 e_2...e_n$ \\
+$w^2 \equiv e_1 e_2....e_n e_1 e_2...e_n$,\\
+
+\end{center}
+After $r-$interchanges becomes:
+\[
+w^2 =  (-1)^r (e_{1})^2 (e_{2})^2 ...(e_{n})^2 
+\begin{cases}
+(-1)^r,& \text{if } (e_j)^2 = + 1\\
+(-1)^{r+n} &  \text{if } (e_j)^2 = - 1
+\end{cases}
+
+
+\]
+
+\end{frame}
+
+
+
+\begin{frame}\frametitle{Demonstration of Clifford’s rule }
+
+ Next, he considers the nature of the multiplication w ej' He observes that:\\
+\[
+   e_j w = 
+\begin{cases}
++ e_1 e_2 e_3 ...e_n,& \text{if } (e_j)^2 = + 1\\
+- e_1 e_2 e_3 ...e_n,              &  \text{if } (e_j)^2 = - 1
+\end{cases}
+\\ 
+\text{and }\\
+    w e_j= 
+\begin{cases}
+(1)^n e_1 e_2 e_3 ...e_n,& \text{if } (e_j)^2 = + 1\\
+(1)^{n-1} e_1 e_2 e_3 ...e_n,              &  \text{if } (e_j)^2 = - 1
+\end{cases}
+
+\]
+
+ 
+\textbf{ $w e_j $ is commutative or anti-commutative }
+ 
+
+Therefore, we can put :\\
+\begin{center}
+	$w \equiv \sqrt{-1}$ 
+\end{center}
+\end{frame}
+
+
+\begin{frame}\frametitle{Demonstration of Clifford’s rule }
+
+
+he considers the factors of units of even order
+
+\begin{center}
+	$1, e_j e_k, e_j e_k e_i e_m...$ \text{such that } $j \neq k \neq I$;
+\end{center}
+they form an algebra by themselves which he calls the
+\begin{center}
+	 {\color{red} Even subalgebra}
+\end{center} 
+
+\textbf{Example}: the even subalgebra with basic elements 
+\begin{center}
+	$\{I; e_2 e_3; e_l e_3; e_l e_2\}$
+\end{center}
+ gives the quaternions with $i = e_2 e_3\;\;\;,\;\;\; j = e_l e_3\;\;\;, \;\;\;k = e_1 e_2$
+
+
+
+
+
+\end{frame}
+\begin{frame}\frametitle{Demonstration of Clifford’s rule }
+
+The general element of the even subalgebra :\\
+
+\begin{center}
+	$E = q_0 1 + \sum_{j\neq K=1}^{3} q_{jk} e_j e_k +  q_0' w$
+\end{center}
+
+
+%where $q$ and $q'$ are quaternions. \\
+
+And we add the quadratic form :\\
+
+\begin{center}
+	$(\sum_{j=1}^{n} q_j e_j )^2 = \sum_{j=1}^{n} q_{j}^2$
+\end{center}
+
+
+
+we get Clifford's rule \\
+{\color{red}
+\textbf{\begin{center}
+	$e_j e_k + e_k e_j = 2 \delta_{jk} 1 \;\;,\;\; (j  ,k=I, ... ,n).$
+\end{center}}}
+
+
+\end{frame}

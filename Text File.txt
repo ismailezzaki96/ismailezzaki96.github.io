@@ -1,0 +1,33 @@
+// exucute these commends one time only ////////////////////////////
+
+sudo apt-get install git 
+git config --global user.email "ismailezzaki96@gmail.com"
+git config --global user.name "ismailezzaki96"
+git clone git@github.com:https://github.com/ismailezzaki96/latex.git
+cd latex
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+// exucute these commends before edit files 
+// open terminal in folder latex
+
+git pull
+
+
+// now you can edit files and make changes
+GIT_COMMITTER_DATE="Mon 1 Mar 2019 20:19:19 BST" git commit -m "commit" --no-edit --date "Mon 1 Mar 2019 20:19:19 BST"
+
+
+
+
+// when you done 
+git add .
+// you can also add comments
+git commit -m "ha li bedelt"
+git push -u origin master
+
+username = password =ismailezzaki96
+
+pasword= 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

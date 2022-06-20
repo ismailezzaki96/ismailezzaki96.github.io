@@ -1,0 +1,116 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[hmargin=2cm, vmargin=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{float}
+\usepackage{fancyvrb}
+\usepackage{xcolor}
+\usepackage{verbatim}
+\usepackage{setspace}
+\usepackage{colortbl}
+\usepackage[french]{varioref}
+\usepackage{amsmath,amssymb}
+\usepackage{amsfonts}
+\usepackage{url}
+\usepackage{here}
+\usepackage{multicol}
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage{wrapfig}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{supertabular}
+\usepackage{hhline}
+\usepackage{array}
+
+\usepackage{multirow}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\usepackage{longtable}
+
+
+\usepackage{polyglossia}
+\setdefaultlanguage{french}
+\setotherlanguage[variant=american]{english}
+
+\usepackage{caption}
+\usepackage{lipsum}
+\usepackage{pdfpages}   
+\usepackage{pgf, tikz}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor= black,citecolor=black]{hyperref}
+\usetikzlibrary{arrows,shapes,positioning}
+
+\usepackage[Lenny]{fncychap} % Sonny, Lenny, Glenn, Conny, Rejne, Bjarne
+\frenchbsetup{StandardItemLabels=true, CompactItemize=false, ReduceListSpacing=true}
+\definecolor{whitesmoke}{rgb}{0.96, 0.96, 0.96}
+\newsavebox{\BBbox}
+\newenvironment{DDbox}[1]{
+\begin{lrbox}{\BBbox}\begin{minipage}{\linewidth}}
+{\end{minipage}\end{lrbox}\noindent\colorbox{whitesmoke}{\usebox{\BBbox}} \\
+[.5cm]}
+
+\newcommand{\chaptertoc}[1]{\chapter*{#1}
+\addcontentsline{toc}{chapter}{#1}
+\markboth{\slshape\MakeUppercase{#1}}{\slshape\MakeUppercase{#1}}}
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{1pt} 
+\fancyhead[L]{\rightmark}%la section \leftmark pour chapitre
+\fancyhead[R]{LPHEA}
+\newcommand{\reporttitle}{\textcolor{blue}{Titre}}    
+\newcommand{\reportauthor}{...}
+\newcommand{\reportsubject}{\textbf{Mémoire}\\présenté pour obtenir le diplôme de Master en: \\ %\vspace{0.4cm}
+\textbf{Physique des Hautes Énergies, Astrophysique et Physique Computationnelle}} 
+\newcommand{\HRule}{\rule{\linewidth}{0.9mm}}
+\setlength{\parskip}{1ex} % Espace entre les paragraphes
+\let\cleardoublepage\clearpage
+
+\providecommand\textsubscript[1]{\ensuremath{{}_{\text{#1}}}}
+\makeatletter
+\newcommand\arraybslash{\let\\\@arraycr}
+\makeatother
+% Footnote rule
+\setlength{\skip\footins}{0.0469in}
+\renewcommand\footnoterule{\vspace*{-0.0071in}\setlength\leftskip{0pt}\setlength\rightskip{0pt plus 1fil}\noindent\textcolor{black}{\rule{0.25\columnwidth}{0.0071in}}\vspace*{0.0398in}}
+\setlength\tabcolsep{1mm}
+\renewcommand\arraystretch{1.3}
+\title{}
+
+\begin{document}
+\include{page_garde}
+\tableofcontents{} 
+\listoffigures
+\listoftables
+\include{remerciement}
+\include{introduction} 
+%\include{chapitre_1}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{longtable}
+% Note: It may be necessary to compile the document several times to get a multi-page table to line up properly
+
+%% https://www.tablesgenerator.com/latex_tables
+
+
+
+
+
+\include{chapitre_2}
+
+
+
+\include{chapitre_3}
+%\include{chapitre_4}
+\include{conclusion}
+\appendix
+\include{annexe}
+%\addcontentsline{toc}{chapter}{Bibliographie}
+\bibliographystyle{plain}
+\bibliography{biblio.bib}  
+\end{document}
+ 

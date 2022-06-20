@@ -1,0 +1,122 @@
+\begin{frame}[plain]
+	
+	
+	% Background Image
+	\newcommand{\myBackround}
+	{
+		\includegraphics[width=\paperwidth]{Background 5.png}
+	}
+	
+	
+	% Title
+	\newcommand{\myTitle}
+	{
+	LES ANNEAUX ,  CORPS ,$\mathbb{Z}$ ,  $\mathbb{Z} / n \mathbb{Z}$
+	}
+	
+	% Subtitle
+	\newcommand{\mySubTitle}
+	{
+
+	}
+	
+	% Author
+	\newcommand{\myAuthor}   
+	{
+		Presenté par: \textbf{Groupe 3} \quad\quad\quad Encadré par : \textbf{  Pr. Driss AMRANI}
+		
+	}
+	
+	% Affiliation
+	\newcommand{\myAffiliate}
+	{
+		% Affiliation here
+	}
+	
+	% Presentation Date
+	\newcommand{\myDate}   
+	{
+		\today
+	}
+	
+	% Logo
+	\newcommand{\myLogo}   
+	{
+		\includegraphics[width=1.5cm]{Beamer-Logo.png}
+	}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\newcommand{\takwin}   
+	{
+		\includegraphics[width=1.7cm]{takwin_logo.jpg}
+	}
+	
+	%%%%%%%%%% Title slide code %%%%%%%%%%%
+	\begin{tikzpicture}[remember picture,overlay]
+		
+		% Background image
+		\node[above right,inner sep=0pt] at (current page.south west)
+		{
+			\myBackround
+		};
+		
+		% Title & Subtitle
+		\node
+		[
+		above=0.5cm,
+		align=center,
+		fill=bleu!70,
+		rounded corners,
+		inner xsep=15pt,
+		inner ysep=10pt, 
+		minimum width=0.7\textwidth,
+		text width=0.6\textwidth
+		] (title) at (current page.center)
+		{
+			\LARGE \myTitle 
+			\small \mySubTitle
+		};
+		
+		% Author 
+		\node[ below=0.3cm] (author) at (title.south){\myAuthor};
+		\node[ below left =0.9cm and 0.5cm] (author) at (title.south){Ahmidany fatiha  \quad\quad};
+		\node[ below left =1.5cm and 0.2cm ] (author) at (title.south){El Alaoui abdelkarim  \quad\quad};
+		\node[ below left =2.1cm and 0.8cm ] (author) at (title.south){Ezzaki ismail  \quad\quad};
+		\node[ below left =2.7cm and 0.6cm ] (author) at (title.south){Larbaoui hajar \quad\quad };
+		
+		
+		% Logo
+		\node
+		[
+		below right =0.25cm and 0.5cm
+		] at (current page.north west)
+		{
+			\myLogo
+			
+			
+		};
+		
+		\node
+		[
+		below left =0.25cm and 0cm
+		] at (current page.north east)
+		{
+			\takwin
+			
+			
+		};
+		
+		% Logo
+		\node
+		[
+		below right =2cm and 0.5cm
+		] at (current page.north west)
+		{
+			Groupe 3
+			
+			
+		};
+		
+	\end{tikzpicture}
+	
+\end{frame}

@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../cpp"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"algorithm": "cpp"
+		}
+	}
+}

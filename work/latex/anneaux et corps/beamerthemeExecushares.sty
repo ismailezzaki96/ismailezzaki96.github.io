@@ -1,0 +1,102 @@
+% the various libraries we will be using
+ 
+ 
+ 
+%\usepackage{fontspec}
+%\defaultfontfeatures{Ligatures=TeX}
+
+\newif\ifbeamer@pixelitem
+\beamer@pixelitemtrue
+\DeclareOptionBeamer{nopixelitem}{\beamer@pixelitemfalse}
+\ProcessOptionsBeamer
+
+
+\definecolor{ExecusharesRed}{RGB}{230,37,52}
+\definecolor{ExecusharesWhite}{RGB}{43,40,40}
+\definecolor{ExecusharesBlue}{RGB}{22,190,207}
+\definecolor{ExecusharesGrey}{RGB}{107,110,108}
+\definecolor{ExecusharesBlack}{RGB}{255,255,243}
+
+
+% To use with pdflatex,
+% comment the fontspec package at the top
+%\usepackage{sourceserifpro}
+%\usepackage{sourcesanspro}
+%\usepackage{sourcecodepro}
+
+% set colours
+\setbeamercolor{itemize item}{fg=ExecusharesBlue}
+\setbeamercolor{enumerate item}{fg=ExecusharesBlue}
+\setbeamercolor{alerted text}{fg=ExecusharesBlue}
+\setbeamercolor{section in toc}{fg=ExecusharesBlack}
+
+% set fonts
+\setbeamerfont{itemize/enumerate body}{size=\large}
+\setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\small}
+
+\ifbeamer@pixelitem
+% make the itemize bullets pixelated >
+\setbeamertemplate{itemize item}{
+	\tikz{
+		\draw[fill=ExecusharesBlue,draw=none] (0, 0) rectangle(0.1, 0.1);
+		\draw[fill=ExecusharesBlue,draw=none] (0.1, 0.1) rectangle(0.2, 0.2);
+		\draw[fill=ExecusharesBlue,draw=none] (0, 0.2) rectangle(0.1, 0.3);
+	}
+}
+% make the subitems also pixelated >, but a little smaller and red
+\setbeamertemplate{itemize subitem}{
+	\tikz{
+		\draw[fill=ExecusharesRed,draw=none] (0, 0) rectangle(0.075, 0.075);
+		\draw[fill=ExecusharesRed,draw=none] (0.075, 0.075) rectangle(0.15, 0.15);
+		\draw[fill=ExecusharesRed,draw=none] (0, 0.15) rectangle(0.075, 0.225);
+	}
+}
+\fi
+
+
+
+% since I don't know a better way to do this, these are all switches
+% doing `\setcounter{showProgressBar}{0}` will turn the progress bar off (I turn it off for Appendix slides)
+% etc
+\newcounter{showProgressBar}
+\setcounter{showProgressBar}{1}
+\newcounter{showSlideNumbers}
+\setcounter{showSlideNumbers}{1}
+\newcounter{showSlideTotal}
+\setcounter{showSlideTotal}{1}
+
+% Set beginning of backup slides
+% This lets you having the slides counter ending with the "thank you" slide and avoiding the annoying question "why is the thank you at slide 38/41?"
+\newcommand{\backupbegin}{
+   \newcounter{finalframe}
+   \setcounter{finalframe}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+   \setcounter{framenumber}{\value{finalframe}}
+}
+
+% use \makeatletter for our progress bar definitions
+% progress bar idea from http://tex.stackexchange.com/a/59749/44221
+% slightly adapted for visual purposes here
+\makeatletter
+\newcount\progressbar@tmpcounta% auxiliary counter
+\newcount\progressbar@tmpcountb% auxiliary counter
+\newdimen\progressbar@pbwidth %progressbar width
+\newdimen\progressbar@tmpdim % auxiliary dimension
+
+\newdimen\slidewidth % auxiliary dimension
+\newdimen\slideheight % auxiliary dimension
+
+% make the progress bar go across the screen
+%\progressbar@pbwidth=12.8cm
+\progressbar@pbwidth=\the\paperwidth
+\slidewidth=\the\paperwidth
+\slideheight=\the\paperheight
+
+% use tikz to draw everything
+% it may not be the best, but it's easy to work with
+% and looks good
+% TODO: base title slide and contents slide on something other than slide numbers :/
+
+% add section titles

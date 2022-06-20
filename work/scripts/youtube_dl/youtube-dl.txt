@@ -1,0 +1,7 @@
+
+ youtube-dl -f 'bestvideo[height<=240]+bestaudio/best[height<=240]' --all-subs  --sub-format "srt"  https://www.youtube.com/watch?v=j5BwUE880G8&list=PL1MxVBsQo85q6Yb2v9hLIurN6nm7vTBMi
+
+
+youtube-dl -J -f 'bestvideo[height<=240]+bestaudio/best[height<=240]' --all-subs  --sub-format "srt" https://www.youtube.com/watch?v=j5BwUE880G8&list=PL1MxVBsQo85q6Yb2v9hLIurN6nm7vTBMi > info.json
+
+youtube-dl -j --flat-playlist "https://www.youtube.com/watch?v=j5BwUE880G8&list=PL1MxVBsQo85q6Yb2v9hLIurN6nm7vTBMi" | jq -r '.id' | sed 's_^_https://youtu.be/_' > result.log

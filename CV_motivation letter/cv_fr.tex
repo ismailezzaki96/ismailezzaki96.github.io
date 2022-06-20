@@ -1,0 +1,77 @@
+ 
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt, a4paper]{awesome-cv}
+
+% Configure page margins with geometry
+\geometry{left=1.4cm, top=.2cm, right=1.4cm, bottom=.8cm, footskip=.5cm}
+
+% Specify the location of the included fonts
+\input{header.tex}
+
+\usepackage{parallel}
+\usepackage[super]{nth}
+\usepackage{ifthen}
+
+
+
+%-------------------------------------------------------------------------------
+\begin{document}
+	
+	% ** teaching or programming CV
+	% * set to true for teaching and false for programming
+	\newboolean{teaching}
+	\setboolean{teaching}{false}
+
+
+	\address{Rabat  Maroc}
+
+	% Print the header with above personal informations
+	% Give optional argument to change alignment(C: center, L: left, R: right)
+	\makecvheader[C]
+
+	
+	% Print the footer with 3 arguments(<left>, <center>, <right>)
+	% Leave any of these blank if they are not needed
+	
+	
+	%----------------------------------------------------------------------------
+	%	cv_fr/RESUME CONTENT fdf  test
+
+	%	Each section is imported separately, open each file in turn to modify content
+	%-------------------------------------------------------------------------------
+	
+\ifthenelse{\boolean{teaching}}{
+	% teach  files
+	\input{cv_fr/education_teaching.tex}
+	\input{cv_fr/Certifications.tex} 
+	\input{cv_fr/hep.tex}
+	\input{cv_fr/skills_teaching.tex}
+	\input{cv_fr/experience_teaching.tex} 
+	%	\input{cv_fr/language.tex} 
+	\input{cv_fr/extracurricular.tex} 
+	%	\input{cv_fr/extraInterests.tex} 
+	\input{cv_fr/Referances.tex}
+	}
+	{
+	% programming files 
+	\input{cv_fr/education.tex}
+	\input{cv_fr/Certifications.tex} 
+	\input{cv_fr/experience.tex} 
+	\input{cv_fr/skills.tex}
+	%	\input{cv_fr/language.tex} 
+	\input{cv_fr/extracurricular.tex} 
+	\vspace*{5pt}
+	\input{cv_fr/hep.tex}
+
+	%	\input{cv_fr/extraInterests.tex} 
+
+	} 
+\end{document}

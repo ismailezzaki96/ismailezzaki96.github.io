@@ -1,0 +1,105 @@
+%\section{Example}
+% --------------------------------------------------- Slide ---------
+%\subsection{Example}
+\label{The space-time algebra}
+\begin{frame}[allowframebreaks]\frametitle{Space algebra \& Space-Time algebra}
+   In physics the clifford algebra $\emph{Cl}_{(3,0)}$ and $\emph{Cl}_{(1,3)}$ have a great applications.
+ \begin{enumerate}
+	\item {\color{orange} For  $\emph{\textbf{Cl}_{(3,0)}}$ }:\\
+        The three generators $(e_{1},e_{2},e_{3})$ corresponds to three spatial coordinates.\\
+        The matrix representation for $\emph{Cl}_{(3,0)}$ is usually specified using Pauli matrices $\sigma_{1}$, $\sigma_{2}$ et $ \sigma_{3}$
+        in the following way :
+ \[
+  $e\longrightarrow \sigma_{0}$=\left[\begin{array}{cc}
+    1 & 0 \\
+    0 & 1
+    \end{array}\right]    \quad; \qquad 
+   $e_{1}\longrightarrow \sigma_{1}$=\left[\begin{array}{cc}
+    0 & 1 \\
+    1 & 0
+  \end{array}\right] \qquad
+  \]
+ \[
+   $e_{2}\longrightarrow \sigma_{2}$=\left[\begin{array}{cc}
+    0 &-i  \\
+    i & 0
+  \end{array}\right]    \quad;  \qquad
+   $e_{3}\longrightarrow \sigma_{3}$=\left[\begin{array}{cc}
+    1 & 0 \\
+    0 &-1 
+\end{array} \right] \\
+\]
+
+  %The product of matrices : \\
+  %\begin{center}
+  %$\sigma_{1}\sigma_{2}=i\sigma_{3} $ ~; $\sigma_{2}\sigma_{3}=i\sigma_{1} $  ~; $\sigma_{3}\sigma_{1}=i\sigma_{2}$ 
+%\end{center}
+
+The vectors $ \sigma_{k}$ satisfy the  multiplication rule :
+\begin{center}
+  $\sigma_{i}.\sigma_{j}$ = $\dfrac{1}{2}(\sigma_{i}\sigma_{j}+\sigma_{j}\sigma_{i})=\delta_{ij} $ 
+\end{center}
+Any elements A of the Space algebra can be written as a sum of scalar, vector,
+bivector and pseudoscalar parts:
+\begin{center}
+$ A = A_S + A_V + A_B + A_ P $
+\end{center}
+The bivector is defined by :
+\begin{center}
+  $\sigma_{ij}$ = $\sigma_{i}\wedge\sigma_{j}= \dfrac{1}{2}(\sigma_{i}\sigma_{j}-\sigma_{j}\sigma_{i}) $ 
+\end{center}
+
+The pseudoscalar is defined by :
+\begin{center}
+  $i$ = $\sigma_{1}\wedge\sigma_{2}\wedge\sigma_{3}= \sigma_{1}\sigma_{2}\sigma_{3} $
+  %he pseudoscalarimust not be confused with the unit scalar imaginary — weare in a space of even dimension soianticommutes with odd-grade elements, andcommutes only with even-grade element
+  
+\end{center}
+The full algebra is then 8-dimensional:
+\begin{center}
+$ {1}\qquad { \sigma_j} \qquad {\sigma_{jk}} \qquad {i}$   \qquad $(j,k=1,2,3 ~; k \ne j)$
+\end{center}
+\item {\color{orange} For  $\emph{\textbf{Cl}_{(1,3)}}$ } :
+
+ The generator $e_1$ corresponds to time, $e_2$,$e_3$,$e_4$, corresponds to three spatial coordinates.\\
+The matrix representation for  $\emph{Cl}(1,3)$  can be obtained using Dirac's matrices, the timelike $\gamma_0$ and the space vectors $\gamma_k (k=1,2,3)$ such that :
+\begin{center}
+$\gamma_0^{2}=1 \qquad ; \gamma_k^2=-1 \quad ; \gamma_\mu .\gamma_\nu = 0 \quad (\mu \ne \nu) $
+
+\end{center}
+ The matrix representation is given  as follows:
+ \begin{center}
+$e\longrightarrow 1_4 \qquad ; e_k\longrightarrow \gamma_{k-1} \quad (k=1,2,3,4)  $
+\end{center}
+Any   elements A of  $\emph{Cl}(1,3)$ ocan be written as a sum of scalar, vector, bivector, trivector,
+and pseudoscalar parts:
+\begin{center}
+$A = A_S + A_V + A_B + A_T + A_P $
+\end{center}
+The bivector is defined by :
+\begin{center}
+  $\gamma_{\mu\nu}$ = $\gamma_{\mu}\wedge\gamma_{\nu}= \dfrac{1}{2}(\gmma_{\mu}\gamma_{\nu}-\gamma_{\nu}\gamma_{\mu}) $ 
+\end{center}
+The pseudovector is defined by :
+\begin{center}
+$\gamma_{\mu\nu\sigma}$ = $\gamma_{\mu}\wedge\gamma_{\nu}\wedge\gamma_{\sigma}$
+\end{center}
+The pseudoscalar is defined by :
+\begin{center}
+$i$ = $\gamma_{0}\wedge\gamma_{1}\wedge\gamma_{2}\wedge\gamma_{3}= \gamma_{0}\gamma_{1}\gamma_{2}\gamma_{3} $ 
+\end{center}
+a basis for the 16-dimensional STA is provided by :
+\begin{center}
+$ 1 \qquad \gamma_\mu \qquad \gamma_{\mu\nu} \qquad \gamma_{\mu\nu\sigma} \qquad i$
+%1 scalar  4 vectors  6 bivectors  4 trivectors  1 pseudoscalar
+\end{center}
+
+{\color{blue} The Dirac algebra embodies the local geometric properties of space-time, whereas the Pauli algebra represents the properties of space}. %These two algebras must be related in a definite way.
+
+\begin{center}
+              $ \sigma_k= \gamma_k \gamma_0$
+\end{center}
+
+   
+\end{enumerate}
+\end{frame}

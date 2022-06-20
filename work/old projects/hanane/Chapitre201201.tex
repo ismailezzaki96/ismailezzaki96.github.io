@@ -1,0 +1,1572 @@
+% This file was converted to LaTeX by Writer2LaTeX ver. 1.6.1
+% see http://writer2latex.sourceforge.net for more info
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb,amsfonts,textcomp}
+\usepackage[T1]{fontenc}
+\usepackage[english,french]{babel}
+\usepackage{color}
+\usepackage[top=0.4917in,bottom=0.9839in,left=0.9839in,right=0.9839in,includehead,head=0.4925in,headsep=0.4528in,nofoot]{geometry}
+\usepackage{array}
+\usepackage{supertabular}
+\usepackage{hhline}
+\usepackage{hyperref}
+\hypersetup{pdftex, colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, urlcolor=blue, pdftitle=, pdfauthor=, pdfsubject=, pdfkeywords=}
+\usepackage[pdftex]{graphicx}
+\providecommand\textsubscript[1]{\ensuremath{{}_{\text{#1}}}}
+\makeatletter
+\newcommand\arraybslash{\let\\\@arraycr}
+\makeatother
+% Footnote rule
+\setlength{\skip\footins}{0.0469in}
+\renewcommand\footnoterule{\vspace*{-0.0071in}\setlength\leftskip{0pt}\setlength\rightskip{0pt plus 1fil}\noindent\textcolor{black}{\rule{0.25\columnwidth}{0.0071in}}\vspace*{0.0398in}}
+\setlength\tabcolsep{1mm}
+\renewcommand\arraystretch{1.3}
+\title{}
+\author{}
+\date{}
+\begin{document}
+\clearpage\setcounter{page}{1}
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+\textbf{Résumé \ \ \ \ \ \ }
+
+
+\bigskip
+
+\ \ \ \ \ \ \ Dans le but de comprendre la nature de la structure nucléaire, il est devenu essentiel d’explorer et
+d’étudier non seulement le comportement des noyaux stables de la charte nucléaire, mais aussi ceux exotiques qui se
+trouvent loin de la vallée de stabilité. Les expériences menées sur les noyaux stables ne suffisent pas pour tester
+l’universalité des modèles nucléaire. Seule une étude systématique au voisinage des noyaux exotiques, le long d’une
+chaîne isotopique, permet d’apporter de nouvelles contraintes sur l’évolution de la structure nucléaire.
+
+\ \ \ \ \ \ \ Dans ce mémoire, nous étudions les propriétés de l'état fondamental de certains noyaux \ super-lourds
+éloignés de la stabilité pour les chaînes isotopiques à savoir : les isotopes
+de\textcolor[rgb]{0.1254902,0.12941177,0.13333334}{~Flérovium} (Fl,
+Z=114),\textbf{\textcolor[rgb]{0.1254902,0.12941177,0.13333334}{
+}}\textcolor[rgb]{0.1254902,0.12941177,0.13333334}{Livermorium }(Lv, Z=116) et L’oganesson (Og, Z=118) en utilisant
+L’approche non relativiste de Hartree-Fock-Bogoliubov (HFB) avec la force de Skyrme SLy4. Les propriétés étudiées sont
+: l’énergie de liaison, l’énergie de séparation d’un et de deux neutrons, le rayon des protons et des neutrons,
+L’énergie d’appariement et le spectre d’énergie. Les résultats obtenus ont été comparés avec les données expérimentales
+disponibles et avec les prédictions des autres modèles théoriques tels que : le modèle de la gouttelette liquide à
+portée finie (FRDM), le modèle du champ moyen relativiste (RMF) et l’expérience de Skyrme. 
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+\textbf{Introduction}
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+\textcolor{black}{\ \ \ \ \ \ \ Contrairement à ce que l'on pense généralement de la physique nucléaire, les propriétés
+des noyaux ne sont pas encore totalement comprises et le domaine a récemment accompli des progrès majeurs tant d'un
+point de vue théorique qu'expérimental.}
+
+\ \ \ \ \ \ \ Auparavant, l'étude des noyaux atomiques se limitait aux noyaux stables ou à ceux situés près de la vallée
+de stabilité. Cependant, au fil des années, \textcolor[rgb]{0.1254902,0.12941177,0.14117648}{Les recherches en physique
+nucléaire ont été étendues aux noyaux exotiques qui }présentent de nouveaux comportements et des phénomènes très
+inattendus par rapport à la vision standard de la structure nucléaire\textcolor[rgb]{0.1254902,0.12941177,0.14117648}{.
+Ces noyaux ont une courte durée de vie, ce qui rend leur étude e}xpérimentale difficile. Même si elles peuvent être
+observées, on ne connaît même pas leurs propriétés de base telles que la masse, la forme, la demi-vie et les états
+d’excitation les plus bas.
+
+\ \ \ \ \ \ \ Les modèles nucléaires, qui sont essentiellement basés sur des noyaux proches de stabilité, divergent à
+mesure que l'on s'approche des limites de Stabilité {\textquotedbl}dri-plines{\textquotedbl}. Pour remédier à ce
+problème plusieurs approches ont été élaborées \ pour décrire les noyaux stables et appliquées à certains noyaux
+exotiques.
+
+\ \ \ \ \ \ Pour les noyaux légers, le nombre relativement petit de nucléons donne la possibilité d’utiliser
+l’interaction à deux corps pour reproduire les comportements nucléaires, par exemple : calculs ab-initio (fonction de
+Green - modèle en couches Monte-Carlo). Les noyaux de masse moyenne jusqu’à A ${\sim}$ 60 peuvent être traités par le
+modèle en couche à grande échelle. Pour les noyaux plus lourds, on utilise des théories de champ moyen soient non
+relativistes \ ou relativistes. 
+
+\textcolor{black}{\ \ \ \ \ \ \ \ Les méthodes microscopiques utilisent les théories du champ moyen ont acquis un degré
+de fiabilité remarquable car ils sont moins compliqués et ils décrivent avec succès les propriétés statiques et
+dynamiques des noyaux. L'une des approches phénoménologiques les plus importantes, largement utilisée dans les calculs
+de structure nucléaire, est la méthode Hartree-Fock-Bogoliubov (HFB), qui permet de traiter les particules et les trous
+sur un pied d'égalité en unifiant la description auto-cohérente des orbitales nucléaires, telle qu'elle est donnée par
+l'approche Hartree-Fock (HF), et la théorie de l'appariement Bardeen-Cooper-Schrieffer (BCS) en une seule méthode
+variationnelle.}
+
+\textcolor{black}{\ \ \ \ \ \ \ L’objectif de ce travail est d’étudier les propriétés de l’état fondamental de plusieurs
+chaines isotopiques, allant du côté riche en protons jusqu’au côté riche en neutrons, en utilisant la méthode de
+Hartree Fock Bogoliubov non relativiste.}
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+\clearpage
+\bigskip
+
+\textbf{Chapitre 1}
+
+
+\bigskip
+
+\ \ \ \ \ \ \ \ \textbf{Généralités sur la structure nucléaire}
+
+
+\bigskip
+
+\textbf{1.1 Le noyau atomique}
+
+\ \ \ \ \ \ \ La recherche de la structure nucléaire a commencé avec la première observation de la radioactivité. En
+1911, Ernest Rutherford à découvert qu'au cœur de chaque atome se trouve un noyau.
+
+\ \ \ \ \ \ Le noyau atomique est constitué de A nucléons avec A = N + Z, où A est le nombre de masse, N et Z sont
+respectivement les nombres de neutrons et de protons. Ces derniers sont maintenus ensemble par la force nucléaire
+forte. Bien que Le noyau ne représente que moins de 0,01\% du volume de l'atome. Mais il contient généralement plus de
+99,9\% de sa masse. Les propriétés chimiques d'une substance sont déterminées par les électrons chargés négativement
+qui entourent le noyau.
+
+\ \ \ \ \ \ \ Il est très fréquent de tracer tous les nucléides connus avec le nombre de neutrons sur l’axe des
+abscisses et le nombre de protons sur l’axe des ordonnées pour obtenir la dite «charte nucléaire» ou “nuclear
+landscape” (Fig. 1.1).
+
+\ \ \ \ \ \ \ \ \ La charte nucléaire (Fig. 1.1) montre plusieurs milliers de noyaux qui devraient être liés par la
+force forte. La région noire montre les noyaux stables, non radioactifs ou à longue durée de vie, avec des demi-vies
+comparables ou plus longues que l’âge de la terre. Il y a moins de 300 de ces espèces et ils constituent ce qu’on
+appelle {\textquotedbl}\textit{la vallée de la stabilité}{\textquotedbl}. Les noyaux légers sont stables si le nombre
+de protons et le nombre de neutrons sont approximativement égaux. En augmentant le nombre de masse, le nombre de
+neutrons doit être plus grand que celui de protons afin d’équilibrer la force de répulsion coulombienne entre les
+protons. En outre, les noyaux avec N ou Z égal à certains nombres montrent une stabilité spéciale : les nombres
+magiques (Ceux qui marquent les lignes rouges horizontales et verticales sur la figure 1.1). Ces noyaux sont de forme
+sphérique avec des couches nucléaires externes fermées. Alors que d’autres noyaux trouvés loin de la vallée de la
+stabilité sont également liés, mais ne sont pas complètement stables. Les noyaux avec un excès ou une déficience des
+neutrons par rapport à la vallée de la stabilité sont instables et donc ils se désintègrent. La région jaune autour de
+la zone de stabilité de la figure 1. 1 indique les noyaux artificiels produits dans les laboratoires avec de courtes
+demi-vies. Des milliers de noyaux \ \ radioactifs avec des rapports \ de \ neutrons à \ protons \ très petits \ ou très
+\ grands \ sont \ encore à 
+
+ \includegraphics[width=6.4728in,height=4.961in]{Chapitre201201-img/Chapitre201201-img001.png} FIG 1.1~Charte des noyaux
+en fonction du nombre de neutrons et de protons. Elle montre la \ \ \ \ vallée de la stabilité des particules et les
+limites de l’existence nucléaire, ou {\textquotedbl}drip-lines{\textquotedbl}.
+
+
+\bigskip
+
+explorer, c’est la zone des noyaux instables indiquée en vert sur la figure 1.1 appelée \ «Terra Incognita»,
+c’est-à-dire en latin «Terre inconnue». En ajoutant des protons ou des neutrons, nous nous éloignons de la vallée de la
+stabilité, et nous atteignons les limites de la stabilité des particules nucléaires, appelées les
+{\textquotedbl}drip-lines{\textquotedbl} où la liaison nucléaire se termine, les forces entre les protons et les
+neutrons ne sont plus assez fortes pour les maintenir ensemble. La drip-line des protons est déjà déterminée
+expérimentalement jusqu’au Protactinium \ \ \ \ \ \ \ \ \ \ \ (Pa, Z = 9). Tandis que la drip-line des neutrons est
+considérablement plus éloignée de la vallée de la \ stabilité et plus difficile à approcher et elle n’a été déterminée
+\ que jusqu’à l’Oxygène (O, Z = 8). La différence de largeur des drip-lines des protons et des neutrons par rapport à
+la ligne de stabilité s’explique par la force de répulsion de Coulomb, qui devient plus grande à mesure que plus de
+protons sont ajoutés.
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+\textbf{1-2 Production des noyaux exotiques}
+
+\ \ \ \ \ \ \ \ Les\textcolor[rgb]{0.12941177,0.14509805,0.16078432}{~noyaux à durée de vie limitée, instables,
+radioactifs, sont dits~exotiques~lorsqu'ils développent des structures inhabituelles (grande extension de matière, halo
+ou peau de neutrons, couches présentant de nouveaux nombres magiques).} Le développement de techniques expérimentales
+de plus en plus performantes permet désormais de produire et d’étudier la structure de ces noyaux.
+
+\ \ \ \ \ \ \ Diverses réactions nucléaires dans une large gamme d'énergie sont utilisées pour la production de noyaux
+radioactifs. Les faisceaux primaires les plus couramment utilisés sont les neutrons, les protons, les deutons et les
+ions lourds, leur énergie varie des énergies thermiques aux énergies relativistes. Après la phase de production, les
+noyaux exotiques sont manipulés et préparés pour l'expérience. L'ensemble du processus doit être très rapide à cause de
+la \ demi-vie extrêmement courte de ce type des noyaux.
+
+
+\bigskip
+
+ \includegraphics[width=6.3in,height=2.378in]{Chapitre201201-img/Chapitre201201-img002.png} 
+
+\ FIG 1.2 ~Schéma d'une expérience visant à produire les noyaux exotiques.
+
+Dans le cas d’une réaction de fragmentation, les noyaux exotiques se produit en bombardant une cible avec le faisceau
+d’ions stables; l'interaction entre les ions projectiles et ceux de la cible donne naissance à une grande variété de
+noyaux, dont de nombreux exotiques. Comme la création d’un noyau exotique spécifique ne se produit que pour un noyau
+incident sur dix mille a un million, on comprend alors qu’il faut atteindre les plus hauts flux d’ions incidents
+produits pour accroitre la production d’ions secondaires.
+
+\textbf{1.4 \ \ Les modèles nucléaires}
+
+\ \ \ \ \ \ \ Après l’avènement de la physique nucléaire dans les années 30 par la découverte d’un noyau atomique chargé
+en 1911, et l’identification du proton quelques années plus tard, il a fallu attendre 1932 pour que Chadwick mette en
+évidence l’existence\textbf{ }du neutron . Une fois les constituants du noyau ont été identifiés, les physiciens ont
+alors commencé à proposer des modèles théoriques pour décrire ses propriétés statiques et dynamiques. La plupart de ces
+modèles sont souvent utilisés localement pour décrire une région spécifique de la charte nucléaire. Tout d’abord, il y
+avait le modèle de la goutte liquide offrant une description satisfaisante des masses et également capable de donner
+une première interprétation à la fission des noyaux. Cependant, Ce modèle ne permet toutefois pas d’expliquer certaines
+propriétés plus fines des noyaux (niveaux d’énergie des nucléons, transitions nucléaires, nombres magiques,...), ce que
+font mieux des modèles dits à particules indépendantes.
+
+\ \ \ \ \ \ \ Dans ce qui suit, certains des modèles précurseurs et plus récents représentant le noyau seront brièvement
+décrits afin de présenter quelques concepts et formalismes.
+
+\textbf{1.3.1 \ Modèle de la goutte liquide }
+
+\textbf{\ \ \ \ \ \ \ }Le modèle de la goutte liquide (LDM) a été historiquement le premier modèle proposé pour
+expliquer les différentes propriétés du noyau. Malgré son ancienneté et sa simplicité, il permet d’excellentes
+prédictions pour les masses des noyaux. C’est également le premier modèle à donner une interprétation de la fission.
+Dans ce modèle semi-empirique, le noyau est interprété comme une sphère de liquide visqueux incompressible de rayon R
+proportionnel à la racine cubique du nombre A de nucléon, composé de nucléons interagissant via l’interaction nucléaire
+et coulombienne (pour les protons). L’énergie de liaison totale dépend du nombre de protons et neutrons Z et N :
+
+\ \ \ \ \ \ \ \ \ \ \  $B\left(N,Z\right)=a_vA+a_sA^{\frac 2 3}+a_c\frac{Z^2}{A^{\frac 1 3}}+a_a\frac{(N-Z)^2} A+\delta
+(A)$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (1.1)
+
+Cette expression constitue la formule de Bethe et Weizsäcker, obtenue en 1935. Elle fournit l’énergie de liaison d’un
+noyau quelconque dans un état fondamental. Les termes \textit{a}\textit{\textsubscript{v}},
+\textit{a}\textit{\textsubscript{s}}, \textit{a}\textit{\textsubscript{c}} et \textit{a}\textit{\textsubscript{a}}
+correspondent respectivement aux coefficients d’énergie de volume, de surface, coulombienne et d’asymétrie, Les valeurs
+de ces coefficients sont ajustées sur des masses mesurées. Elles sont données, ci-dessous, en MeV :
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  $a_v=-15.7;a_s=18.6;a_c=0.7;a_s=28.1$\ \ \ \ \ \ \ \ \ \ \ (1.2)
+
+La signification physique de la formule (1.1) est la suivante :
+
+\ \ \ \ \ \ \ Le premier terme est appelé généralement terme de volume, parce qu'il est proportionnel à A (${\propto}$
+R\textsuperscript{3}). C’est le terme principal qui résulte des forces d’interaction nucléaire (attractives). En raison
+de la saturation de ces forces, l’énergie de liaison qui en résulte est la même pour tous les nucléons. Le coefficient
+a\textsubscript{v} correspond donc à l’énergie de liaison moyenne par nucléon, B/A ${\approx}$ +16 MeV.
+
+\ \ \ \ \ \ \ Le second terme est proportionnel à A\textsuperscript{2~/3}(${\propto}$ R\textsuperscript{2}), il est donc
+appelé le terme de surface. Il traduit le fait que les nucléons en surface sont moins liés, puisqu’ils ont un nombre de
+voisins plus faible. On peut calculer à partir de paramètre \textit{a}\textit{\textsubscript{s}} la tension
+superficielle  $\sigma $ \ définie comme l'énergie de surface par unité de surface.
+
+\ \ \ \ \ \ \ \ \ \ \ \  $\sigma =\frac{a_s}{4\pi r_0^2}=1.03\mathit{MeV.}\mathit{fm}^{-2}$\ \ \ \ \ \ \ \ \ , \ \ avec
+\ \ \ \ \  $r_0=1.3\mathit{fm}$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (1.3)
+
+
+\bigskip
+
+\ \ \ \ \ \ \ \ Le troisième terme décrit la répulsion colombienne entre les protons qui tend à diminuer l’énergie de
+liaison. On peut la calculer approximativement en supposant que les charges sont uniformément distribuées sur une
+sphère. L'énergie colombienne d'un tel système est proportionnelle au nombre de paires de protons (${\propto}$
+Z\textsuperscript{2}).
+
+\ \ \ \ \ \ \ Le quatrième terme représente le terme d’asymétrie. Il décrit la différence d’énergie créée par des
+nombres non égaux de neutrons et de protons. En effet, \textcolor[rgb]{0.1254902,0.12941177,0.13333334}{~les noyaux
+sont plus stables quand le nombre de neutrons et de protons est identique (si on néglige l'effet de la répulsion
+électrostatique).} \textcolor[rgb]{0.1254902,0.12941177,0.13333334}{Pour comprendre l'effet d'un excès de neutrons sur
+ce terme, on suppose qu’une situation d'équilibre (N = Z) est perturbée par la transformation de protons en neutrons,
+et vice versa. Le nombre de protons ainsi convertis sera N } $-?$ \textcolor[rgb]{0.1254902,0.12941177,0.13333334}{\ Z.
+Pour chaque conversion, l'énergie de liaison diminue d'une quantité proportionnelle à la différence fractionnaire entre
+les niveaux les plus élevés de neutrons et de protons occupés.}
+
+\ \ \ \ \ \ \ Le dernier terme $\delta $(A) favorisera en énergie les noyaux à nombres pairs de neutrons et protons et
+pénalisera les autres cas possibles. Il permet de prendre en compte les corrélations d’appariement :
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \  $\delta \left(A\right)=\{+34A^{\frac{-2}
+3}\mathit{pour}\mathit{les}\mathit{noyaux}\mathit{pairs}-\mathit{pairs},0\mathit{pour}\mathit{les}\mathit{noyaux}\mathit{pairs}-\mathit{impairs},-34A^{\frac{-2}
+3}\mathit{pour}\mathit{les}\mathit{noyaux}\mathit{impairs}-\mathit{impairs.}$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (1.4)
+
+
+\bigskip
+
+La figure 1.3 représente les contributions des différents termes, à part celui d’appariement, dans la formule de masse
+1.1. Nous pouvons voir que, lorsque A augmente, le terme de surface perd son importance en faveur du terme coulombien.
+L’énergie de liaison a un large maximum au voisinage de A ${\propto}$ 56 ce qui correspond aux isotopes de Z pair du
+fer et du nickel.
+
+\textbf{1.4.2 \ Modèle en couches}
+
+\textbf{1.4.2.1 \ Nombres magiques}
+
+En observant de plus près les énergies de liaison des nucléides, on trouve que les noyaux ayant des nombres pairs de
+protons et de neutrons sont plus stables que les noyaux ayant l’un ou l’autre de ces nombres ou les deux impairs. En
+particulier, certains nombres, de neutrons et de protons, appelés {\textquotedbl}nombres magiques{\textquotedbl},
+favorisent la stabilité de ces noyaux. Ces nombres, bien connus dans la littérature, sont 2, 8, 20, 28, 50, 82, 126.
+Les noyaux, ayant leur nombre de protons ou de neutrons égal à ces valeurs sont appelés {\textquotedbl}noyaux
+magiques{\textquotedbl}. Si, à la fois, leurs nombres de protons et de neutrons sont des nombres magiques, ces noyaux
+sont dits {\textquotedbl}doublement magiques{\textquotedbl}. C’est pourquoi, dès le début du XXème siècle, les
+physiciens ont essayé de reproduire ces résultats expérimentaux par l’élaboration d’un modèle en couches similaire à
+celui du modèle de l’atome. La saturation de ces couches induit une plus grande stabilité du noyau.
+
+ \includegraphics[width=5.3339in,height=3.9138in]{Chapitre201201-img/Chapitre201201-img003.png} 
+
+\textbf{\ \ \ }FIG 1.3~Contributions des différents termes dans l’expression de l’énergie de liaison.\textbf{ }
+
+
+\bigskip
+
+\textbf{1.4.2.2 Modèle en couches sphériques}
+
+Le modèle en couches a pour objectif de décrire la structure des noyaux connus ainsi que de prédire celle des noyaux non
+encore étudiés. Donc, en première instance, le modèle en couches doit permettre de retrouver ces nombres magiques
+établis pour des\textbf{ }noyaux stables. Le modèle en couches décrit des particules indépendantes se déplaçant dans un
+potentiel moyen engendré par l’ensemble des nucléons. En première approximation, les particules se déplacent librement,
+sans aucune interaction entre elles. Nous nous trouvons donc confronté à la résolution d’un problème à 1 corps où
+chaque particule obéit à l’équation de Schrödinger. Dans le cas du modèle en couches sphériques, l’hamiltonien est
+constitué d’un potentiel harmonique, donc central. Le choix classique de potentiel moyen central est celui de
+l’oscillateur harmonique isotrope, invariant par rotation : ${}$
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  $U\left(r\right)=-U_0+\frac 1 2\mu \omega
+^2r^2$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (1.6)
+
+
+\bigskip
+
+où \textit{U}\textsubscript{0} est la profondeur du puits, $\mu $ la masse réduite du nucléon :  $\mu =m\frac{A-1} A$\ ,
+m étant la masse du nucléon libre et r la distance entre le nucléon et l’origine du référentiel, $\omega $ est la
+fréquence de l’oscillateur harmonique. En raison de la symétrie sphérique, la fonction d’onde d’un nucléon peut être
+réécrite en séparant les parties angulaire et radiale comme suit :
+
+\textbf{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } $\psi \left(r,\theta ,\varphi
+\right)=R_{\mathit{nl}}(r)Y_{\mathit{lm}}(\theta ,\varphi
+)$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (1.7)
+
+
+\bigskip
+
+où \textit{R}\textit{\textsubscript{nl}}\textit{(r)} est la fonction radiale et Y\textit{\textsubscript{lm }}($\theta $,
+$\varphi $) sont les fonctions harmoniques sphériques, \textit{n} étant le nombre quantique principal et l et m sont
+respectivement le moment angulaire orbital et sa projection sur l’axe de quantification. Les valeurs propres, ou les
+énergies des états, sont données par :
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  $E_{\mathit{nl}}=\left(2n+l-\frac 1
+2\right)\mathit{\text{[127?]}\omega }=\left(N+\frac 3 2\right)\mathit{\text{[127?]}\omega
+}$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (1.8)
+
+avec N = 2(n$-$1) +l le nombre de quanta excités de l’oscillateur harmonique. \textit{l} prend de valeurs de 0 à N. La
+notation spectroscopique fait correspondre aux valeurs de \textit{l} = 0, 1, 2, 3,4, 5, 6 ... les lettres : \textit{s,
+p, d, f, g, h, i} ... . Différentes valeurs de \textit{n} et de \textit{l} peuvent conduire à une valeur identique de N
+; ces états sont donc dégénérés en énergie, ce qui conduit à la situation se trouvant à l’extrême gauche sur la figure
+(1.4 (a)) caractérisée par les nombres quantiques \textit{n} (nombre de phonons de l’oscillateur). La dégénérescence
+correspond au nombre de nucléons que peut contenir la couche considérée : \textit{g = }2(2\textit{l+}1). Avec cette
+formule, le nombre de nucléons dans un noyau avec couches remplies est 2, 8, 20, 40, 70, 112, . . . On trouve donc les
+trois premiers nombres magiques mais pas plus. Un potentiel un peu plus compliqué et plus réaliste que celui de
+l’oscillateur harmonique qui tend vers l’infini, est le potentiel de Woods-Saxon. Il modélise la forme aplatie du fond
+du puits de potentiel et ainsi reproduit mieux la forme du noyau. Il est paramétrisé par :
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+$U\left(r\right)=\frac{-U_0}{1+e^{\frac{r-R_0}
+a}}$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (1.9)
+
+où \textit{r} est la distance radiale du potentiel, \textit{a} est un paramètre de diffusivité et
+\textit{R}\textsubscript{0} est le rayon dans lequel  $U\left(R\right)=\frac{-U_0} 2$ \ où \textit{U}\textsubscript{0}
+définit la profondeur du puits de potentiel. Les valeurs typiques de ces paramètres sont  $U_0\ -50$ MeV, 
+$R_0=r_0A^{\frac 1 3}$ et a${\sim}$0.7 fm. 
+
+L’utilisation de ce potentiel comme potentiel moyen ressenti par chaque nucléon permet de lever la dégénérescence en
+\textit{l} ; les états de plus grande valeur de \textit{l} étant plus liés, ils sont plus bas en énergie (voir figure
+1.4(b)). Considérer un potentiel de Woods-Saxon est équivalent à ajouter au potentiel de l’oscillateur harmonique un
+terme en \textit{l}\textsuperscript{2}.
+
+\ Même en utilisant un potentiel plus proche de la réalité, tel que le potentiel de Woods-Saxon, les nombres magiques ne
+sont pas reproduits, sauf les 3 premiers (\textbf{2, 8, 20}). Il était assez clair qu’un potentiel central n’arrive pas
+à lui seul à reproduire tous les nombres magiques.
+
+\ \ \ \ \ C’est pourquoi, en 1948, M. G. Mayer et, indépendamment, D. Haxel, J. Jensen et H. Suess, ont adjoint au
+potentiel de Woods-Saxon, un potentiel dit de spin-orbite \textit{U}\textsubscript{so}, reflétant l’existence d’un
+couplage entre le moment angulaire orbital $\overrightarrow l$ et le spin  $\overrightarrow s$ \ du nucléon :
+
+\textbf{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } $U_0=f(r)\overrightarrow l\overrightarrow
+s$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (1.10)
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+\includegraphics[width=4.3756in,height=5.8339in]{Chapitre201201-img/Chapitre201201-img004.png} 
+
+
+\bigskip
+
+FIG 1.4 \ (a) Energies des états de particules de l’oscillateur harmonique (O.H.) en fonction de N. (b) Représentation
+schématique des énergies des états de particules dans le potentiel de Woods-Saxon, ce qui est équivalent à ajouter au
+potentiel O.H un terme en $\overrightarrow l^2$. (c) Représentation schématique de la levée de dégénérescence due au
+terme de couplage spin-orbite ; les labels des états sont les nombres quantiques nlj. (d) Nombre de particules
+identiques (2\textit{j} + 1) qui peuvent occuper un état. (e) Au niveau des “gap” en énergie, lesnombres magiques sont
+reproduits.
+
+\textit{f}(r) est la constante de couplage et  $\overrightarrow s$ \ est le spin du nucléon et représente son mouvement
+intrinsèque. $\overrightarrow l$ et  $\overrightarrow s$ \ étant couplés, ils ne sont pas de bons nombres quantiques de
+l’hamiltonien. C’est le moment angulaire total  $\overrightarrow j=\overrightarrow l$\ + $\overrightarrow s$ qui est un
+invariant de H. Le couplage spin-orbite est dû à l’interaction nucléon-nucléon qui ne dépend pas seulement de la
+position et du spin des nucléons, mais également de leur vitesse relative. Avec le terme de spin-orbite, les énergies
+des états \textit{l} sont séparées pour \textit{j} = l ±1/2, les états de plus grand \textit{j} étant les plus liés
+(voir figure 1.4(c)). Le nombre de particules identiques qui peuvent occuper un état quantique, soit la dégénérescence
+d’une orbitale (\textit{n l} \textit{j}), est donné par 2 \textit{j} +1 (voir figure1.4(d)). Avec cette modélisation de
+l’hamiltonien, la séquence des nombres magiques est alors reproduite (voir figure 1.4(e)). Cependant, ce modèle n’est
+valable que pour les noyaux sphériques.
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+\textbf{Chapitre 2}
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{La théorie de}
+
+\textbf{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\ \textbf{HARTREE-FOCK-BOGOLIUBOV}
+
+
+\bigskip
+
+\textcolor{black}{\ \ \ \ \ \ \ La théorie Hartree-Fock-Bogoliubov (HFB) est à la fois une extension de la théorie de
+Hartree-Fock (HF) et de la théorie de Bardeen-Cooper-Schrieffer (BCS).}\textbf{ }Afin d’avoir une bonne compréhension
+de cette approche, il est utile de passer en revue un bref résumé de la théorie la plus générale de Hartree-Fock et de
+la théorie de (BCS) de l’appariement.
+
+\begin{enumerate}
+\item \begin{enumerate}
+\item \textbf{\textcolor{black}{La théorie de}}\textcolor{black}{ }\textbf{\textcolor{black}{Hartree-fock}}
+\end{enumerate}
+\end{enumerate}
+\ \ \ \ \ \ \ La méthode Hartree-Fock a été introduite par D. Hartree, V. Fock et J. C. Slater pour \ approximer l'état
+fondamental (et son énergie) de problèmes généraux à N corps en physique quantique. Et la principale application de
+cette méthode était, en physique atomique, l'étude des systèmes coulombiens (atomes et molécules) avec l’hamiltonien
+purement coulombien des électrons interagissant avec des noyaux statiques. L’approche a été appliquée en physique
+nucléaire pour la première fois en 1963 par Kelson.
+
+[Warning: Draw object ignored]\ \ \ \ \ \ \ La méthode de Hartree-Fock (HF) est basée sur l’hypothèse que les nucléons
+composant le noyau peuvent être considérés comme indépendants dans un champ moyen construit de manière auto-cohérente.
+Ceci s’explique par la nature quantique des nucléons, le principe de Pauli et la partie fortement répulsive à courte
+portée de l’interaction nucléon-nucléon. Ainsi, on peut considérer les nucléons comme des particules indépendantes se
+déplaçant dans un potentiel moyen qu’ils créent eux-mêmes. 
+
+[Warning: Draw object ignored]
+
+FIG 2.1~Illustration de l’approximation de champ moyen qui consiste à approximer un ensemble de nucléons en interaction
+par un ensemble de particules indépendantes dans un champ moyen.
+
+L’ingrédient de base de ces théories est l’hamiltonien microscopique qui régit la dynamique des nucléons individuels
+plongés dans un potentiel moyen qu’ils créent collectivement. Cet hamiltonien peut s’écrire sous la forme : 
+
+
+\bigskip
+
+\textbf{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } $H=\sum _{\mathit{ij}}^{\Box
+}T_{\mathit{ij}}a_i^{+?a_j+\frac 1 4\sum _{\mathit{ijkl}}^{\Box
+}V_{\mathit{ijkl}}a_i^{+?a_j^{+?a_ka_l}}}$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.1)
+
+où le premier terme correspond à l’énergie cinétique et  $V_{\mathit{ijkl}}$ \ l’élément de matrice a deux corps de
+l’interaction effective. Les opérateurs  $a_i^{+?}$ \textit{\ }et  $a_i$ \ représentent respectivement les opérateurs
+de création et d’annihilation de fermions dans l’état à un corps {\textbar}i[27E9?]. Ces opérateurs respectant les
+règles d’anticommutation,
+
+
+\bigskip
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+$[a_i^{+?,a_j^{+??_{+?=[a_i,a_j?_{+?\mathit{et}[a_i,a_j^{+??_{+?=[a_i^{+?,a_j?_{+?=\delta
+_{\mathit{ij}}}}}}}}}}$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.2)
+
+
+\bigskip
+
+Dans la méthode de \textbf{Hartree-Fock (HF),} La fonction de l’état fondamental du noyau est recherchée sous la forme
+d’un déterminant de Slater construit à partir des fonctions d'onde individuelles des nucléons : 
+
+
+\bigskip
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  $\vee \Psi
+_{\mathit{HF}}\text{[27E9?]}=\mathit{det}\left[\Phi _{\mathit{\alpha 1}}\left(x_1\right).\Phi _{\mathit{\alpha
+2}}\left(x_2\right){\dots}\Phi _{\mathit{\alpha
+A}}\left(x_A\right)\right]$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.3)
+
+
+\bigskip
+
+avec  $\vee \Psi _{\mathit{HF}}\text{[27E9?]}$ \ la fonction d’onde du noyau. Les équations de Hartree-Fock s’obtiennent
+en minimisant l’énergie totale du noyau :
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+$E_{\mathit{HF}}=\frac{\text{[27E8?]}\Psi _{\mathit{HF}}\text{[27E9?]}}{\text{[27E8?]}\Psi
+_{\mathit{HF}}\text{[27E9?]}}$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.4)
+
+
+\bigskip
+
+Ce principe variationnel conduit aux équations de Hartree-Fock (HF) \textbf{:}
+
+\textbf{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } $h\Phi _{\beta _i}=\left\{\frac{-\hbar
+}{2m}{\nabla}^2+U_{\mathit{HF}}\left[\Phi _{\alpha }\right]\right\}\Phi _{\beta _i}=\varepsilon _{\beta
+_i}$\textbf{\ \ \ \ \ \ } $i=1,{\dots},A$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.5)
+
+où le champ Hartree-Fock  $U_{\mathit{HF}}\left[\Phi _{\alpha }\right]$ \ \ dépend lui-même des fonctions d’onde
+individuelles \ \ \ \ \ \  $\Phi _{\alpha }$ générant ainsi un système auto-cohérent de \textit{A }équations
+non-linéaires.
+
+Pour résoudre ce système d’équations (Éq. (2.5)), il faudrait déjà connaître la solution ! On procède donc de manière
+itérative en postulant une solution (fonction test) et en l’injectant dans le système, ce qui permet de construire le
+premier hamiltonien HF que l’on diagonalise. Les états propres et fonctions propres obtenus sont ensuite utilisés pour
+reconstruire un nouvel hamiltonien, et ainsi de suite, jusqu’à ce que la variation du jeu de fonctions d’onde entre
+deux itérations successives soit inférieure à une valeur fixée. Certaines symétries du système sont généralement prises
+en compte lors de la résolution de ces équations : les noyaux pairs-pairs seront par exemple décrits avec un état 
+$\Psi _{\mathit{HF}}$ \ invariant par renversement du temps (dégénérescence de Kramers) qui permettra de diviser par
+deux le nombre d’équations à traiter. 
+
+L’approximation de Hartree-Fock est bien adaptée à la description des noyaux pour lesquels il existe, dans le spectre de
+particules individuelles un écart en énergie ({\textquotedbl}gap{\textquotedbl}) important entre le dernier niveau
+occupé et le premier état vide. Ce {\textquotedbl}gap{\textquotedbl} garantit la stabilité du noyau générant un nombre
+magique pour le nombre de neutrons ou de protons correspondant. C’est le cas des noyaux pairs-pairs à couches fermées.
+L‘approximation HF est par contre insuffisante dès que l’on veut décrire les états fondamentaux des noyaux situés en
+milieu de couches pour lesquels l’état fondamental sera quasiment dégénéré avec une multitude d’autres états obtenus à
+partir de configurations de type particule-trou construites sur ce dernier. L’introduction des corrélations
+d’appariement permet de restaurer un {\textquotedbl}gap{\textquotedbl} en énergie entre états de
+{\textquotedbl}quasi-particules{\textquotedbl}, et ainsi de redonner une bonne solution pour l’état fondamental du
+noyau.
+
+\begin{enumerate}
+\item \begin{enumerate}
+\item \textbf{\textcolor{black}{Les corrélations d'appariement}}
+\end{enumerate}
+\end{enumerate}
+Le concept d’appariement a été introduit en physique de la matière condensée, où, sous l’action d’une interaction
+attractive (efficace), les électrons peuvent se coupler pour former les paires de Cooper, responsables à basse
+température du phénomène de supraconductivité. Les évidences expérimentales confirmant ce phénomène nucléaire sont
+nombreuses et connues depuis longtemps. Résumons brièvement certains de ces faits expérimentaux :
+
+\textbf{Le gap d’énergie}. Les spectres des noyaux déformés montrent une différence caractéristique entre les nombres de
+nucléons pairs et impairs. Les noyaux pairs-pairs ne possèdent que quelques niveaux (collectifs) jusqu'à une énergie
+d'excitation de 1,5 MeV. La situation est très différente pour les noyaux pairs-impairs, qui ont de nombreux niveaux
+collectifs et mono- particulaires dans le même intervalle d'énergie. Figure 2.2 montre le spectre de certains isotopes
+de l'étain à titre d'exemple.
+
+\ \  \includegraphics[width=5.7508in,height=3.7193in]{Chapitre201201-img/Chapitre201201-img005.png} 
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FIG 2.2 spectre d'excitation des isotopes \textsubscript{50}sn.
+
+Pour les noyaux entre couches fermées, la configuration énergétiquement la plus favorable sera celle dans laquelle tous
+les nucléons (sauf le dernier dans le cas des noyaux pairs-impairs) sont appariés. Pour exciter les noyaux
+pairs-impairs, nous devons donc briser au moins une paire ce qui demande beaucoup d’énergie contrairement aux noyaux
+pairs-impairs dont laquelle une excitation peut être obtenue en plaçant le nucléon impair dans un niveau d'énergie très
+bas. L'énergie de liaison d'une paire étant de l'ordre de 1-2 MeV, le gap d’énergie entre l'état fondamental et le
+premier état excité dans les noyaux pairs et impairs s'explique donc qualitativement.
+
+\textbf{\ Effet pair-impair}. L'énergie de liaison totale d'un noyau pair-impair est inférieure à la moyenne
+arithmétique des énergies de liaison des deux noyaux pairs voisins. Par conséquent, nous avons la relation suivante des
+masses des noyaux voisins :
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+$M_{\left(A\mathit{impair}\right)}>\frac{M_{A-1}+M_{A+1}}
+2$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.6)
+
+Ce phénomène peut être expliqué par le modèle d’appariement. Lorsque le noyau possède un nombre pair de protons et de
+neutrons, chacun de ces nucléons se couple à un autre pour former une paire \ dans un état de spin opposé afin
+d’augmenter la stabilité du noyau. 
+
+\textbf{Déformations}. Si, dans le modèle en couche pure, nous calculons la distribution de la densité des nucléons en
+fonction du nombre de masse nucléaire. On peut constater que les noyaux à couches fermées ont une forme symétrique
+sphérique. Ce n'est pas le cas pour ceux à couche \ moitié remplis qui subissent une grande déformation.
+
+L'existence de paires-comme nous l'avons vu dans la fig. (2.2)- favorise une forme nucléaire sphérique (aucune direction
+n'est préférable). Les noyaux dont les nombre de masses \ ne dévient pas beaucoup des configurations des couches
+fermées auront donc toujours une symétrie sphérique, puisque l'influence de la force d'appariement l'emporte sur la
+tendance à la déformation. Plus loin des couches fermées nous aurons la situation inverse. De cette façon, le passage
+plutôt soudain de la sphéricité à la déformation peut être compris.
+
+\textbf{Le moment d'inertie} des noyaux déformés peut être mesuré à partir de la structure de niveau des bandes
+rotationnelles. Les calculs basés sur le modèle à particule unique pure s'écartent d'un facteur 2 des valeurs
+expérimentales. Si l'appariement est inclus, la théorie et l'expérience sont en bien meilleur accord. Donc une
+description réaliste des noyaux doit prendre en compte ces corrélations. Ce qui n’est pas le cas dans l’approximation
+de Hartree-Fock où l’interaction résiduelle de l’appariement est négligée.
+
+\textbf{1.3 Approximation BCS}
+
+\ \ \ \ \ \ \ \ La méthode {\textquotedbl}'classique{\textquotedbl} de traitement des corrélations d'appariement est
+l'approximation BCS, proposée par J. Bardeen, L.N. Cooper et J.R. Schrieffer en 1957. Dans la théorie BCS, la fonction
+d’onde de l’état fondamental d’un système pair-pair est approximée par l’expression suivante : \ \ 
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  $\vee \mathit{BCS}\text{[27E9?]}=\prod
+_{k>0}^{\Box }\left(u_k+v_ka_k^{+?a_{\underline k}^{+?}}\right)\vee
+0\text{[27E9?]}$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.7)
+
+où\textit{ k} et $\underline k$ représentent des états appariés à une seule particule et sont reliés par l’opérateur de
+renversement du sens de temps, de telle sorte que l’espace des états à un corps est partitionné en des états \textit{k
+}{\textgreater} 0 et des états  $\underline k$\ {\textless} 0.\textit{u}\textit{\textsubscript{k}} et
+\textit{v}\textit{\textsubscript{k}}\textsubscript{ }sont les amplitudes d’occupation
+({\textbar}\textit{v}\textit{\textsuperscript{2}}\textit{\textsubscript{k}}{\textbar} est la probabilité que la paire
+(\textit{k}, $\underline k$) soit occupée et $\left|u_k^2\vee +\vee v_k^2\right|=1$.
+
+\ \ \ \ \ \ \ Le système est donc décrit en terme de paires indépendantes, et non en terme de particules indépendantes. 
+
+\ \ \ \ \ \ \ Le nombre de particules dans la théorie BCS n’est pas conservé ; il n’est fixé qu’en valeur moyenne par
+(en contraignant le système par un multiplicateur de Lagrange $\lambda $) :
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+$\text{[27E8?]}\mathit{BCS}\text{[27E9?]}=\sum _{k>0}^{\Box
+}2v_k^2=N$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.8)
+
+\ \ \ \ \ \ \ Cette violation du nombre de particules n’a pas beaucoup d’importance en physique du solide, où le nombre
+de particules est typiquement de l’ordre ou proche du nombre d’Avogadro (N ${\simeq}$ 10\textsuperscript{23}). La
+dispersion qu’on peut montrer être égale à $1/{\surd}N$, est donc faible. Ceci n’est pas le cas en physique nucléaire
+où N ${\approx}$ 10$-$100 et donc le problème devient réel.
+
+\ \ \ \ \ \ \ L’approximation BCS permet donc un traitement approché des effets d’appariement. Cependant, elle brise une
+symétrie (celle de la conservation du nombre de particules) qui s’ajoute aux symétries déjà brisées dans
+l’approximation d’HF, ce qui est un point de défaut. En plus, cette approche présente l’inconvénient de ne pas être
+adaptée pour le cas des noyaux impairs. Il est nécessaire de la généraliser selon la méthode de Hartree Fock
+Bogoliubov(HFB).
+
+\textbf{1.3} \textbf{Concept de quasi-particules}
+
+\ \ \ \ \ \ \ Pour tenir compte des effets d’appariement dans le noyau\textbf{,} on introduit le concept de
+quasiparticules de \ Bogoliubov dans la méthode hartree-fock. On transforme ainsi l’état HF de particules indépendantes
+ $\left\{a,a^{+?}\right\}$ en un état Hartree-Fock-Bogoliubov (HFB) de quasi-particules indépendantes  $\left\{\beta
+,\beta ^{+?}\right\}$ \ en utilisant la transformation suivante :
+
+
+\bigskip
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  $\beta _{\alpha }=\sum _i^{\Box
+}U_{\mathit{i\alpha }}^{\ast }a_i+V_{\mathit{i\alpha }}^{\ast
+}a_i^{+?}$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.9)
+
+
+\bigskip
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  $\beta _{\alpha }^{+?=\sum _i^{\Box
+}U_{\mathit{i\alpha }}a_i^{+?+V_{\mathit{i\alpha
+}}a_i}}$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.10)
+
+
+\bigskip
+
+
+\bigskip
+
+Les équations (6,7) peuvent être écrites sous forme matricielle :
+
+
+\bigskip
+
+
+\bigskip
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  $\left(\beta \beta
+^{+?}\right)=\left(U^{+?V^{+?V^TU^T}}\right)\left(aa^{+?}\right)=W^{+?\left(aa^{+?}\right)}$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.11)
+
+
+La transformation de Bogoliubov préserve les relations d’anticommutation. Le calcul des anticommutateurs entre les
+opérateurs de création\textit{ $\beta $}\textsuperscript{†}\textit{\textsubscript{i}} et d’annihilation \textit{$\beta
+$}\textsubscript{j} de quasi-particules permet de montrer que la matrice  $W$\ (matrice de Bogoliubov) est unitaire :
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+$WW^{+?=W^{+?W=?}}$ 1 \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.12)
+
+\ \ \ \ c’est à dire : \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  $U^{+?U+V^{+?V=1}}$\ \ \ \ \ ,
+\ \ \ \ \ \ \ \  $UU^{+?+V^{\ast }V^T=1}$\ 
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.13)
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  $U^TV+V^TU=0$\ \ \ \ \ \ \ \ , \ \ \ \ \ \ \ \ 
+$UV^{\ast }+V^{\ast }U^T=0$
+
+\textbf{1.4 La méthode Hartree fock-bogoliubov}
+
+\ \ \ \ \ \ \ Dans l’approximation HFB, l’hamiltonien est essentiellement réduit à deux potentiels : le potentiel moyen
+auto-cohérent \textcolor[rgb]{0.1254902,0.12941177,0.13333334}{$\Gamma $} de la théorie de Hartree-Fock, et un champ
+d’appariement supplémentaire $\Delta $, connu de la théorie BCS.
+
+\ \ \ \ \ \ L’état HFB, noté {\textbar}$\Phi $[27E9?], est défini comme le vide associé aux opérateurs d’annihilation de
+quasi-particules \textit{$\beta $}\textit{\textsubscript{i}}. Il vérifie donc, pour tout \textit{i} :
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+$\beta _i\vee \Phi
+\text{[27E9?]}=0$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.14)
+
+On impose de plus à cet état d’être normé : \ \ \ \ 
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+$\text{[27E8?]}\Phi
+\text{[27E9?]}=0$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.15)
+\ 
+
+L’hamiltonien nucléaire H, qui décrit le système de Z+N = A nucléons, contient un terme cinétique T à un corps et une
+série de termes V\textsuperscript{(n)} qui décrivent les interactions simultanées de n nucléons entre eux :
+\ \ \ \ \ \ \ \ \ \ \ \ \ 
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+$H=T+V^{\left(2\right)}+V^{\left(3\right)}+{\dots}V^{\left(A\right)}$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.16)
+
+Le terme cinétique \textit{T} décrit un système de A particules libres. Le terme à deux corps décrit l’interaction entre
+chaque paire de particules :
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+$V^{\left(2\right)}=\frac 1 2\sum
+_{i{\neq}j=1}^Av_{\mathit{ij}}$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.17)
+
+où l’opérateur \textit{v}\textsubscript{ij }décrit l’interaction à deux corps entre la particule \textit{i} et la
+particule \textit{j}. Les termes décrivant les interactions à trois corps ou plus seront négligés. L’hamiltonien
+nucléaire H se réécrit :
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  $H=\sum
+_{i=1}^At_{\mathit{ij}}+\frac 1 2\sum
+_{i{\neq}j=1}^Av_{\mathit{ij}}$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.18)
+
+et en seconde quantification :
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  $H=\sum _{\mathit{ij}}^{\Box
+}T_{\mathit{ij}}a_i^{+?a_j+\frac 1 4\sum _{\mathit{ijkl}}^{\Box
+}V_{\mathit{ijkl}}a_i^{+?a_j^{+?a_ka_l}}}$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.19)
+
+avec \textit{v}\textit{\textsubscript{ijk}}, les éléments de matrice de l’interaction NN antisymétrisée :
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+$V_{\mathit{ijkl}}=\text{[27E8?]}\mathit{kl}\text{[27E9?]}-\text{[27E8?]}\mathit{lk}\text{[27E9?]}$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.20)
+
+Pour un état HFB {\textbar}$\Phi $[27E9?] donné, l’énergie moyenne E\textsubscript{HFB} de cette configuration sera
+donnée~par :
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \  $E_{\mathit{HFB}}=\text{[27E8?]}\Phi \text{[27E9?]}=\sum _{\mathit{ij}}^{\Box
+}t_{\mathit{ij}}\rho _{\mathit{ij}}+\frac 1 2\sum _{\mathit{ijkl}}^{\Box }v_{\mathit{ijkl}}\left[\rho
+_{\mathit{ki}}\rho _{\mathit{lj}}+\frac 1 2k_{\mathit{ij}}^{\ast }k_{\mathit{kl}}\right]$\ \ \ \ \ \ \ \ \ (2~.21)
+
+où $\rho $ est la matrice densité du système, définie par :
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  $\rho =\text{[27E8?]}\Phi
+\text{[27E9?]}=\sum _m^{\Box }V_i^{m\ast
+?V_j^m}$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.22)
+
+La densité $\rho $ est une observable, elle est donc hermitienne, soit : $\rho $† = $\rho $. La trace de la matrice
+densité correspond au nombre total de particules qu’il contient :
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+$N=\mathit{tr}\left(\rho \right)=\sum _{\Im }^{\Box }V_i^{m\ast
+?V_i^m}$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.23)
+
+La norme du vecteur V\textit{\textsubscript{i}} donne la contribution des quasi-particules au nombre total de particules
+N dans le système. Lorsque {\textbar}V\textit{\textsubscript{i}}{\textbar}\textsuperscript{2} {\textgreater} 1/2, c’est
+un état de trou et lorsque {\textbar}V\textit{\textsubscript{i}}{\textbar}\textsuperscript{2} {\textless} 1/2c’est un
+état de particule, en moyenne.
+
+Le terme \textit{K} est le tenseur d’appariement (ou densité anormale) définie par :
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  $K_{\mathit{ij}}=\text{[27E8?]}\Phi
+\text{[27E9?]}=\sum _m^{\Box }V_i^{m\ast
+?U_j^m}$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.24)
+
+\textcolor{black}{Le terme en }\textit{\textcolor{black}{K*K}}\textcolor{black}{, dans l’équation de l’énergie
+}\textit{\textcolor{black}{E}}\textit{\textcolor{black}{\textsubscript{HFB}}}\textcolor{black}{, représente la
+contribution des corrélations d’appariement à l’énergie. Dans la limite où l’appariement est nul, on retrouve l’énergie
+moyenne de la théorie HF.}
+
+Il est également utile de définir la matrice densité généralisée, notée R, qui permet de regrouper la matrice densité a
+un corps, $\rho $, et le tenseur d’appariement, k, en une seule matrice. Elle est définie comme :
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  $R=\left(\rho k-k^{\ast }1-\rho
+^{\ast }\right)$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.25)
+
+et dont les vecteurs propres sont les coefficients $\left(\frac{u_i}{v_i}\right)$ définissant la transformation unitaire
+de Bogoliubov.
+
+
+\bigskip
+
+\textcolor{black}{\ \ \ \ \ \ \ On minimise l’énergie EHFB de la même manière que pour HF, en utilisant un principe
+variationnel. On obtient alors les équations HFB qui s’écrivent sous forme matricielle :}
+
+
+\bigskip
+
+\textcolor{black}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+$H_{\mathit{HFB}}=\left(\frac{u_i}{v_i}\right)=\left(h{\Delta}-{\Delta}^{\ast }-h^{\ast
+}\right)\left(\frac{u_i}{v_i}\right)=E_i\left(\frac{u_i}{v_i}\right)$\textcolor{black}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.26)}
+
+\textcolor{black}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } $H_{\mathit{HFB}}=\left(\frac{u_i^{\ast
+}}{v_i^{\ast }}\right)=\left(h{\Delta}-{\Delta}^{\ast }-h^{\ast }\right)\left(\frac{u_i^{\ast }}{v_i^{\ast
+}}\right)=E_i\left(\frac{u_i^{\ast }}{v_i^{\ast
+}}\right)$\textcolor{black}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.27)}
+
+\textcolor{black}{où h est le champ particule-trou (champ Hartree-Fock) :}
+
+\textcolor{black}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+$h_{\mathit{ik}}=\frac{\delta (E-\lambda _pZ-\lambda _nN)}{\delta \rho _{\mathit{ki}}}=h_{\mathit{ki}}^{\ast
+}$\textcolor{black}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.28)}
+
+\textcolor{black}{et $\Delta $ est le champ d’appariement dont les éléments de matrices sont :}
+
+\textcolor{black}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+${\Delta}_{\mathit{ij}}=\frac{\delta (E-\lambda _pZ-\lambda _nN)}{\delta k_{\mathit{ji}}^{\ast
+}}={\Delta}_{\mathit{ji}}^{\ast }$\textcolor{black}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.29)}
+
+
+\bigskip
+
+\textcolor{black}{$\lambda $p et $\lambda $n sont les multiplicateurs de Lagrange correspondant respectivement aux
+potentiels chimiques des protons et neutrons :}
+
+\textcolor{black}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } $\lambda _p=\frac{\mathit{\delta
+E}}{\mathit{\delta Z}},$\textcolor{black}{\ \ \ \ \ \ \ \ \ \ \ \ \ } $\lambda _n=\frac{\mathit{\delta
+E}}{\mathit{\delta
+N}}$\textcolor{black}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.30)}
+
+\textcolor{black}{ce qui donne pour une force à deux corps ne dépendant pas de la densité, d’après la définition}
+
+\textcolor{black}{de l’Hamiltonien nucléaire (Eq. 2.19) :}
+
+\textcolor{black}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+$h_{\mathit{ik}}=t_{\mathit{ik}}+\sum _{\mathit{jl}}^{\Box }v_{\mathit{ijkl}}\rho
+_{\mathit{lj}}$\textcolor{black}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.31)}
+
+\textcolor{black}{et}\textcolor{black}{
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+${\Delta}_{\mathit{ik}}=\frac 1 2\sum _{\mathit{kl}}^{\Box
+}v_{\mathit{ijkl}}K_{\mathit{kl}}$\textcolor{black}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2.32)}
+
+
+\bigskip
+
+\textcolor{black}{\ \ Pour conclure, la théorie HFB permet, grâce à la prise en compte des corrélations d’appariement,
+d’améliorer la fonction d’onde approchant l’état fondamental dans les noyaux non magiques, et ceci en régénérant un gap
+au-dessus du niveau de Fermi similaire à celui observé dans les noyaux magiques à l’approximation HF à travers une
+transformation de Bogoliubov.}
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+\textbf{\textcolor{black}{\ \ \ \ \ \ }}
+\includegraphics[width=5.7091in,height=4.5425in]{Chapitre201201-img/Chapitre201201-img006.png} 
+
+FIG 1.3 Représentation schématique du spectre d’un noyau non magique traité avec la théorie HF (gauche) et avec HFB
+(droite). Un gap entre les états de quasi-trous et quasi-particules est généré via la transformation~de Bogoliubov.
+
+\textbf{\textcolor{black}{1.5 Les interactions Effectives phénoménologiques}}
+
+\textbf{\textcolor{black}{\ }}Dans la pratique, la méthode HFB demande une interaction effective pour calculer le champ
+d’appariement $\Delta $ et le champ Hartree-Fock (HF) h.\textbf{\textcolor{black}{ }}Plusieurs interactions effectives
+phénoménologiques ont été développées ces dernières années. Ce type d’interaction est représenté sous une forme
+analytique paramétrisable puis ajuste sur des propriétés générales du milieu nucléaire. Les paramètres sont alors
+définis une fois pour toutes. Les deux grandes familles de forces utilisées actuellement sont
+:\textbf{\textcolor{black}{ }}
+
+
+\bigskip
+
+\begin{itemize}
+\item \textbf{\textcolor{black}{Interactions de portée finie}}\textcolor{black}{ \ \ }
+\end{itemize}
+
+\bigskip
+
+\ \ \ \ \ \ \ \ À partir des années 60 et jusqu’à nos jours, l’interaction effective de portée finie est probablement la
+plus étudiée parce que peut-être la plus naturelle. La portée finie permet en effet une meilleure simulation des longue
+et moyenne portées de l’interaction nucléon-nucléon(NN) réaliste. Elle autorise en outre un traitement auto-cohérent
+des corrélations d’appariement dans un formalisme Hartree-Fock-Bogoliubov (HFB) : dans l’espace des moments la portée
+des corrélations d’appariement sera finie éliminant ainsi toute divergence. C’est à l’évidence un atout important dès
+que l’on veut s’éloigner vers les grandes déformations ou vers les lignes d’instabilité proton ou neutron, les
+corrélations d’appariement s’adaptant automatiquement à ces nouvelles conditions. 
+
+\ \ \ \ \ \ \ La force de Gogny est modélisée par une somme de termes gaussiens attractifs ou répulsifs, A ces éléments,
+il faut ajouter un terme dépendant de la densité ainsi qu'un terme d'interaction spin-orbite, tous deux de portée
+nulle. Son expression générale en représentation coordonnée s'écrit :
+
+
+\bigskip
+
+\begin{equation*}
+V\left(\overrightarrow r_1,\overrightarrow r_2\right)=\sum _{i=1}^2\left[W_i+B_iP_{\sigma }-H_iP_{\tau }-M_iP_{\sigma
+}P_{\tau }\right]e^{\frac{-r^2}{\mu _i}}+t_3\left(1+x_3P_{\sigma }\right)[\rho (\overrightarrow R)??_{\alpha }\delta
+\left(\overrightarrow r\right)?
+\end{equation*}
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  $+iW_0\overrightarrow{\sigma }.\left[\overrightarrow P\ast {\wedge}\delta
+\left(\overrightarrow r\right)\overrightarrow P\right]$\ \ \ \ \ \ \ \ \ \ \ (2.33)
+
+
+\bigskip
+
+\begin{itemize}
+\item \textbf{\textcolor{black}{Interaction de portée nulle : la force de Skyrme}}
+\end{itemize}
+
+\bigskip
+
+\textcolor[rgb]{0.13725491,0.12156863,0.1254902}{\ \ \ \ \ \ \ \ La force de Skyrme est une interaction effective
+phénoménologique de portée nulle qui permet de modéliser de façon simple les interactions entre les nucléons dans le
+noyau. Proposée en 1956 par T.H.R, Skyrme. }La portée nulle permet de simplifier les calculs numériques. Ces forces
+sont représentées, mathématiquement, par une \textcolor{black}{distribution de Dirac $\delta $(} $\overrightarrow
+r$\textcolor{black}{):}
+
+
+\bigskip
+
+\begin{equation*}
+V\left(\overrightarrow{r_1},\overrightarrow{r_2}\right)=t_0(1+x_0P_{\sigma })\delta (\overrightarrow r)
+\end{equation*}
+
+\bigskip
+
+\ \ \ \ \ \ \ \ \  $+t_2\left(1+x_2P_{\sigma }\right)\overrightarrow{P^{\ast }}\delta \left(\overrightarrow
+r\right)\overrightarrow P+\frac 1 6t_3(1+x_3P_{\sigma })[\rho (\overrightarrow R)??^{\alpha }\delta
+\left(\overrightarrow r\right)$\ \ \ \ \ (2.34)
+
+
+\bigskip
+
+\begin{equation*}
++iw_0\overrightarrow{\sigma }.[\overrightarrow{P^{\ast }}{\wedge}\delta \left(\overrightarrow r\right)\overrightarrow P]
+\end{equation*}
+
+\bigskip
+
+
+\bigskip
+
+avec les notations usuelles :
+
+
+\bigskip
+
+\  $r=r_1-r_2$\ \ , \  $R=\frac 1 2(r_1+r_2)$~, \  $P=\frac 1{2i}({\nabla}_1-{\nabla}_2)P^{\ast }$ cc de 
+$\overrightarrow P$ \ agissant à gauche
+
+
+\bigskip
+
+et également~~
+
+
+\bigskip
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  $\sigma =\sigma _1+\sigma _2$\ \ \ \ ; \ \ \ \  $P_{\sigma
+}=(1+\sigma _1.\sigma _2)/2$\ \ \ \ 
+
+
+\bigskip
+
+\textcolor[rgb]{0.13725491,0.12156863,0.1254902}{\ \ \ \ \ \ \ Au premier terme, terme central décrivant le terme
+attractif de la force, il convient d'ajouter deux termes « non locaux », Ceux-ci, qui dépendent des vitesses, peuvent
+être vus}\textit{\textcolor[rgb]{0.13725491,0.12156863,0.1254902}{
+}}\textcolor[rgb]{0.13725491,0.12156863,0.1254902}{comme une simulation de portée nulle d'effets de portée finie comme
+introduits dans la force de Gogny. Le dernier terme est un terme d'interaction spin-orbite indispensable pour
+reproduire la série des nombres magiques dans les noyaux qui, comme nous l'avons déjà mentionné auparavant, est
+construit de manière purement phénoménologique.}
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+\textbf{Chapitre 3}
+
+
+\bigskip
+
+\textbf{Propriétés de l’état fondamental des}
+
+\textbf{isotopes pairs et impairs de Fl, Lv \ et Og}
+
+
+\bigskip
+
+\textbf{3.1 Résumé}
+
+
+\bigskip
+
+\textbf{\ \ \ \ \ \ \ }Afin d'étudier les propriétés de l'état fondamental\textbf{ }des isotopes pairs et impairs
+\ de\textcolor[rgb]{0.1254902,0.12941177,0.13333334}{~Flérovium} (Fl,
+Z=114),\textbf{\textcolor[rgb]{0.1254902,0.12941177,0.13333334}{
+}}\textcolor[rgb]{0.1254902,0.12941177,0.13333334}{Livermorium }(Lv, Z=116) et L’oganesson (Og, Z=118), la matrice HFB
+est résolue en utilisant le code HFBTHO version 3.00 [79], avec l'interaction Skyrme SLy4, où l’ensemble de paramètres
+typiques de cette force est présentés dans le tableau (3.1). 
+
+Dans ce chapitre, nous avons présenté les résultats numériques de notre étude y compris l'énergie de liaison, l'énergie
+de séparation des deux neutrons, les rayons de charge, de neutrons et de protons. L’énergie d’appariement et le spectre
+d’énergie. Les résultats ont été comparés avec les données expérimentales disponibles et avec les prédictions de
+certains modèles nucléaires tels que le modèle de la gouttelette liquide à portée finie (Finite Range Droplet Model,
+FRDM) et la théorie du champ moyen relativiste (RMF).
+
+
+\bigskip
+
+\textbf{3.2 Détails des calculs}
+
+
+\bigskip
+
+\ \ \ \ \ Dans le présent travail, Les calculs ont été effectués avec le code HFBTHOv3.00 [19] et ont été exécutés de
+manière répétitive avec un script python pour modifier les entrées et pour enregistrer et analyser les données de
+sortie. Parmi plusieurs ensembles de paramètres pour la prédiction des propriétés de l’état fondamental nucléaire [110,
+111], nous avons utilisé la force de Skyrme SLy4 [91] qui est largement utilisée dans les calculs de la structure
+nucléaire. La force de Skyrme SLy4 a été développée par E. Chabanat et ses collaborateurs. Elle fait partie de la
+famille de forces SLyx. Pour déterminer l’ensemble des paramètres de cette force (10 au total), les auteurs ont suivi
+un protocole d’ajustement incluant certaines propriétés de la matière nucléaire infinie (valeur de saturation $\rho $0
+et coefficient d’incompressibilité) et quelques propriétés de la matière nucléaire finie (masses et rayons de quelques
+noyaux doublement magiques). Cette force a été construite pour des conditions extrêmes d’isospin et de densité.
+Néanmoins, elle conduit à de très bons résultats pour les noyaux de la vallée de stabilité et les noyaux fortement
+déformés.
+
+\ \ \ \ \ L’ensemble des paramètres SLy4 [91] utilisés dans cette étude est présenté dans le tableau 5.1.
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+\textbf{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Table 3.1 }Paramètres de la force de Skyrme SLy4
+
+
+\bigskip
+
+\begin{center}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{1.8900598in}|m{1.8893598in}|}
+\hline
+\centering Parameter &
+\centering\arraybslash Sly4\\\hline
+\centering  $t_0$\ (MeV fm\textsuperscript{3}) &
+\centering\arraybslash {}-2484.91\\\hline
+\centering  $t_1$\ (MeV fm\textsuperscript{5}) &
+\centering\arraybslash 486.82\\\hline
+\centering  $t_2$\ (MeV fm\textsuperscript{5}) &
+\centering\arraybslash {}-546.39\\\hline
+\centering  $t_3$\ (MeV fm\textsuperscript{4}) &
+\centering\arraybslash 13777.0\\\hline
+\centering  $x_0$ &
+\centering\arraybslash 0.834\\\hline
+\centering  $x_1$ &
+\centering\arraybslash {}-0.344\\\hline
+\centering  $x_2$ &
+\centering\arraybslash {}-1.0\\\hline
+\centering  $x_3$ &
+\centering\arraybslash 1.354\\\hline
+\centering  $W_0$\ (MeV fm\textsuperscript{5}) &
+\centering\arraybslash 123\\\hline
+\centering  $\sigma $ &
+\centering\arraybslash 1/6\\\hline
+\end{supertabular}
+\end{center}
+
+\bigskip
+
+nous avons modifié les valeurs de la force d'appariement pour les neutrons V\textsubscript{n0} et protons V p0 (en MeV),
+qui peuvent être différentes, mais dans notre étude, la force d'appariementV n,p0 est considérée comme étant la même
+pour les deux. Pour chaque isotope, nous avons exécuté le code en utilisant un V n,p0 et avons comparé l'énergie de
+liaison totale obtenue à l'état fondamental obtenue avec la valeur expérimentale. Cette procédure a été répétée jusqu'à
+ce que nous trouvions, pour chaque nombre de masse A (pair et impair), la valeur de V n,p
+
+0 qui donne l'énergie de liaison totale à l'état fondamental la plus proche de la valeur expérimentale.
+
+
+\bigskip
+
+
+\bigskip
+
+\textbf{3.3 Énergie de liaison}
+
+
+\bigskip
+
+\ \ \ \ \ \ \ L'énergie de liaison est importante dans l'étude de la physique nucléaire et a une relation directe avec
+la stabilité des noyaux. L'énergie de liaison nucléaire est définie comme l'énergie qui doit être fournie pour briser
+le noyau d'un atome en protons et neutrons séparés. Dans cette étude, nous calculons l'énergie de liaison moyenne par
+nucléon ([D835?][DC35?][D835?][DC38?]⁄[D835?][DC34?]) d'un état fondamental pour les isotopes pairs et impairs de Fl,
+Lv et Og \ dont les résultats sont dressées dans les tableaux (5.2 et 5.3) et tracées dans la figure 5.1. Pour montrer
+la validité de nos calculs, nous les comparons avec les données expérimentales disponibles, FRDM(2012) et RMF(NL3).
+
+
+\bigskip
+
+
+\bigskip
+
+\textbf{\ \ \ \ \ \ \ \ \ \ \ \ \ TABLEAU POUR ENERGIE DE LIAISON PAR NUCLEON}
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+\textbf{5.4.2 Énergie de séparation de neutrons}
+
+
+\bigskip
+
+\ \ \ \ \ \ \ Les énergies de séparation d’un neutron et de deux neutrons sont très importantes dans l’étude de la
+structure nucléaire. Dans ce travail, nous les avons calculées pour les isotopes pairs et impairs de Mo et de Ru dans
+la paramétrisation SLy4 avec la force d’appariement Vn,p0 générée par l’équation (5.1).
+
+\ \ \ \ \ \ L’énergies de séparation de deux neutrons, S2n, est donnée par l’Eq (4.2), et l’énergie de séparation d’un
+neutron, Sn, est définie comme suit :
+
+
+\bigskip
+
+
+\bigskip
+
+\begin{equation*}
+S_n\left(Z,N\right)=\mathit{BE}\left(Z,N\right)-\mathit{BE}(Z,N-1)
+\end{equation*}
+
+\bigskip
+
+
+\bigskip
+
+Les énergies Sn et S2n calculées pour les isotopes de Mo et de Ru sont affichées sur lesfigures 5.3 et 5.4,
+respectivement. Les données expérimentales disponibles [92], les calculs
+
+HFB basés sur la force de Gogny D1S [93] et les prédictions des modèles RMF [97] et
+
+FRDM [96] sont aussi présentés à titre de comparaison.
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+\textbf{Rayons de neutrons, de protons et de charges}
+
+
+\bigskip
+
+\textbf{\ \ \ \ \ \ }Le rayon quadratique moyen de charge (rms), R\textit{\textsubscript{c}}, est liée au rayon du
+proton, R\textit{\textsubscript{p}}, par
+
+
+\bigskip
+
+\begin{equation*}
+R_c^2=R_p^2+0.64(\mathit{fm})
+\end{equation*}
+
+\bigskip
+
+où le facteur 0.64 dans l’équation (4.3) tient compte des effets de taille finie du proton. Dans
+
+la figure 4.7, les rayons de charge quadratique prédits par nos calculs HFB sont comparés avec les données
+expérimentales disponibles [98], les prédictions de la théorie RMF [97] et
+
+les calculs HFB basés sur la force de Gogny D1S [93]. Les valeurs numériques des rayons de
+
+charge sont présentées dans les tableaux 4.6 , 4.7, et 4.8.
+
+
+\bigskip
+\end{document}

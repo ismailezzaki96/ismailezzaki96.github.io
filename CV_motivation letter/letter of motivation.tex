@@ -1,0 +1,189 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for Cover Letter
+%
+% This template has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Authors:
+% Claud D. Park <posquit0.bj@gmail.com>
+% Lars Richter <mail@ayeks.de>
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+
+
+
+%-------------------------------------------------------------------------------
+
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt, a4paper]{awesome-cv}
+
+% Configure page margins with geometry
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+% Specify the location of the included fonts
+\fontdir[fonts]
+
+% \definecolor{lighttext}{HTML}{CA63A8}
+
+% Set false if you don't want to highlight section with awesome color
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+
+\colorlet{awesome}{awesome-red}
+
+% Uncomment if you would like to specify your own color
+% \definecolor{awesome}{HTML}{CA63A8}
+
+% Colors for text
+% Uncomment if you would like to specify your own color
+% \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+% \definecolor{graytext}{HTML}{5D5D5D}
+% \definecolor{lighttext}{HTML}{999999}
+
+% Set false if you don't want to highlight section with awesome color
+% Colors for text
+% Uncomment if you would like to specify your own color
+\definecolor{darktext}{HTML}{000000}
+\definecolor{text}{HTML}{000000}
+\definecolor{graytext}{HTML}{000000}
+\definecolor{lighttext}{HTML}{000000}
+
+
+\setbool{acvSectionColorHighlight}{true}
+
+
+
+
+
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+%\photo{2020-01-18.jpg}
+\name{Ismail}{EZZAKI}
+\position{Master Student{\enskip\cdotp\enskip}Freelancer Programmer}
+\address{812 Ait kdif Ouarzazate Morocco}
+
+\mobile{(+212) 708070221}
+\email{ismail.ezzaki@edu.uca.ma}
+\homepage{ismailezzaki.me}
+\github{ismailezzaki96}
+% \gitlab{gitlab-id}
+% \stackoverflow{SO-id}{SO-name}
+% \twitter{@twit}
+% \skype{skype-id}
+% \reddit{reddit-id}
+% \medium{madium-id}
+% \googlescholar{googlescholar-id}{name-to-display}
+%% \firstname and \lastname will be used
+% \googlescholar{googlescholar-id}{}
+% \extrainfo{extra informations}
+
+ 
+
+%-------------------------------------------------------------------------------
+%	LETTER INFORMATION
+%	All of the below lines must be filled out
+%-------------------------------------------------------------------------------
+% The company being applied to
+\recipient
+{}
+{Faculté des Sciences d'Agadir}
+% The date on the letter, default is the date of compilation
+%\letterdate{\today}
+% The title of the letter
+
+% The company being applied to
+% \recipient
+% { South Denmark University}
+% {CP3-Origins\\
+% Department of Mathematics and Computer Science \\
+% Denmark}
+% The date on the letter, default is the date of compilation
+\letterdate{\today}
+% The title of the letter
+\lettertitle{Letter of Motivation
+}
+% How the letter is closed
+ 
+% Any enclosures with the letter
+\letterenclosure[Attached]{Curriculum Vitae}
+
+\letteropening{}
+
+
+\input{info.tex} 
+
+
+
+%-------------------------------------------------------------------------------
+\begin{document}
+	
+	% Print the header with above personal informations
+	% Give optional argument to change alignment(C: center, L: left, R: right)
+	\makecvheader[C]
+	
+	% Print the footer with 3 arguments(<left>, <center>, <right>)
+	% Leave any of these blank if they are not needed
+	
+	% Print the title with above letter informations
+ 	\makelettertitle
+	
+	
+	
+	
+	%-------------------------------------------------------------------------------
+	%	LETTER CONTENT
+	%-------------------------------------------------------------------------------
+	\begin{cvletter}
+\dearauthor \\
+I am writing this letter to express my strong interest in the "Ph.D. \thesis"
+		
+		
+%		
+%\input{coverletter/about_me.tex} 
+%\input{coverletter/why_thesis.tex} 
+%\input{coverletter/why_me.tex} 
+
+I graduated last year with a Master’s degree in “high energy physics and computational physics” from Cadi Ayyad University in Morocco.
+
+I feel comfortable processing several challenging things at once. This ability helped me to be successful in my studies (  \nth{2}  in my master's class) and acquire extra‐curricular knowledge in the computer science field (about 5 years of experience with programming),
+
+
+Since my childhood, I have always been interested in discovering how things work. So I chose to study physics, like many children. I always dreamed of winning a Nobel Prize in physics, but as I grew up, I switched to a more realistic dream: to become a university researcher.
+
+My interest in programming started about five years ago when I had my first contact with computer coding in school by creating a small website. From there, I gained extracurricular programming skills in C++ and Python, and I also gained skills in data analysis and machine learning and latelly in deep learning areas.
+
+This thesis is an exact match to my research interests and the requirements for this Ph.D. thesis closely match my background and skills: quantum physics , computational physics .
+
+In addition, the new computational challenges presented by this thesis, and thinking of innovative ways to address them, are great motivations for me. Pursuing my Ph.D. with experts and researching the latest topics in physics is my childhood dream.
+
+I believe that my diligence, practical research experience, organizational skills, great enthusiasm, and interest in computational physics all make me an ideal candidate for this Ph.D.
+
+\vspace{1ex}
+I will gladly answer questions you may have and hope to hear from you soon.\\
+Respectfully yours,\\
+	\end{cvletter}
+	
+	
+	%-------------------------------------------------------------------------------
+	% Print the signature and enclosures with above letter informations
+
+	
+\end{document}

@@ -1,0 +1,337 @@
+% This file was converted to LaTeX by Writer2LaTeX ver. 1.6.1
+% see http://writer2latex.sourceforge.net for more info
+\documentclass[a4paper]{article}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{color}
+\usepackage[top=0.4917in,bottom=0.9839in,left=0.9839in,right=0.9839in,includehead,head=0.4925in,headsep=0.4528in,nofoot]{geometry}
+\usepackage{array}
+\usepackage{supertabular}
+\usepackage{hhline}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, urlcolor=blue}
+\usepackage{polyglossia}
+\setdefaultlanguage{french}
+\setotherlanguage[variant=american]{english}
+\providecommand\textsubscript[1]{\ensuremath{{}_{\text{#1}}}}
+\makeatletter
+\newcommand\arraybslash{\let\\\@arraycr}
+\makeatother
+% Footnote rule
+\setlength{\skip\footins}{0.0469in}
+\renewcommand\footnoterule{\vspace*{-0.0071in}\setlength\leftskip{0pt}\setlength\rightskip{0pt plus 1fil}\noindent\textcolor{black}{\rule{0.25\columnwidth}{0.0071in}}\vspace*{0.0398in}}
+\setlength\tabcolsep{1mm}
+\renewcommand\arraystretch{1.3}
+\title{}
+\begin{document}
+\textbf{Chapitre 3}
+
+\textbf{Propriétés de l’état fondamental des}
+
+\textbf{isotopes pairs et impairs de Fl, Lv  et Og}
+
+\textbf{3.1 Résumé}
+
+\textbf{ }Afin d'étudier les propriétés de l'état fondamental\textbf{ }des isotopes pairs et impairs  de\textcolor[rgb]{0.1254902,0.12941177,0.13333334}{~Flérovium} (Fl, Z=114),\textbf{\textcolor[rgb]{0.1254902,0.12941177,0.13333334}{ }}\textcolor[rgb]{0.1254902,0.12941177,0.13333334}{Livermorium }(Lv, Z=116) et L’oganesson (Og, Z=118), la matrice HFB est résolue en utilisant le code HFBTHO version 3.00 [14], avec l'interaction Skyrme SLy4, où l’ensemble de paramètres typiques de cette force est présentés dans le tableau (3.1). 
+
+Dans ce chapitre, nous avons présenté les résultats numériques de notre étude y compris l'énergie de liaison, l'énergie de séparation des deux neutrons, les rayons de charge, de neutrons et de protons. L’énergie d’appariement et le spectre d’énergie. Les résultats ont été comparés avec les données expérimentales disponibles et avec les prédictions de certains modèles nucléaires tels que le modèle de la gouttelette liquide à portée finie (Finite Range Droplet Model, FRDM) et la théorie du champ moyen relativiste (RMF).
+
+\textbf{3.2 Code HFBTHO v 3.00} \textbf{ }
+
+\textbf{3.3 Détails des calculs}
+
+ Dans le présent travail, Les calculs ont été effectués avec le code HFBTHO v3.00 [14] et ont été exécutés de manière répétitive avec un script python pour modifier les entrées et pour enregistrer et analyser les données de sortie. Parmi plusieurs ensembles de paramètres pour la prédiction des propriétés de l’état fondamental nucléaire, nous avons utilisé la force de Skyrme SLy4 [15] qui est largement utilisée dans les calculs de la structure nucléaire. La force de Skyrme SLy4 a été développée par E. Chabanat et ses collaborateurs. Elle fait partie de la famille de forces SLyx. Pour déterminer l’ensemble des paramètres de cette force (10 au total), les auteurs ont suivi un protocole d’ajustement incluant certaines propriétés de la matière nucléaire infinie (valeur de saturation ρ\textsubscript{0} et coefficient d’incompressibilité) et quelques propriétés de la matière nucléaire finie (masses et rayons de quelques noyaux doublement magiques). Cette force a été construite pour des conditions extrêmes d’isospin et de densité. Néanmoins, elle conduit à de très bons résultats pour les noyaux de la vallée de stabilité et les noyaux fortement déformés.
+
+ L’ensemble des paramètres SLy4 [15] utilisés dans cette étude est présenté dans le tableau 3.1.
+
+ \textbf{ Table 3.1 }Paramètres de la force de Skyrme SLy4
+
+\begin{center}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{m{1.8900598in}m{1.8893598in}}
+\hline
+\centering{\begin{english}\bfseries\color{black} Parameter\end{english}} &
+\centering\arraybslash{\begin{english}\bfseries\color{black} Sly4\end{english}}\\\hline
+\centering{\color{black}  $t_0$\textenglish{ (MeV fm}\textenglish{\textsuperscript{3}}\textenglish{)}} &
+\centering\arraybslash{\begin{french}\color{black} -2484.91\end{french}}\\
+\centering{\color{black}  $t_1$\textenglish{ (MeV fm}\textenglish{\textsuperscript{5}}\textenglish{)}} &
+\centering\arraybslash{\begin{french}\color{black} 486.82\end{french}}\\
+\centering{\color{black}  $t_2$\textenglish{ (MeV fm}\textenglish{\textsuperscript{5}}\textenglish{)}} &
+\centering\arraybslash{\color{black} -546.39}\\
+\centering{\color{black}  $t_3$\textenglish{ (MeV fm}\textenglish{\textsuperscript{4}}\textenglish{)}} &
+\centering\arraybslash{\color{black} 13777.0}\\
+\centering  $x_0$ &
+\centering\arraybslash{\color{black} 0.834}\\
+\centering  $x_1$ &
+\centering\arraybslash{\color{black} -0.344}\\
+\centering  $x_2$ &
+\centering\arraybslash{\begin{french}\color{black} -1.0\end{french}}\\
+\centering  $x_3$ &
+\centering\arraybslash{\begin{english}\color{black} 1.354\end{english}}\\
+\centering{\color{black}  $W_0$\textenglish{ (MeV fm}\textenglish{\textsuperscript{5}}\textenglish{)}} &
+\centering\arraybslash{\color{black} 123}\\
+\centering  $σ$ &
+\centering\arraybslash{\begin{french}\color{black} 1/6\end{french}}\\\hline
+\end{supertabular}
+\end{center}
+nous avons modifié les valeurs de la force d'appariement pour les neutrons  $V_{n0}$ et protons  $V_{p0}$ (en MeV), qui peuvent être différentes, mais dans notre étude, la force d'appariement  $V_{n,p0}$  est considérée comme étant la même pour les deux. Pour chaque isotope, nous avons exécuté le code en utilisant un  $V_{n,p0}$  et  nous avons comparé l'énergie de liaison totale obtenue à l'état fondamental obtenue avec la valeur expérimentale. Cette procédure a été répétée jusqu'à ce que nous trouvions, pour chaque nombre de masse A (pair et impair), la valeur de  $V_{n,p0}$  qui donne l'énergie de liaison totale à l'état fondamental la plus proche de la valeur expérimentale.
+
+ L’ensemble des résultats numérique des paramètres calculés en utilisant le code HFBTHO version 3.00  est regroupé dans le tableau ci-dessous :
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{5.78026in}|}
+\hline
+{\begin{french} \textbf{  Table 3.2 }L'énergie de liaison, l'énergie de séparation d’un et des deux neutrons, les rayons de charge, de neutrons et de protons et L’énergie d’appariement des isotopes de Fl,Lv,Og\end{french}}
+
+{\bfseries  \textenglish{The big table a smail}}\\\hline
+\end{supertabular}
+\end{flushleft}
+\textenglish{\textbf{ }}\textbf{3.4 Énergie de liaison}
+
+ L'énergie de liaison est importante dans l'étude de la physique nucléaire et a une relation directe avec la stabilité des noyaux. L'énergie de liaison nucléaire est définie comme l'énergie qui doit être fournie pour briser le noyau d'un atome en protons et neutrons séparés. Dans cette étude, nous calculons l'énergie de liaison moyenne par nucléon (𝐵𝐸⁄𝐴) d'un état fondamental pour les isotopes pairs et impairs de Fl, Lv et Og  dont les résultats sont dressées dans le tableau 3.2 et tracées dans la figure 3.1. Pour montrer la validité de nos calculs, nous les comparons avec les données expérimentales disponibles [16], FRDM(2012) [17] et RMF[18].
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{6.27126in}|}
+\hline
+{\begin{french}\bfseries  LES GRAPHES POUR  Fl, Lv, Og\end{french}}
+
+{\begin{french} FIG 3.1 Energies de liaison par nucléon pour les isotopes pairs et impairs de Fl, Lv et d’Og (en MeV).\end{french}}\\\hline
+\end{supertabular}
+\end{flushleft}
+ A partir de la figure 3.1, on voit que les énergies de liaison par nucléon des isotopes de Fl, Lv et d’Og produites par nos calculs en utilisant HFB avec les paramètres SLy4 sont en bon accord avec les données expérimentales. Nous notons aussi que le maximum d’énergie de liaison par nucléon (BE/A), pour les isotopes de  Fl, est observé en n=184 qui pourrait être le 8ème nombre magique.
+
+ Les erreurs maximales approximatives des énergies de liaison par nucléon (BE/A) entre les résultats théoriques et les données expérimentales pour Fl, Lv et Og sont listées dans le tableau 3.3.
+
+ \textenglish{\textbf{TABLE 3.3}}\textenglish{ L’erreur maximale (BE/A)theor −(BE/A)exp (en Mev).}
+
+\begin{center}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{m{1.2004598in}m{1.2004598in}m{1.2011598in}m{1.2004598in}}
+\hline
+{\begin{french}\color{black} nayou\end{french}} &
+{\begin{french}\color{black} ce travail\end{french}} &
+{\begin{french}\color{black} FRDM\end{french}} &
+{\begin{french}\color{black} RMF\end{french}}\\\hline
+{\begin{french}\bfseries\color{black} Fl\end{french}} &
+{\begin{french}\color{black} 0.00336\end{french}} &
+{\begin{french}\color{black} 0.02212\end{french}} &
+{\begin{french}\color{black} 0.02542\end{french}}\\
+{\begin{french}\bfseries\color{black} Lv\end{french}} &
+{\begin{french}\color{black} 0.00665\end{french}} &
+{\begin{french}\color{black} 0.01555\end{french}} &
+{\begin{french}\color{black} 0.01903\end{french}}\\
+{\begin{french}\bfseries\color{black} Og\end{french}} &
+{\begin{french}\color{black} 0.00895\end{french}} &
+{\begin{french}\color{black} 0.01474\end{french}} &
+{\begin{french}\color{black} 0.01209\end{french}}\\\hline
+\end{supertabular}
+\end{center}
+\textbf{3.5 Énergie de séparation de neutrons}
+
+ Les énergies de séparation d’un neutron et de deux neutrons sont des quantités très importantes dans l’étude de la structure nucléaire. Dans ce travail, nous les avons calculées pour les isotopes pairs et impairs de Fl, Lv et Og dans la paramétrisation SLy.
+
+L’énergie de séparation d’un neutron, Sn, est définie comme suit :
+
+  $S_n\left(Z,N\right)=\mathit{BE}\left(Z,N\right)-\mathit{BE}(Z,N-1)$ (3.1)
+
+et l’énergies de séparation de deux neutrons, S\textsubscript{2n}, est donnée par :
+
+  $S_{2n}\left(Z,N\right)=\mathit{BE}\left(Z,N\right)-\mathit{BE}(Z,N-2)$ (3.2)
+
+Les énergies \textit{S}\textit{\textsubscript{n}}\textit{ }et \textit{S}\textit{\textsubscript{2n}} calculées pour les isotopes de Fl, Lv et  Og sont affichées sur les figures 3.2 et 3.3, respectivement. Les données expérimentales disponibles [16], les prédictions des modèles FRDM [17] et RMF [18] sont aussi présentés à titre de comparaison.
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{6.31846in}|}
+\hline
+{\begin{french}  FIG 3.2 Les énergies de séparation d’un neutron,  $S_n$, des isotopes de Fl ,Lv et Og.\end{french}}\\\hline
+\end{supertabular}
+\end{flushleft}
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{6.31846in}|}
+\hline
+{\begin{french} FIG 3.3 Les énergies de séparation de deux neutrons,  $S_{2n}$, des isotopes de Fl, Lv de Og.\end{french}}\\\hline
+\end{supertabular}
+\end{flushleft}
+ D’après les figures 3.2 et 3.3, on voit clairement que les énergies de séparation expérimentales sont bien reproduites par nos calculs. Malgré les légères différences dans le cas de certains isotopes, nos résultats ont l’erreur moyenne absolue la plus faible par rapport aux autres modèles, comme nous pouvons le voir dans le tableau 3.4.
+
+\textbf{TABLE 3.4} L’erreur absolue moyenne (S\textit{\textsubscript{2n}})theor −(S\textit{\textsubscript{2n}})exp et (S\textit{\textsubscript{n}})theor −(S\textit{\textsubscript{n}})exp (en Mev).
+
+\begin{center}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{0.84275985in}|m{0.8420598in}|m{0.84275985in}|m{0.84275985in}|m{0.84275985in}|m{0.84275985in}|m{0.8420598in}|}
+\hline
+ &
+\multicolumn{3}{m{2.6850598in}|}{\centering  $(S?_{2n})_{\mathit{theor}}-(S?_{2n})_{\exp }$} &
+\multicolumn{3}{m{2.68506in}|}{\centering  $(S?_n)_{\mathit{theor}}-(S?_n)_{\exp }$}\\\hline
+ &
+{\begin{french} This work\end{french}} &
+{\begin{french} FRDM\end{french}} &
+{\begin{french} RMF\end{french}} &
+{\begin{french} This work\end{french}} &
+{\begin{french} FRDM\end{french}} &
+{\begin{french} RMF\end{french}}\\\hline
+{\begin{french} Fl\end{french}} &
+ &
+ &
+ &
+ &
+ &
+\\\hline
+{\begin{french} Lv\end{french}} &
+ &
+ &
+ &
+ &
+ &
+\\\hline
+{\begin{french} Og\end{french}} &
+ &
+ &
+ &
+ &
+ &
+\\\hline
+\end{supertabular}
+\end{center}
+\textbf{3.6 Rayons de neutron, de proton et de charge  \ \ }
+
+ Le rayon quadratique moyen de charge (rms), R\textit{\textsubscript{c}}, est liée au rayon du proton, R\textit{\textsubscript{p}}, par
+
+  $R_c^2=R_p^2+0.64(\mathit{fm})$ (3.3)
+
+où le facteur 0.64 dans l’équation (3.3) tient compte des effets de taille finie du proton. Dans la figure 3.4, les rayons de charge quadratique prédits par nos calculs HFB sont comparés avec les données expérimentales disponibles [], les prédictions de la théorie RMF [18] et la théorie FRDM~.Les valeurs numériques des rayons de charge sont présentées dans le tableau 3.2
+
+Un bon accord entre la théorie et l’expérience peut être clairement vu dans la figure 3.4. 
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{6.40316in}|}
+\hline
+{\begin{french} FIG 3.4 Les rayons de charge obtenus par nos calculs HFB comparés aux données expérimentales disponibles, les prédictions de la théorie RMF [18] et la théorie FRDM [17].\end{french}}\\\hline
+\end{supertabular}
+\end{flushleft}
+La figure 3.5 montre les rayons de neutrons et de protons des isotopes de Fl, Lv et Og obtenus dans nos calculs. Les prédictions de la théorie de RMF et de la théorie FRDM sont également données à titre de comparaison. Nous  avons tracé les rayons de neutrons et de protons (Rn et Rp) ensemble afin de voir la différence entre eux. Les valeurs numériques des rayons de neutrons et de protons des isotopes de Fl, Lv et Og sont dressées dans le tableau 3.2.
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{6.22476in}|}
+\hline
+{\begin{french} FIG~3.5 Les rayons de neutrons et de protons des isotopes de Fl, Lv et Og.\end{french}}
+
+\\\hline
+\end{supertabular}
+\end{flushleft}
+\textbf{3.7 Le gap d’appariement}
+
+ Le gap d’appariement n’est pas directement accessible expérimentalement. Par conséquent, il existe diverses formules de différences finies dans la littérature, qui sont souvent interprétées comme une mesure du gap d’appariement empirique, telles que :
+
+La formule de la différence de trois points [19] :
+
+  $∆_N^{\left(3\right)}\left(N\right)=\frac{\mathit{πN}} 2[E_b\left(Z,N-1\right)-2E_b\left(Z,N\right)+E_b\left(Z,N+1\right)]$ (3.4)
+
+où N et Z sont les nombres de neutrons et de protons et \textit{E}\textit{\textsubscript{b}} est l’énergie de liaison (négative) du noyau.  $π_N=(-1)^N$  est le nombre de parité.
+
+ Une autre relation couramment utilisée est la formule de la différence de quatre points [20] :
+
+  $∆_N^{\left(4\right)}\left(N\right)=\frac{\mathit{πN}} 4[E_b\left(Z,N-2\right)-3E_b\left(Z,N-1\right)+3E_b\left(Z,N\right)-E_b\left(Z,N+1\right)]$ (3.5)
+
+ Dans la figure 3.6, les gaps d’appariement des neutrons obtenus dans nos calculs HFB sont comparés aux données expérimentales obtenu à partir des énergies de liaison données de la Référence [16] en utilisant les formules de trois points Δ\textsuperscript{(3)}, de quatre points Δ\textsuperscript{(4)} et avec les prédictions du model FRDM [17]. 
+
+\begin{flushleft}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{6.4018598in}|}
+\hline
+{\begin{french}  FIG 3.6 Les gaps d’appariement des isotopes de Fl, Lv et Og.\end{french}}\\\hline
+\end{supertabular}
+\end{flushleft}
+\textbf{3.8 L’énergie d’appariement}
+
+\textbf{ A suivre~………………………}
+
+\textbf{Conclusion}
+
+La théorie HFB avec la force de Skyrme SLy4 a été utilisée pour étudier les propriétés de l’état fondamental de chaînes isotopiques paires et impaires de Fl, Lv et Og. Les énergies de liaison, les énergies de séparation de deux neutrons, et les rayons de charge, de protons et de neutrons ont été calculés ainsi que le gap d’appariement. Les résultats de ces calculs reproduisent très bien les données expérimentales disponibles, y compris l’énergie de liaison par nucléon, les énergies de séparation d’un et de deux neutrons, les rayons de neutrons, de protons, et de charge, le gap d’appariement des neutrons. 
+
+\section[]{}
+\section{}
+\section{}
+\section{}
+\section{}
+\section[Bibliography]{\textenglish{Bibliography}}
+\textenglish{[1 ] El Bassem, Younes, and Mustapha Oulne. "Nuclear structure investigation of even–even and odd Pb isotopes by using the Hartree–Fock–Bogoliubov method." International Journal of Modern Physics E 26.12 (2017): 1750084.}
+
+\textenglish{[2] Balbuena, Edgar Teran. Hartree-Fock-Bogoliubov calculations for nuclei far from stability. Vanderbilt University, 2003.}
+
+\textenglish{[3] G. Audi and A.H. Wapstra, Nuclear Physics A565, 1 (1993).}
+
+\textenglish{[4] JOLIOT-CURIE, E. I., BLAIZOT, J., POES, A., HEENEN, P., VAN DUPPEN, P., GALL, B., ... }\& HELLO, P. «Structure nucléaire: un nouvel horizon...-Cenbg-IN2P3.
+
+[5] Chomaz, Ph. Noyaux exotiques et faisceaux radioactifs. \textenglish{No. GANIL-P-96-24. SCAN-9609097, 1996.}
+
+\textenglish{[6] Ring, Peter, and Peter Schuck. The nuclear many-body problem. Springer Science \&  }
+
+\textenglish{[7] J. Bardeen, L.N. Cooper, J.R. Schrieffer, Phys. }Rev. 108 (1957) 1175.
+
+[8] BUSKULIC, Damir. PHYS 801 course notes. Introduction to nuclear physics; Notes de cours de PHYS 801-Introduction à la Physique Nucleaire. \textenglish{2013.}
+
+\textenglish{[9] Lawson R. D. Theory of the Nuclear Shell Model. Clarendon Press Oxford, 1980..}
+
+\textenglish{[10] MEYER, JACQUES. Interactions effectives theories de champ moyen masses et rayons nucleaire Effective interactions, mean field theories, masses and nuclear radii. In : } \textenglish{Annales de physique. 2003. p. 1-112.}
+
+\textenglish{[11] EL ADRI, M. et OULNE, M. Neutron shell closure at N= 32 and N= 40 in Ar and Ca isotopes. The European Physical Journal Plus, 2020, vol. 135, no 2, p. 1-16.ysique. 2003. p. 1-112.}
+
+\textenglish{ [12] J. Dechargé, D. Gogny, Phys. Rev. C 21, 1568 (1980). }
+
+\textenglish{[13] T.H.R. Skyrme. The effective nuclear potential. Nuclear Physics, 9(4) :615–634, jan1958.}
+
+\textenglish{\textcolor[rgb]{0.13333334,0.13333334,0.13333334}{[14] Perez, R. N., Schunck, N., Lasseri, R. D., Zhang, C., \& Sarich, J. (2017). Axially deformed solution of the Skyrme–Hartree–Fock–Bogolyubov equations using the transformed harmonic oscillator basis (III) HFBTHO (v3. 00): A new version of the program.~}}\textenglish{\textit{\textcolor[rgb]{0.13333334,0.13333334,0.13333334}{Computer Physics Communications}}}\textenglish{\textcolor[rgb]{0.13333334,0.13333334,0.13333334}{,~}}\textenglish{\textit{\textcolor[rgb]{0.13333334,0.13333334,0.13333334}{220}}}\textenglish{\textcolor[rgb]{0.13333334,0.13333334,0.13333334}{, 363-375.}}
+
+\textenglish{\textcolor[rgb]{0.13333334,0.13333334,0.13333334}{[15] E. Chabanat, P. Bonche, P. Haensel, J. Meyer, and R. Schaeffer. A Skyrme parametrization from subnuclear to neutron star densities Part II. Nuclei far from stabilities. Nuclear Physics A, 635 :231–256, 1998.}}
+
+\textenglish{[16] Wang, M., Huang, W. J., Kondev, F. G., Audi, G., \& Naimi, S. (2021). The AME 2020 atomic mass evaluation (II). Tables, graphs and references. Chinese Physics C, 45(3), 030003.}
+
+\textenglish{[17] Möller, P., Sierk, A. J., Ichikawa, T., \& Sagawa, H. (2016). Nuclear ground-state masses and deformations: FRDM (2012). Atomic Data and Nuclear Data Tables, 109, 1-204.}
+
+\textenglish{[18] Lalazissis, G. A., Raman, S., \& Ring, P. (1999). Ground-state properties of even–even nuclei in the relativistic mean-field theory. Atomic Data and Nuclear Data Tables, 71(1), 1-40.}
+
+\textenglish{[19] W Satuła, J Dobaczewski, and W Nazarewicz. Odd-Even Staggering of Nuclear Masses : Pairing or Shape Effect. Physical Review Letters, 81(17) :3599–3602, oct 1998.}
+
+\textenglish{[20] S. J. Krieger, P. Bonche, H. Flocard, P. Quentin, and M. S.Weiss. An improved pairing interaction for mean field calculations using skyrme potentials*. Nuclear Physics,Section A, 517(2) :275–284, 1990.}
+
+\end{document}
